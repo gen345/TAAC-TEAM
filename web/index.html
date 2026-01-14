@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Awaits Co | Futuristic Budget Travel India</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="logo">The Adventure <span>Awaits Co.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="#calculator">Budget Tool</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="#contact" class="btn-nav" style="background: var(--accent-gradient); padding: 8px 20px; border-radius: 50px; color: white; text-decoration: none; font-size: 0.8rem;">Plan My Trip</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="video-container" style="background: linear-gradient(45deg, #0a0a0c, #1a1a1c);">
+            <video autoplay muted loop playsinline preload="auto" class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-scenic-view-of-mountains-and-lake-15746-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal-text">Adventure Within <br><span class="gradient-text">Your Reach.</span></h1>
+            <p>High-touch budget experiences across India. <br>Designed for students, families, and solo explorers.</p>
+            <div class="hero-btns">
+                <a href="destinations.html" class="btn-main">View Packages</a>
+                <a href="#calculator" class="btn-outline">Estimate Budget</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-prop">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">How We Re-imagine Travel</h2>
+            <div class="value-grid">
+                <div class="v-card">
+                    <div class="icon">₹</div>
+                    <h3>Lower Margins</h3>
+                    <p>We keep our commissions low to make travel accessible for everyone.</p>
+                </div>
+                <div class="v-card active">
+                    <div class="icon">📱</div>
+                    <h3>Daily Status Checks</h3>
+                    <p>We check in with you every day to ensure your trip is going smoothly.</p>
+                </div>
+                <div class="v-card">
+                    <div class="icon">🗺️</div>
+                    <h3>Fully Customized</h3>
+                    <p>No rigid schedules. We build the itinerary around your specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="destinations" class="value-prop" style="padding: 100px 8%;">
+    <div class="container">
+        <h2 class="gradient-text" style="text-align:center; margin-bottom:40px;">Featured Adventures</h2>
+        <div class="value-grid">
+            <div class="v-card">
+                <div style="height:200px; background:#222; border-radius:15px; margin-bottom:15px; border:1px solid #333;"></div>
+                <h3>Himachal Paradise</h3>
+                <p class="text-dim">5 Days | Budget: ₹7,499</p>
+                <button onclick="sendToWhatsApp('Himachal', '7499')" class="btn-main" style="width:100%; margin-top:15px; border:none;">Enquire Now</button>
+            </div>
+            <div class="v-card">
+                <div style="height:200px; background:#222; border-radius:15px; margin-bottom:15px; border:1px solid #333;"></div>
+                <h3>Goa Unexplored</h3>
+                <p class="text-dim">4 Days | Budget: ₹6,999</p>
+                <button onclick="sendToWhatsApp('Goa', '6999')" class="btn-main" style="width:100%; margin-top:15px; border:none;">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+    <section id="calculator" class="value-prop" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="max-width: 600px; margin: auto; text-align: center;">
+            <h2 class="gradient-text">Smart Budget Estimator</h2>
+            <p class="text-dim">Get an instant estimate for your Pan-India trip.</p>
+            
+            <div class="v-card" style="margin-top: 30px; text-align: left; background: #111;">
+                <div class="input-group" style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number of Days</label>
+                    <input type="number" id="days" placeholder="e.g. 5" style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
+                </div>
+                <div class="input-group" style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number of Travelers</label>
+                    <input type="number" id="travelers" placeholder="e.g. 2" style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
+                </div>
+                <div class="input-group" style="margin-bottom:20px;">
+                    <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Travel Style</label>
+                    <select id="type" style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
+                        <option value="student">Student (Hostels & Local Transport)</option>
+                        <option value="family">Mid-Range (Hotels & Private Cab)</option>
+                    </select>
+                </div>
+                <button onclick="calculateBudget()" class="btn-main" style="width:100%; border:none; cursor:pointer;">Calculate Now</button>
+                <div id="result" style="text-align:center;"></div>
+            </div>
+        </div>
+    </section>
+
+  <footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p>&copy; 2026 The Adventure Awaits Co.</p>
+    </footer>
+
+    <script src="assests/js/main.js"></script>
+    <script src="assests/js/calculator.js"></script>
+    <script src="assests/js/whatsapp-bot.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

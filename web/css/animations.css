@@ -1,0 +1,58 @@
+/* 1. DEFINE THE ANIMATIONS */
+
+/* Fade in from the bottom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle glow pulse for buttons */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 77, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0); }
+}
+
+/* Text reveal gradient sweep */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* 2. APPLY TO CLASSES */
+
+.reveal-text {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards; /* 0.3s Delay */
+}
+
+.hero-btns {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.6s forwards; /* 0.6s Delay */
+}
+
+.btn-main {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Scroll Reveal Class (We will trigger this with JS later) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

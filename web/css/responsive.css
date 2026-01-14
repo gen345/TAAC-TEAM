@@ -1,0 +1,36 @@
+/* Mobile & Tablet Optimization */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* We will add a mobile menu later */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .btn-main, .btn-outline {
+        width: 100%;
+        margin: 0;
+    }
+
+    .value-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        padding: 0 10px;
+    }
+
+    .v-card {
+        padding: 25px;
+    }
+}
