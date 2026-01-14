@@ -1,15 +1,11 @@
-// 1. Navbar Scroll Effect
-const nav = document.querySelector('.glass-nav');
-
-window.addEventListener('scroll', () => {
+// 1. Navbar Scroll Effect (Updated with Class Toggle)
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.glass-nav');
+    
     if (window.scrollY > 50) {
-        nav.style.background = "rgba(10, 10, 12, 0.95)";
-        nav.style.padding = "15px 8%";
-        nav.style.borderBottom = "1px solid rgba(255, 77, 0, 0.3)";
+        nav.classList.add('scrolled'); // Adds the dark background
     } else {
-        nav.style.background = "rgba(10, 10, 12, 0.8)";
-        nav.style.padding = "20px 8%";
-        nav.style.borderBottom = "1px solid rgba(255, 255, 255, 0.1)";
+        nav.classList.remove('scrolled'); // Forcefully removes it at the top
     }
 });
 

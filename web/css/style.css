@@ -23,18 +23,25 @@ body {
 }
 
 /* 3. GLASS NAVBAR */
+/* This is the default state (Top of page) */
 .glass-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: rgba(10, 10, 12, 0.8);
-    backdrop-filter: blur(15px); /* This creates the frosted glass effect */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
     z-index: 1000;
+    background: transparent; /* Force it to be transparent */
+    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* This is the state when you move down */
+.glass-nav.scrolled {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
 }
 
 .logo {
