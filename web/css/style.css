@@ -22,38 +22,79 @@ body {
     overflow-x: hidden;
 }
 
+
+/* 3. GLASS NAVBAR - Final Layout */
 /* 3. GLASS NAVBAR */
-/* This is the default state (Top of page) */
 .glass-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    /* Changed from 8% to 3% to move everything toward the edges */
+    padding: 12px 3%;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: transparent; /* Force it to be transparent */
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    background: transparent;
+    /* Starts transparent for the sky view */
+    transition: all 0.4s ease;
 }
 
-/* This is the state when you move down */
 .glass-nav.scrolled {
-    background: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(10px);
+    /* Keeps the same tight horizontal padding when scrolled */
+    padding: 10px 3%;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
+/* Brand Unit: Icon + Text */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+    /* Perfect breathing room between icon and text */
 }
 
-.logo span {
+#main-logo {
+    height: 40px;
+    /* Aligns with the height of 'The Adventure' */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* The Orange Gradient Part */
+.logo-text span {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Navigation Links Alignment */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+/* Ensure the Nav Links stay on the right */
+.glass-nav {
+    display: flex;
+    justify-content: space-between;
+    /* Pushes Logo left and Links right */
+    align-items: center;
+    padding: 15px 8%;
 }
 
 .nav-links {
@@ -97,7 +138,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.4); /* Darkens video so text is readable */
+    filter: brightness(0.4);
+    /* Darkens video so text is readable */
 }
 
 .hero-content h1 {
@@ -145,33 +187,64 @@ body {
     color: var(--primary-orange);
 }
 
-/* 6. VALUE CARDS */
+
+/* 6. VALUE CARDS & RE-IMAGINE SECTION */
 .value-prop {
     padding: 100px 8%;
+    background-color: var(--deep-bg);
+    text-align: center;
+}
+
+/* Updated Title Style */
+.value-prop h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: white;
+    font-weight: 800;
+}
+
+/* Link to your existing gradient logic */
+.value-prop h2 span {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .value-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
 
 .v-card {
-    background: var(--glass-bg);
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.03); /* Subtle glass effect */
+    padding: 50px 30px;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .v-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
     border-color: var(--primary-orange);
+    transform: translateY(-15px); /* The "perfect" lift effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .v-card .icon {
-    font-size: 2rem;
-    color: var(--primary-orange);
-    margin-bottom: 20px;
+    font-size: 3rem; /* Larger, clearer icons */
+    margin-bottom: 25px;
+    display: block;
+}
+
+.v-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.v-card p {
+    color: var(--text-dim);
+    line-height: 1.7;
 }
