@@ -25,7 +25,7 @@
     <nav class="glass-nav">
         <div class="logo">
             <a href="#home" class="logo-link">
-                <img src="assets/logo/logo.png" alt="Logo" id="main-logo">
+                <img src="assets/logo/logo-w.png" alt="Logo" id="main-logo">
                 <div class="logo-text">The Adventure <span>Awaits Co.</span></div>
             </a>
         </div>
@@ -35,7 +35,7 @@
             <li><a href="destinations.html">Destinations</a></li>
             <li><a href="#calculator">Budget Tool</a></li>
             <li><a href="about.html">Our Story</a></li>
-            <li><a href="#contact" class="btn-nav">Plan My Trip</a></li>
+            </li>
         </ul>
     </nav>
 
@@ -81,30 +81,89 @@
         </div>
     </section>
 
-    <section id="destinations" class="value-prop" style="padding: 100px 8%;">
+    <section id="ongoing-tour-package" class="ongoing-section" style="padding: 100px 0; background: #000;">
         <div class="container">
-            <h2 class="gradient-text" style="text-align:center; margin-bottom:40px;">Featured Adventures</h2>
-            <div class="value-grid">
+            <h2 class="gradient-text" style="text-align:center; margin-bottom:40px; font-size: 2.5rem;">Ongoing Tour
+                Packages</h2>
+        </div>
+
+        <div class="scroll-container">
+            <div class="scroll-track">
+
                 <div class="v-card">
-                    <div
-                        style="height:200px; background: url('assets/images/mountains/himachal.jpg') center/cover; border-radius:15px; margin-bottom:15px; border:1px solid #333;">
+                    <div class="card-img" style="background: url('assets/images/mountains/himachal.jpg') center/cover;">
+                        <span class="badge ongoing">ONGOING</span>
+                    </div>
+                    <h3>Kashmir Awaits</h3>
+                    <p class="text-dim">5 N - 6 D  | Budget: ₹14,499</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
+                </div>
+
+                <div class="v-card">
+                    <div class="card-img"
+                        style="background: url('https://images.unsplash.com/photo-1512789172734-8b09312dd0f0?q=80&w=1000') center/cover;">
+                        <span class="badge limited">LIMITED</span>
+                    </div>
+                    <h3>Kerala Unexplored</h3>
+                    <p class="text-dim">4 Days | Budget: ₹6,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
+                </div>
+
+                <div class="v-card">
+                    <div class="card-img"
+                        style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
+                        <span class="badge ongoing">ONGOING</span>
+                    </div>
+                    <h3>Ladakh Expedition</h3>
+                    <p class="text-dim">7 Days | Budget: ₹14,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
+                </div>
+
+                <div class="v-card">
+                    <div class="card-img" style="background: url('assets/images/mountains/himachal.jpg') center/cover;">
+                        <span class="badge ongoing">ONGOING</span>
                     </div>
                     <h3>Himachal Paradise</h3>
                     <p class="text-dim">5 Days | Budget: ₹7,499</p>
-                    <button onclick="sendToWhatsApp('Himachal', '7499')" class="btn-main"
-                        style="width:100%; margin-top:15px; border:none;">Enquire Now</button>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
                 </div>
+
                 <div class="v-card">
-                    <div
-                        style="height:200px; background:#222; border-radius:15px; margin-bottom:15px; border:1px solid #333;">
+                    <div class="card-img"
+                        style="background: url('https://images.unsplash.com/photo-1512789172734-8b09312dd0f0?q=80&w=1000') center/cover;">
+                        <span class="badge limited">LIMITED</span>
                     </div>
                     <h3>Goa Unexplored</h3>
                     <p class="text-dim">4 Days | Budget: ₹6,999</p>
-                    <button onclick="sendToWhatsApp('Goa', '6999')" class="btn-main"
-                        style="width:100%; margin-top:15px; border:none;">Enquire Now</button>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
                 </div>
+
+                <div class="v-card">
+                    <div class="card-img"
+                        style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
+                        <span class="badge ongoing">ONGOING</span>
+                    </div>
+                    <h3>Ladakh Expedition</h3>
+                    <p class="text-dim">7 Days | Budget: ₹14,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary">View Full Itinerary</button>
+                    </div>
+                </div>
+
             </div>
+        </div>
     </section>
+
     <section id="calculator" class="value-prop"
         style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container" style="max-width: 600px; margin: auto; text-align: center;">

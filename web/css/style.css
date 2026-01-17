@@ -248,3 +248,136 @@ body {
     color: var(--text-dim);
     line-height: 1.7;
 }
+
+//* =========================================
+   ONGOING TOUR PACKAGE - SCROLL & REVEAL
+   ========================================= */
+
+.scroll-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 40px 0;
+}
+
+.scroll-track {
+    display: flex;
+    width: max-content; 
+    gap: 30px;
+    padding-left: 50px; /* This creates the gap before the Kashmir card */
+    animation: scrollRightToLeft 25s linear infinite;
+    animation-delay: 10s; /* The track will wait 10 seconds before moving */
+}
+
+.scroll-container:hover .scroll-track {
+    animation-play-state: paused;
+}
+
+/* --- UPDATE STARTS HERE --- */
+
+.v-card {
+    flex-shrink: 0;
+    width: 320px;
+    height: 420px; /* Fixed height to keep cards uniform */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.v-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-orange);
+}
+
+.card-img {
+    height: 200px; /* Restores the original photo height */
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0; /* Important: Prevents photo from shrinking */
+}
+
+/* This is the part that hides/shows the button */
+.card-reveal {
+    margin-top: auto; /* Pushes button to the bottom */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
+}
+
+.v-card:hover .card-reveal {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-itinerary {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-gradient); /* Restores the bright orange */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+}
+
+/* --- KEYFRAMES --- */
+@keyframes scrollRightToLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 2. THE BADGE - Premium Centered Look */
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    z-index: 10;
+    display: flex;           /* Ensures text is centered */
+    align-items: center;     /* Ensures text is centered */
+    justify-content: center; /* Ensures text is centered */
+    line-height: 1;
+}
+
+/* Green for Ongoing */
+.badge.ongoing {
+    background: #00c853; 
+    box-shadow: 0 4px 10px rgba(0, 200, 83, 0.4);
+}
+
+/* Yellowish Orange for Limited */
+.badge.limited {
+    background: #ffab00; 
+    box-shadow: 0 4px 10px rgba(255, 171, 0, 0.4);
+}
+
+/* 3. TEXT FORMATTING FIX */
+.v-card h3 {
+    font-size: 1.4rem;
+    margin: 15px 0 5px 0; /* Better spacing for destination name */
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.text-dim {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
