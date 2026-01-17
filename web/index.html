@@ -210,6 +210,30 @@
     <script src="assets/js/calculator.js"></script>
     <script src="assets/js/whatsapp-bot.js"></script>
 
+
+    <script>
+        // 1. Force the browser to stop remembering scroll position
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // 2. Immediate jump to Site Header (0,0)
+        window.scrollTo(0, 0);
+
+        // 3. Delayed jump to account for video/image loading lag
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'instant'
+                });
+            }, 10);
+        });
+    </script>
+</body>
+
+</html>
+
 </body>
 
 </html>
