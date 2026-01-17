@@ -154,7 +154,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* 5. BUTTONS */
+/* 5. BUTTONS - VIEW PACKAGE SECTION */
 .btn-main {
     background: var(--accent-gradient);
     color: white;
@@ -218,7 +218,8 @@ body {
 }
 
 .v-card {
-    background: rgba(255, 255, 255, 0.03); /* Subtle glass effect */
+    background: rgba(255, 255, 255, 0.03);
+    /* Subtle glass effect */
     padding: 50px 30px;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -228,12 +229,14 @@ body {
 .v-card:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: var(--primary-orange);
-    transform: translateY(-15px); /* The "perfect" lift effect */
+    transform: translateY(-15px);
+    /* The "perfect" lift effect */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .v-card .icon {
-    font-size: 3rem; /* Larger, clearer icons */
+    font-size: 3rem;
+    /* Larger, clearer icons */
     margin-bottom: 25px;
     display: block;
 }
@@ -249,10 +252,7 @@ body {
     line-height: 1.7;
 }
 
-//* =========================================
-   ONGOING TOUR PACKAGE - SCROLL & REVEAL
-   ========================================= */
-
+/* ====== ONGOING TOUR PACKAGE - SCROLL & REVEAL=====*/ 
 .scroll-container {
     overflow: hidden;
     width: 100%;
@@ -262,11 +262,13 @@ body {
 
 .scroll-track {
     display: flex;
-    width: max-content; 
+    width: max-content;
     gap: 30px;
-    padding-left: 50px; /* This creates the gap before the Kashmir card */
-    animation: scrollRightToLeft 25s linear infinite;
-    animation-delay: 10s; /* The track will wait 10 seconds before moving */
+    padding-left: 50px;
+    /* This creates the gap before the Kashmir card */
+    animation: scrollRightToLeft 20s linear infinite;
+    animation-delay: 8s;
+    /* The track will wait 8 seconds before moving */
 }
 
 .scroll-container:hover .scroll-track {
@@ -278,7 +280,8 @@ body {
 .v-card {
     flex-shrink: 0;
     width: 320px;
-    height: 420px; /* Fixed height to keep cards uniform */
+    height: 420px;
+    /* Fixed height to keep cards uniform */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
@@ -295,18 +298,21 @@ body {
 }
 
 .card-img {
-    height: 200px; /* Restores the original photo height */
+    height: 200px;
+    /* Restores the original photo height */
     width: 100%;
     border-radius: 15px;
     margin-bottom: 15px;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0; /* Important: Prevents photo from shrinking */
+    flex-shrink: 0;
+    /* Important: Prevents photo from shrinking */
 }
 
 /* This is the part that hides/shows the button */
 .card-reveal {
-    margin-top: auto; /* Pushes button to the bottom */
+    margin-top: auto;
+    /* Pushes button to the bottom */
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px);
@@ -319,22 +325,59 @@ body {
     transform: translateY(0);
 }
 
+/* Ongoing Tour Package Section */
+.ongoing-packages {
+    padding: 80px 0;
+    text-align: center;
+    /* This centers the H2 and the scroll-container */
+}
+
+.ongoing-packages h2 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 50px;
+    display: inline-block;
+    /* Helps with centering */
+}
+
+.ongoing-packages h2 span {
+    color: #ff4d00;
+    /* High contrast orange for 'Tour Packages' */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 3. VIBRANT BUTTON RECOVERY */
 .btn-itinerary {
-    width: 100%;
-    padding: 12px;
-    background: var(--accent-gradient); /* Restores the bright orange */
+    width: 90%; /* Centered inside card */
+    margin: 0 auto 20px auto;
+    padding: 12px 0;
+    background: linear-gradient(135deg, #ff4d00, #ff8700); /* THE ORANGE GRADIENT */
     color: white;
     border: none;
     border-radius: 50px;
     font-weight: 700;
+    font-size: 0.9rem;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+    display: block; /* Ensures margin: auto works */
+    transition: all 0.3s ease;
+}
+
+.btn-itinerary:hover {
+    box-shadow: 0 6px 20px rgba(255, 77, 0, 0.5);
+    transform: scale(1.03);
 }
 
 /* --- KEYFRAMES --- */
 @keyframes scrollRightToLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* 2. THE BADGE - Premium Centered Look */
@@ -350,28 +393,32 @@ body {
     text-transform: uppercase;
     color: #ffffff;
     z-index: 10;
-    display: flex;           /* Ensures text is centered */
-    align-items: center;     /* Ensures text is centered */
-    justify-content: center; /* Ensures text is centered */
+    display: flex;
+    /* Ensures text is centered */
+    align-items: center;
+    /* Ensures text is centered */
+    justify-content: center;
+    /* Ensures text is centered */
     line-height: 1;
 }
 
 /* Green for Ongoing */
 .badge.ongoing {
-    background: #00c853; 
+    background: #00c853;
     box-shadow: 0 4px 10px rgba(0, 200, 83, 0.4);
 }
 
 /* Yellowish Orange for Limited */
 .badge.limited {
-    background: #ffab00; 
+    background: #ffab00;
     box-shadow: 0 4px 10px rgba(255, 171, 0, 0.4);
 }
 
 /* 3. TEXT FORMATTING FIX */
 .v-card h3 {
     font-size: 1.4rem;
-    margin: 15px 0 5px 0; /* Better spacing for destination name */
+    margin: 15px 0 5px 0;
+    /* Better spacing for destination name */
     font-weight: 700;
     color: #ffffff;
 }
@@ -381,6 +428,7 @@ body {
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
+
 /* =========================================
    RE-IMAGINE SECTION (NON-SCROLLING)
    ========================================= */
@@ -397,11 +445,12 @@ body {
 /* This is the new unique class for these cards */
 .value-card {
     background: rgba(255, 255, 255, 0.03);
-    padding: 40px 30px; 
+    padding: 40px 30px;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    text-align: center; 
-    min-height: 320px; /* Makes them boxy/square instead of tall */
+    text-align: center;
+    min-height: 320px;
+    /* Makes them boxy/square instead of tall */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,5 +478,75 @@ body {
 .value-card p {
     color: var(--text-dim);
     line-height: 1.6;
-    font-size: 0.95rem; /* This completes the line that was missing */
+    font-size: 0.95rem;
+    /* This completes the line that was missing */
+}
+
+/* --- Navigation Arrows Styling --- */
+.scroll-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.nav-arrow:hover {
+    background: #ff4d00;
+    /* Your brand orange */
+    border-color: #ff4d00;
+    box-shadow: 0 0 15px rgba(255, 77, 0, 0.4);
+}
+
+.nav-arrow.left {
+    left: 20px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-arrow.right {
+    right: 20px;
+}
+
+.nav-arrow.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Stop auto-animation when user interacts */
+.manual-mode {
+    animation: none !important;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .nav-arrow {
+        display: none;
+    }
+
+    /* Hide arrows on mobile, use swipe instead */
+
+    .v-card {
+        width: 280px;
+        flex-shrink: 0;
+    }
 }

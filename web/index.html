@@ -30,12 +30,17 @@
             </a>
         </div>
 
+        <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="destinations.html">Destinations</a></li>
             <li><a href="#calculator">Budget Tool</a></li>
             <li><a href="about.html">Our Story</a></li>
-            </li>
         </ul>
     </nav>
 
@@ -80,15 +85,14 @@
         </div>
     </section>
 
-    <section id="ongoing-tour-package" class="ongoing-section" style="padding: 100px 0; background: #000;">
-        <div class="container">
-            <h2 class="gradient-text" style="text-align:center; margin-bottom:40px; font-size: 2.5rem;">Ongoing Tour
-                Packages</h2>
-        </div>
+    <section class="ongoing-packages">
+        <h2>Ongoing <span>Tour Packages</span></h2>
 
         <div class="scroll-container">
-            <div class="scroll-track">
+            <button class="nav-arrow left" id="prevBtn" aria-label="Previous">❮</button>
+            <button class="nav-arrow right" id="nextBtn" aria-label="Next">❯</button>
 
+            <div class="scroll-track" id="scrollTrack">
                 <div class="v-card">
                     <div class="card-img"
                         style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
@@ -100,7 +104,6 @@
                         <button class="btn-itinerary">View Full Itinerary</button>
                     </div>
                 </div>
-
                 <div class="v-card">
                     <div class="card-img"
                         style="background: url('https://images.pexels.com/photos/28890056/pexels-photo-28890056.jpeg') center/cover;">
