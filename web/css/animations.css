@@ -35,7 +35,6 @@
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.3s forwards; /* 0.3s Delay */
 }
-
 .hero-btns {
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.6s forwards; /* 0.6s Delay */
