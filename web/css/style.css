@@ -268,13 +268,12 @@ body {
     display: flex;
     width: max-content;
     gap: 30px;
-    padding-left: 50px;
-    /* This creates the gap before the Kashmir card */
+    padding-left: 50px;  /* Gap before the first card */
+    padding-right: 50px; /* NEW: Gap after the last card */
+    
     animation: scrollRightToLeft 20s linear infinite;
     animation-delay: 8s;
-    /* The track will wait 8 seconds before moving */
 }
-
 .scroll-container:hover .scroll-track {
     animation-play-state: paused;
 }
