@@ -10,221 +10,218 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
 </head>
 
-    <nav class="glass-nav">
-        <div class="logo">
-            <a href="#home" class="logo-link">
-                <img src="assets/logo/logo-w.png" alt="Logo" id="main-logo">
-                <div class="logo-text">The Adventure <span>Awaits Co.</span></div>
-            </a>
+<nav class="glass-nav">
+    <div class="logo">
+        <a href="#home" class="logo-link">
+            <img src="assets/logo/logo-w.png" alt="Logo" id="main-logo">
+            <div class="logo-text">The Adventure <span>Awaits Co.</span></div>
+        </a>
+    </div>
+
+    <button class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="#calculator">Budget Tool</a></li>
+        <li><a href="about.html">Our Story</a></li>
+    </ul>
+</nav>
+
+<section id="home" class="hero">
+    <div class="video-container" style="background: #000;">
+        <video autoplay muted loop playsinline preload="auto" class="hero-video" id="mainVideo">
+            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="reveal-text">Adventure Within <br><span class="gradient-text">Your Reach.</span></h1>
+        <p>High-touch budget experiences across India. <br>Designed for students, families, and solo explorers.</p>
+        <div class="hero-btns">
+            <a href="destinations.html" class="btn-main">View Packages</a>
+            <a href="#calculator" class="btn-outline">Estimate Budget</a>
+        </div>
+    </div>
+</section>
+
+<section class="value-prop">
+    <h2>How We <span>Re-imagine</span> Travel</h2>
+    <div class="value-grid">
+        <div class="value-card">
+            <span class="icon">⛰️</span>
+            <h3>Off-Beat Trails</h3>
+            <p>We skip the crowded tourist spots to find the secret valleys of Himachal and Ladakh.</p>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="#calculator">Budget Tool</a></li>
-            <li><a href="about.html">Our Story</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="video-container" style="background: #000;">
-            <video autoplay muted loop playsinline preload="auto" class="hero-video" id="mainVideo">
-                <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="value-card">
+            <span class="icon">💳</span>
+            <h3>Budget Transparency</h3>
+            <p>No hidden costs. Use our tool to plan a trip that fits your pocket perfectly.</p>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="reveal-text">Adventure Within <br><span class="gradient-text">Your Reach.</span></h1>
-            <p>High-touch budget experiences across India. <br>Designed for students, families, and solo explorers.</p>
-            <div class="hero-btns">
-                <a href="destinations.html" class="btn-main">View Packages</a>
-                <a href="#calculator" class="btn-outline">Estimate Budget</a>
-            </div>
+
+        <div class="value-card">
+            <span class="icon">🌿</span>
+            <h3>Sustainable Impact</h3>
+            <p>We partner with local homestays to ensure your adventure helps the community grow.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="value-prop">
-        <h2>How We <span>Re-imagine</span> Travel</h2>
-        <div class="value-grid">
-            <div class="value-card">
-                <span class="icon">⛰️</span>
-                <h3>Off-Beat Trails</h3>
-                <p>We skip the crowded tourist spots to find the secret valleys of Himachal and Ladakh.</p>
+<section class="ongoing-packages">
+    <h2>Ongoing <span>Tour Packages</span></h2>
+
+    <div class="scroll-container">
+        <button class="nav-arrow left" id="prevBtn" aria-label="Previous">❮</button>
+        <button class="nav-arrow right" id="nextBtn" aria-label="Next">❯</button>
+
+        <div class="scroll-track" id="scrollTrack">
+            <div class="v-card">
+                <div class="card-img"
+                    style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
+                    <span class="badge ongoing">ONGOING</span>
+                </div>
+                <h3>Kashmir Awaits</h3>
+                <p class="text-dim">5 N - 6 D | Budget: ₹14,499</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
+            </div>
+            <div class="v-card">
+                <div class="card-img"
+                    style="background: url('https://images.pexels.com/photos/28890056/pexels-photo-28890056.jpeg') center/cover;">
+                    <span class="badge limited">LIMITED</span>
+                </div>
+                <h3>Kerala Unexplored</h3>
+                <p class="text-dim">4 Days | Budget: ₹6,999</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
             </div>
 
-            <div class="value-card">
-                <span class="icon">💳</span>
-                <h3>Budget Transparency</h3>
-                <p>No hidden costs. Use our tool to plan a trip that fits your pocket perfectly.</p>
+            <div class="v-card">
+                <div class="card-img"
+                    style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
+                    <span class="badge ongoing">ONGOING</span>
+                </div>
+                <h3>Ladakh Expedition</h3>
+                <p class="text-dim">7 Days | Budget: ₹14,999</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
             </div>
 
-            <div class="value-card">
-                <span class="icon">🌿</span>
-                <h3>Sustainable Impact</h3>
-                <p>We partner with local homestays to ensure your adventure helps the community grow.</p>
+            <div class="v-card">
+                <div class="card-img" style="background: url('assets/images/mountains/himachal.jpg') center/cover;">
+                    <span class="badge ongoing">ONGOING</span>
+                </div>
+                <h3>Himachal Paradise</h3>
+                <p class="text-dim">5 Days | Budget: ₹7,499</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
             </div>
+
+            <div class="v-card">
+                <div class="card-img"
+                    style="background: url('https://images.pexels.com/photos/2432269/pexels-photo-2432269.jpeg') center/cover;">
+                    <span class="badge limited">LIMITED</span>
+                </div>
+                <h3>Goa Unexplored</h3>
+                <p class="text-dim">4 Days | Budget: ₹6,999</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
+            </div>
+
+            <div class="v-card">
+                <div class="card-img"
+                    style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
+                    <span class="badge ongoing">ONGOING</span>
+                </div>
+                <h3>Ladakh Expedition</h3>
+                <p class="text-dim">7 Days | Budget: ₹14,999</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary">View Full Itinerary</button>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="ongoing-packages">
-        <h2>Ongoing <span>Tour Packages</span></h2>
+<section id="calculator" class="value-prop"
+    style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="max-width: 600px; margin: auto; text-align: center;">
+        <h2 class="gradient-text">Smart Budget Estimator</h2>
+        <p class="text-dim">Get an instant estimate for your Pan-India trip.</p>
 
-        <div class="scroll-container">
-            <button class="nav-arrow left" id="prevBtn" aria-label="Previous">❮</button>
-            <button class="nav-arrow right" id="nextBtn" aria-label="Next">❯</button>
-
-            <div class="scroll-track" id="scrollTrack">
-                <div class="v-card">
-                    <div class="card-img"
-                        style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
-                        <span class="badge ongoing">ONGOING</span>
-                    </div>
-                    <h3>Kashmir Awaits</h3>
-                    <p class="text-dim">5 N - 6 D | Budget: ₹14,499</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-                <div class="v-card">
-                    <div class="card-img"
-                        style="background: url('https://images.pexels.com/photos/28890056/pexels-photo-28890056.jpeg') center/cover;">
-                        <span class="badge limited">LIMITED</span>
-                    </div>
-                    <h3>Kerala Unexplored</h3>
-                    <p class="text-dim">4 Days | Budget: ₹6,999</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="v-card">
-                    <div class="card-img"
-                        style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
-                        <span class="badge ongoing">ONGOING</span>
-                    </div>
-                    <h3>Ladakh Expedition</h3>
-                    <p class="text-dim">7 Days | Budget: ₹14,999</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="v-card">
-                    <div class="card-img" style="background: url('assets/images/mountains/himachal.jpg') center/cover;">
-                        <span class="badge ongoing">ONGOING</span>
-                    </div>
-                    <h3>Himachal Paradise</h3>
-                    <p class="text-dim">5 Days | Budget: ₹7,499</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="v-card">
-                    <div class="card-img"
-                        style="background: url('https://images.pexels.com/photos/2432269/pexels-photo-2432269.jpeg') center/cover;">
-                        <span class="badge limited">LIMITED</span>
-                    </div>
-                    <h3>Goa Unexplored</h3>
-                    <p class="text-dim">4 Days | Budget: ₹6,999</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="v-card">
-                    <div class="card-img"
-                        style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
-                        <span class="badge ongoing">ONGOING</span>
-                    </div>
-                    <h3>Ladakh Expedition</h3>
-                    <p class="text-dim">7 Days | Budget: ₹14,999</p>
-                    <div class="card-reveal">
-                        <button class="btn-itinerary">View Full Itinerary</button>
-                    </div>
-                </div>
-
+        <div class="v-card" style="margin-top: 30px; text-align: left; background: #111;">
+            <div class="input-group" style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
+                    of Days</label>
+                <input type="number" id="days" placeholder="e.g. 5"
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
             </div>
-        </div>
-    </section>
-
-    <section id="calculator" class="value-prop"
-        style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container" style="max-width: 600px; margin: auto; text-align: center;">
-            <h2 class="gradient-text">Smart Budget Estimator</h2>
-            <p class="text-dim">Get an instant estimate for your Pan-India trip.</p>
-
-            <div class="v-card" style="margin-top: 30px; text-align: left; background: #111;">
-                <div class="input-group" style="margin-bottom:15px;">
-                    <label
-                        style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
-                        of Days</label>
-                    <input type="number" id="days" placeholder="e.g. 5"
-                        style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
-                </div>
-                <div class="input-group" style="margin-bottom:15px;">
-                    <label
-                        style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
-                        of Travelers</label>
-                    <input type="number" id="travelers" placeholder="e.g. 2"
-                        style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
-                </div>
-                <div class="input-group" style="margin-bottom:20px;">
-                    <label
-                        style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Travel
-                        Style</label>
-                    <select id="type"
-                        style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
-                        <option value="student">Student (Hostels & Local Transport)</option>
-                        <option value="family">Mid-Range (Hotels & Private Cab)</option>
-                    </select>
-                </div>
-                <button onclick="calculateBudget()" class="btn-main"
-                    style="width:100%; border:none; cursor:pointer;">Calculate Now</button>
-                <div id="result" style="text-align:center;"></div>
+            <div class="input-group" style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
+                    of Travelers</label>
+                <input type="number" id="travelers" placeholder="e.g. 2"
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
             </div>
+            <div class="input-group" style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Travel
+                    Style</label>
+                <select id="type"
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
+                    <option value="student">Student (Hostels & Local Transport)</option>
+                    <option value="family">Mid-Range (Hotels & Private Cab)</option>
+                </select>
+            </div>
+            <button onclick="calculateBudget()" class="btn-main"
+                style="width:100%; border:none; cursor:pointer;">Calculate Now</button>
+            <div id="result" style="text-align:center;"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-        <p>&copy; 2026 The Adventure Awaits Co.</p>
-    </footer>
+<footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+    <p>&copy; 2026 The Adventure Awaits Co.</p>
+</footer>
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/calculator.js"></script>
-    <script src="assets/js/whatsapp-bot.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/calculator.js"></script>
+<script src="assets/js/whatsapp-bot.js"></script>
 
 
-    <script>
-        // 1. Force the browser to stop remembering scroll position
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
+<script>
+    // 1. Force the browser to stop remembering scroll position
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
 
-        // 2. Immediate jump to Site Header (0,0)
-        window.scrollTo(0, 0);
+    // 2. Immediate jump to Site Header (0,0)
+    window.scrollTo(0, 0);
 
-        // 3. Delayed jump to account for video/image loading lag
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'instant'
-                });
-            }, 10);
-        });
-    </script>
-</body>
-
-</html>
-
-</body>
-
-</html>
+    // 3. Delayed jump to account for video/image loading lag
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'instant'
+            });
+        }, 10);
+    });
+</script>
 
 </body>
 

@@ -1,3 +1,7 @@
+/* Prevents background scroll when menu is active */
+body.menu-open {
+    overflow: hidden;
+}
 /* 1. CSS VARIABLES - The "Theme" of your brand */
 :root {
     --primary-orange: #ff4d00;
@@ -537,6 +541,9 @@ body {
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+.menu-toggle {
+    display: none; /* Hidden on Desktop */
+}
 /* --- Mobile Fixes --- */
 @media (max-width: 768px) {
     .nav-arrow {

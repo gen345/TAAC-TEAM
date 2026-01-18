@@ -1,5 +1,5 @@
 // 1. Navbar Scroll Effect
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const nav = document.querySelector('.glass-nav');
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
@@ -19,86 +19,140 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
-// 3. CAROUSEL LOGIC (Arrows + Swipe + Auto-Monitor)
+// 3. CAROUSEL LOGIC (Smart Distance + Arrows + Swipe)
 const track = document.getElementById('scrollTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 let currentTranslate = 0;
-const cardStep = 350; 
 
-// --- A. THE AUTO-MONITOR (Fixes Left Arrow Appearance) ---
+// --- A. THE AUTO-MONITOR (Handles Arrow Visibility & Opacity) ---
 function checkAutoScroll() {
-    // We only check if we AREN'T in manual mode yet
-    if (!track.classList.contains('manual-mode')) {
+    if (track) {
         const style = window.getComputedStyle(track);
         const matrix = new WebKitCSSMatrix(style.transform);
-        
-        if (matrix.m41 < -20) {
+
+        // Show Prev Button if we have scrolled away from the start
+        if (matrix.m41 < -10) {
             prevBtn.classList.add('active');
+            prevBtn.style.opacity = "1";
+            prevBtn.style.pointerEvents = "auto";
         } else {
             prevBtn.classList.remove('active');
+            prevBtn.style.opacity = "0";
+            prevBtn.style.pointerEvents = "none";
+        }
+
+        // Hide Next Button if we reach the very end
+        const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+        if (Math.abs(matrix.m41) >= maxScroll - 10) {
+            nextBtn.style.opacity = "0";
+            nextBtn.style.pointerEvents = "none";
+        } else {
+            nextBtn.style.opacity = "1";
+            nextBtn.style.pointerEvents = "auto";
         }
     }
 }
-setInterval(checkAutoScroll, 100);
+if (track) setInterval(checkAutoScroll, 100);
 
-// --- B. MANUAL NAVIGATION (Fixes Click Not Working) ---
+// --- B. SMART MANUAL NAVIGATION ---
 function moveSlider(direction) {
-    // 1. COMPLETELY STOP CSS ANIMATION
-    track.style.animation = 'none'; 
-    track.classList.add('manual-mode'); 
-    
-    // 2. Calculate New Position
+    if (!track) return;
+
+    // Dynamically get sizes (works for both desktop and mobile)
+    const firstCard = track.querySelector('.v-card');
+    const cardWidth = firstCard.offsetWidth;
+    const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+    const step = cardWidth + gap;
+
+    track.style.animation = 'none';
+    track.classList.add('manual-mode');
+
     if (direction === 'next') {
-        currentTranslate -= cardStep;
+        currentTranslate -= step;
     } else {
-        currentTranslate += cardStep;
+        currentTranslate += step;
     }
 
-    // 3. Set Boundaries
+    // Don't go past start
     if (currentTranslate > 0) currentTranslate = 0;
-    
-    // 4. Apply Transform
-    track.style.transform = `translateX(${currentTranslate}px)`;
 
-    // 5. Toggle Prev Button manually once in manual mode
-    if (currentTranslate < -20) {
-        prevBtn.classList.add('active');
-    } else {
-        prevBtn.classList.remove('active');
+    // Don't go past end
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    if (Math.abs(currentTranslate) > maxScroll) {
+        currentTranslate = -maxScroll;
     }
+
+    track.style.transform = `translateX(${currentTranslate}px)`;
 }
 
-nextBtn.addEventListener('click', () => moveSlider('next'));
-prevBtn.addEventListener('click', () => moveSlider('prev'));
+if (nextBtn) nextBtn.addEventListener('click', () => moveSlider('next'));
+if (prevBtn) prevBtn.addEventListener('click', () => moveSlider('prev'));
 
 // --- C. MOBILE TOUCH SWIPE ---
 let startX = 0;
 let isMoving = false;
 
-track.addEventListener('touchstart', (e) => {
-    track.style.animation = 'none';
-    track.classList.add('manual-mode');
-    startX = e.touches[0].pageX;
-    isMoving = true;
-}, {passive: true});
+if (track) {
+    track.addEventListener('touchstart', (e) => {
+        track.style.animation = 'none';
+        track.classList.add('manual-mode');
+        startX = e.touches[0].pageX;
+        isMoving = true;
+    }, { passive: true });
 
-track.addEventListener('touchmove', (e) => {
-    if(!isMoving) return;
-    let touchX = e.touches[0].pageX;
-    let move = currentTranslate + (touchX - startX);
-    
-    if (move <= 0) {
+    track.addEventListener('touchmove', (e) => {
+        if (!isMoving) return;
+        let touchX = e.touches[0].pageX;
+        let move = currentTranslate + (touchX - startX);
+
+        // Prevent swiping past the boundaries
+        const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+        if (move > 0) move = 0;
+        if (Math.abs(move) > maxScroll) move = -maxScroll;
+
         track.style.transform = `translateX(${move}px)`;
-    }
-}, {passive: true});
+    }, { passive: true });
 
-track.addEventListener('touchend', (e) => {
-    isMoving = false;
-    currentTranslate += (e.changedTouches[0].pageX - startX);
-    if (currentTranslate > 0) currentTranslate = 0;
-    
-    if (currentTranslate < -20) prevBtn.classList.add('active');
-    else prevBtn.classList.remove('active');
+    track.addEventListener('touchend', (e) => {
+        isMoving = false;
+        const endX = e.changedTouches[0].pageX;
+        currentTranslate += (endX - startX);
+
+        // Snap to boundaries
+        const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+        if (currentTranslate > 0) currentTranslate = 0;
+        if (Math.abs(currentTranslate) > maxScroll) currentTranslate = -maxScroll;
+
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    });
+}
+
+// --- D. MOBILE MENU TOGGLE ---
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('is-active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('is-active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && e.target !== menuBtn) {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('is-active');
+            }
+        });
+    }
 });
