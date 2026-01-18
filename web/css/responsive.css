@@ -126,11 +126,49 @@
 
     /* 4. Carousel Touch Optimization */
     /* Ensure arrows show on mobile */
-    .nav-arrow {
+    /* 4. Carousel Fix: Lock Arrows in Place */
+    .scroll-container {
+        position: relative !important;
+        /* The Anchor */
+        width: 100vw;
+        /* Full width of the phone */
+        overflow-x: hidden !important;
+        /* STOPS the container from scrolling manually */
+        padding: 0;
+        margin-left: calc(-4%);
+        /* Aligns with your nav padding if needed */
+    }
+
+    .scroll-track {
         display: flex !important;
-        opacity: 1;
-        visibility: visible;
-        z-index: 100;
+        width: max-content !important;
+        padding-left: 20px;
+        padding-right: 50px;
+        gap: 15px;
+        /* This is the ONLY thing that should move */
+        transition: transform 0.5s ease-out;
+    }
+
+    .nav-arrow {
+        position: absolute !important;
+        /* Pinned relative to scroll-container */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 999;
+        /* High z-index to stay on top */
+        display: flex !important;
+        pointer-events: auto !important;
+    }
+
+    /* Fixed Positions */
+    .nav-arrow.left {
+        left: 15px !important;
+    }
+
+    .nav-arrow.right {
+        right: 15px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
     /* Hide the prev arrow only when at the very start */
