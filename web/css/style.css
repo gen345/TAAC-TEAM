@@ -2,6 +2,7 @@
 body.menu-open {
     overflow: hidden;
 }
+
 /* 1. CSS VARIABLES - The "Theme" of your brand */
 :root {
     --primary-orange: #ff4d00;
@@ -256,7 +257,7 @@ body {
     line-height: 1.7;
 }
 
-/* ====== ONGOING TOUR PACKAGE - SCROLL & REVEAL=====*/ 
+/* ====== ONGOING TOUR PACKAGE - SCROLL & REVEAL=====*/
 .scroll-container {
     overflow: hidden;
     width: 100%;
@@ -268,12 +269,15 @@ body {
     display: flex;
     width: max-content;
     gap: 30px;
-    padding-left: 50px;  /* Gap before the first card */
-    padding-right: 50px; /* NEW: Gap after the last card */
-    
+    padding-left: 50px;
+    /* Gap before the first card */
+    padding-right: 50px;
+    /* NEW: Gap after the last card */
+
     animation: scrollRightToLeft 20s linear infinite;
     animation-delay: 8s;
 }
+
 .scroll-container:hover .scroll-track {
     animation-play-state: paused;
 }
@@ -352,10 +356,12 @@ body {
 
 /* 3. VIBRANT BUTTON RECOVERY */
 .btn-itinerary {
-    width: 90%; /* Centered inside card */
+    width: 90%;
+    /* Centered inside card */
     margin: 0 auto 20px auto;
     padding: 12px 0;
-    background: linear-gradient(135deg, #ff4d00, #ff8700); /* THE ORANGE GRADIENT */
+    background: linear-gradient(135deg, #ff4d00, #ff8700);
+    /* THE ORANGE GRADIENT */
     color: white;
     border: none;
     border-radius: 50px;
@@ -363,7 +369,8 @@ body {
     font-size: 0.9rem;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
-    display: block; /* Ensures margin: auto works */
+    display: block;
+    /* Ensures margin: auto works */
     transition: all 0.3s ease;
 }
 
@@ -541,8 +548,10 @@ body {
 }
 
 .menu-toggle {
-    display: none; /* Hidden on Desktop */
+    display: none;
+    /* Hidden on Desktop */
 }
+
 /* --- Mobile Fixes --- */
 @media (max-width: 768px) {
     .nav-arrow {
