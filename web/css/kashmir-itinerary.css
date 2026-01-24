@@ -234,3 +234,56 @@
     color: var(--accent-color);
     margin-bottom: 8px;
 }
+/* --- INCLUSIONS & EXCLUSIONS: PREMIUM CARD STYLE --- */
+.itinerary-summary {
+    display: flex;
+    gap: 40px;
+    margin-top: 100px;
+    max-width: 95%; /* Fills more of that empty right-side space */
+    align-items: flex-start;
+}
+
+.summary-card {
+    flex: 1;
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+    padding: 60px 30px 40px 30px; /* Extra top padding for the floating tab */
+    margin-top: 30px; /* Space for the tab to hang over the top */
+}
+
+/* The Floating Tab (Like the blue ones in your example) */
+.card-tab {
+    position: absolute;
+    top: -25px;
+    left: 40px;
+    background: var(--accent-color);
+    color: white;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(255, 77, 0, 0.3);
+}
+
+.summary-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary-card li {
+    font-size: 1.15rem;
+    color: #ddd;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 12px;
+    line-height: 1.4;
+}
+
+/* Green check for Inclusions / Red X for Exclusions */
+.inc-icon { color: #00ff88; font-weight: bold; }
+.exc-icon { color: #ff4444; font-weight: bold; }
