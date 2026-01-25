@@ -1,29 +1,41 @@
-/* ROOT VARIABLES */
+/* ============================================================
+   1. ROOT & GLOBAL
+   ============================================================ */
 :root {
     --accent-color: #ff4d00;
     --bg-dark: #0a0a0c;
 }
 
-/* 1. FIXED HERO SECTION - Increased height to 95vh to show more photo towards the bottom */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+/* ============================================================
+   2. HERO SECTION (95vh Cinematic)
+   ============================================================ */
 .itinerary-hero {
     position: relative;
-    height: 85vh; /* Increased from 65vh to show the full landscape */
+    height: 85vh; 
     width: 100%;
     background-color: #000;
     overflow: hidden;
 }
 
-/* 2. THE SLIDE - Zoom Out Fix */
 .slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Use '100% 100%' or 'contain' if you want zero zoom, 
-       but 'cover' with a bottom alignment is best for cinematic looks */
     background-size: cover; 
-    /* CHANGED: 'center 20%' or 'bottom' keeps the lower part of your photo visible */
     background-position: center; 
     background-repeat: no-repeat;
     opacity: 0;
@@ -36,28 +48,15 @@
     z-index: 2;
 }
 
-/* 3. THE MELT EFFECT - Reduced height so it doesn't hide the photo */
 .bottom-fade {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 150px; /* Reduced from 300px so you can see the photo clearly */
+    height: 150px; 
     background: linear-gradient(to bottom, transparent, var(--bg-dark));
     z-index: 5;
     pointer-events: none;
-}
-
-/* 4. CONTROLS */
-.hero-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    transform: translateY(-50%);
-    z-index: 10;
 }
 
 .nav-arrow {
@@ -78,14 +77,12 @@
 
 .nav-arrow:hover {
     background: var(--accent-color);
-    border-color: var(--accent-color);
     box-shadow: 0 0 25px var(--accent-color);
 }
 
-/* 5. HERO TEXT - Moved down to sit near the new bottom edge */
 .hero-content {
     position: absolute;
-    bottom: 150px; /* Adjusted to look good with 95vh height */
+    bottom: 150px; 
     left: 8%;
     z-index: 8;
 }
@@ -94,7 +91,6 @@
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 800;
     text-transform: uppercase;
-    color: #fff;
     line-height: 0.9;
 }
 
@@ -103,68 +99,17 @@
     display: block;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #fff;
-    opacity: 0.8;
-}
-/* Extends the line to the bottom so all days are connected */
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 0;
-    width: 2px;
-    height: 100%; /* Ensures the line doesn't cut off after Day 1 */
-    background: linear-gradient(to bottom, var(--accent-color), rgba(255, 77, 0, 0.1));
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 60px;
-    margin-bottom: 50px; /* Space between each Day card */
-    display: block;      /* Ensures they stack vertically */
-}
-
-.timeline-content {
-    background: rgba(255, 255, 255, 0.05); /* Makes the box visible */
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 3px solid var(--accent-color);
-}
-
-.timeline-content h3 {
-    color: #ffffff;      /* Makes titles white */
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.timeline-content p {
-    color: #dddddd;      /* Makes description text visible */
-    line-height: 1.6;
-}
-
-.timeline-date {
-    display: block;
-    font-weight: 800;
-    color: var(--accent-color);
-    margin-bottom: 8px;
-}/* ============================================================
-   ITINERARY SECTION: MOVED TO LEFT 
+/* ============================================================
+   3. ITINERARY TIMELINE (LEFT ALIGNED)
    ============================================================ */
-
 .itinerary-details {
-    padding: 80px 8%; /* Aligns perfectly with 'Heaven on Earth' text */
+    padding: 80px 8%;
     background-color: var(--bg-dark);
-    min-height: 100vh;
 }
 
 .container {
-    max-width: 700px; /* Prevents text from becoming too wide to read */
-    margin: 0;        /* This snaps the section to the LEFT */
-    padding: 0;
+    max-width: 900px; /* Widened slightly to fit the Action Bar better */
+    margin: 0;
 }
 
 .timeline {
@@ -172,7 +117,6 @@
     padding: 40px 0;
 }
 
-/* Vertical Connecting Line */
 .timeline::before {
     content: '';
     position: absolute;
@@ -186,11 +130,9 @@
 .timeline-item {
     position: relative;
     padding-left: 60px;
-    margin-bottom: 50px; 
-    display: block; 
+    margin-bottom: 50px;
 }
 
-/* The Orange Dot on the line */
 .timeline-dot {
     position: absolute;
     left: 0;
@@ -203,7 +145,6 @@
     z-index: 2;
 }
 
-/* The Grey Content Box */
 .timeline-content {
     background: rgba(255, 255, 255, 0.05); 
     padding: 25px;
@@ -217,30 +158,21 @@
     transform: translateX(10px);
 }
 
-.timeline-content h3 {
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-size: 1.0rem;
-}
-
-.timeline-content p {
-    color: #dddddd;
-    line-height: 1.6;
-}
-
 .timeline-date {
     display: block;
     font-weight: 800;
     color: var(--accent-color);
     margin-bottom: 8px;
 }
-/* --- INCLUSIONS & EXCLUSIONS: PREMIUM CARD STYLE --- */
+
+/* ============================================================
+   4. INCLUSIONS & EXCLUSIONS (PREMIUM CARDS)
+   ============================================================ */
 .itinerary-summary {
     display: flex;
     gap: 40px;
     margin-top: 100px;
-    max-width: 95%; /* Fills more of that empty right-side space */
-    align-items: flex-start;
+    max-width: 100%;
 }
 
 .summary-card {
@@ -250,40 +182,192 @@
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 25px;
-    padding: 60px 30px 40px 30px; /* Extra top padding for the floating tab */
-    margin-top: 30px; /* Space for the tab to hang over the top */
+    padding: 60px 30px 40px 30px;
+    margin-top: 30px;
 }
 
-/* The Floating Tab (Like the blue ones in your example) */
 .card-tab {
     position: absolute;
     top: -25px;
     left: 40px;
     background: var(--accent-color);
-    color: white;
     padding: 12px 35px;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 1.4rem;
     text-transform: uppercase;
     box-shadow: 0 10px 20px rgba(255, 77, 0, 0.3);
 }
 
-.summary-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+.summary-card ul { list-style: none; }
 
 .summary-card li {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: #ddd;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     display: flex;
     gap: 12px;
-    line-height: 1.4;
 }
 
-/* Green check for Inclusions / Red X for Exclusions */
-.inc-icon { color: #00ff88; font-weight: bold; }
-.exc-icon { color: #ff4444; font-weight: bold; }
+.inc-icon { color: #00ff88; }
+.exc-icon { color: #ff4444; }
+
+/* ============================================================
+   5. THE FIX: INLINE ACTION BAR (GREEN MARK AREA)
+   ============================================================ */
+.action-bar-container {
+    margin-top: 60px; /* The gap after the summary cards */
+    width: 100%;
+}
+
+.action-bar {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-info {
+    display: flex;
+    gap: 60px;
+}
+
+.info-group .label {
+    color: #888;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.info-group .value {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.info-group .price {
+    color: var(--accent-color);
+}
+
+/* Fix for the Booking Button */
+.btn-contact {
+    background: var(--accent-color);
+    color: #fff !important; /* Forces white text */
+    padding: 18px 45px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-contact:hover {
+    background: #fff;
+    color: var(--accent-color) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   6. RESPONSIVE FIXES
+   ============================================================ */
+@media (max-width: 768px) {
+    .itinerary-summary { flex-direction: column; }
+    .action-bar { flex-direction: column; gap: 30px; text-align: center; }
+    .action-info { flex-direction: column; gap: 20px; }
+}
+/* This targets the black booking section you circled */
+/* THE FLOATING BAR CONTAINER */
+.booking-bar {
+    /* 80px gap above, 8% side margins, 60px gap below to separate from footer */
+    margin: 80px 8% 60px; 
+    background: #111111; /* Deep charcoal/black */
+    padding: 35px 50px;
+    border-radius: 25px; /* Rounded corners for the flowing look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Makes it float */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* LEFT SIDE: Package Info */
+.package-info span {
+    color: var(--primary-orange);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.package-info h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+/* CENTER: The Attractive Orange Price */
+.price-info {
+    text-align: right;
+}
+
+.price-info span:first-child {
+    color: #888;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.price-amount {
+    font-size: 2.2rem;
+    font-weight: 800;
+    /* This makes the price orange and attractive */
+    background: linear-gradient(90deg, #ff4d00, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.price-unit {
+    color: #ff8c00;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* RIGHT SIDE: The Button */
+.btn-main {
+    background: linear-gradient(135deg, #ff4d00, #ff8c00);
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 77, 0, 0.2);
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 77, 0, 0.4);
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .booking-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 30px;
+        margin: 40px 5%;
+    }
+    .price-info { text-align: center; }
+}

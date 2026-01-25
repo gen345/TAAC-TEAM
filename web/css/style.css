@@ -564,4 +564,45 @@ body {
         width: 280px;
         flex-shrink: 0;
     }
+    
+}.main-site-footer {
+    background-color: #ffffff !important; /* Force white background */
+    color: #1a1a1a !important;
+    padding: 60px 8% 20px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    display: grid;
+    /* Changed from 5 columns to 4 to match your HTML structure */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 40px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-logo {
+    height: 50px;
+    margin-bottom: 15px;
+    /* Critical: This makes your white logo visible on the white footer */
+    filter: brightness(0); 
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0; /* Removes default indentation */
+}
+
+.footer-column ul li a {
+    color: #555 !important; /* Overrides the blue link color */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ff4d00 !important;
 }
