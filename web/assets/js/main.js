@@ -129,3 +129,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 }); // <--- THIS WAS MISSING AND BREAKING EVERYTHING
+
+/* --- UNIVERSAL WHATSAPP ITINERARY LINK --- */
+document.addEventListener("DOMContentLoaded", function() {
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const packageName = document.getElementById('package-name');
+
+    if (whatsappBtn && packageName) {
+        // 1. Replace with your actual phone number (include country code, no +)
+        const phoneNumber = "918420565320"; 
+        
+        // 2. Get the text from the H3 tag (e.g., "Kashmir: Heaven on Earth")
+        const tripTitle = packageName.innerText || packageName.textContent;
+        
+        // 3. Create the encoded message
+        const message = encodeURIComponent(`Hi! I'm interested in the ${tripTitle} package. Please share more details.`);
+        
+        // 4. Set the link
+        whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        
+        // 5. Ensure it opens in a new tab
+        whatsappBtn.setAttribute('target', '_blank');
+    }
+});
