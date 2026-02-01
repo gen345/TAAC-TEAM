@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Escape - Lepchajagat, Darjeeling & Sittong</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/itinerary-template.css">
+</head>
+
+<body>
+
+    <section class="itinerary-hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active" style="background-image: url('assets/images/north-bengal/tea-garden.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/images/north-bengal/dali-monastery.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/images/north-bengal/rope-way.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/images/north-bengal/sittong-orange.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/images/north-bengal/mirik-lake.jpg');"></div>
+        </div>
+        <div class="bottom-fade"></div>
+        <div class="hero-controls">
+            <button class="nav-arrow left" id="heroPrev">❮</button>
+            <button class="nav-arrow right" id="heroNext">❯</button>
+        </div>
+        <div class="hero-content">
+            <h1>Himalayan <span>Escape</span></h1>
+            <p>5 Days / 4 Nights: Lepchajagat, Darjeeling & Sittong</p>
+        </div>
+    </section>
+
+    <section class="itinerary-details" id="itinerary-start">
+        <div class="container-wide">
+            <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+            <p class="itinerary-subtitle">NJP to NJP | Detailed Circular Experience</p>
+
+            <div class="itinerary-split-grid">
+
+                <div class="timeline-side">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 01</div>
+                            <div class="timeline-content">
+                                <h3>NJP to Lepchajagat | The Forest Retreat</h3>
+                                <p>Transition from the city into <strong>profound mountain silence</strong>. Enjoy a gentle walk through towering pines and conclude your day with a breathtaking sunset over the Kanchenjunga range.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 02</div>
+                            <div class="timeline-content">
+                                <h3>Transition to Darjeeling | Queen of Hills</h3>
+                                <p>Shift from forest trails to the vibrant energy of Darjeeling. Visit the <strong>HMI, Zoological Park</strong>, and the Japanese Temple. Spend your evening at the historic Chowrasta (Mall Road).</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 03</div>
+                            <div class="timeline-content">
+                                <h3>Tiger Hill Sunrise | Takdah & Tinchuley</h3>
+                                <p>Witness the 4:00 AM sunrise at Tiger Hill and the <strong>Batasia Loop</strong>. Later, explore colonial heritage bungalows in Takdah and capture the golden hour at Gumbadara Viewpoint.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 04</div>
+                            <div class="timeline-content">
+                                <h3>Ahaldara Viewpoint | Sittong Orchards</h3>
+                                <p>Experience a <strong>360-degree panoramic view</strong> of the Himalayas and Teesta River from Ahaldara. Wander through the world-famous Orange Orchards of Sittong and visit Jogighat Bridge.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 05</div>
+                            <div class="timeline-content">
+                                <h3>Mirik Lake | Return to NJP</h3>
+                                <p>Drive via Simana along the <strong>Nepal Border</strong>. Enjoy peaceful boating on Mirik Lake before your final descent to NJP Station/Bagdogra Airport for departure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="itinerary-summary">
+                    <div class="summary-card">
+                        <div class="card-tab">Inclusions</div>
+                        <ul>
+                            <li><span class="inc-icon">✓</span> Forest Retreat Stay in Lepchajagat</li>
+                            <li><span class="inc-icon">✓</span> Heritage Experience in Tinchuley & Sittong</li>
+                            <li><span class="inc-icon">✓</span> Daily Breakfast & Dinner</li>
+                            <li><span class="inc-icon">✓</span> Private Vehicle for Entire Circular Route</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-tab" style="background: #333;">Exclusions</div>
+                        <ul>
+                            <li><span class="exc-icon">✕</span> Lunch & Personal Snacks</li>
+                            <li><span class="exc-icon">✕</span> Entry Fees for Zoo, HMI, & Parks</li>
+                            <li><span class="exc-icon">✕</span> Boating Charges at Mirik Lake</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="itinerary-map-container" style="padding: 60px 8%; background: var(--bg-dark);">
+        <h2 style="color: var(--accent-color); margin-bottom: 30px; font-size: 2rem;">Visual Route & Sightseeing</h2>
+
+        <div id="map" data-center="[26.9500, 88.3000]" data-zoom="10" data-spots='[
+        {"name": "Lepchajagat Pine Forest", "coords": [27.0078, 88.1887], "day": "Day 1"},
+        {"name": "Darjeeling Mall", "coords": [27.0433, 88.2649], "day": "Day 2"},
+        {"name": "HMI & Zoo", "coords": [27.0585, 88.2655], "day": "Day 2"},
+        {"name": "Tiger Hill Sunrise", "coords": [26.9926, 88.2831], "day": "Day 3"},
+        {"name": "Batasia Loop", "coords": [27.0217, 88.2473], "day": "Day 3"},
+        {"name": "Tinchuley Gumbadara", "coords": [27.0392, 88.3458], "day": "Day 3"},
+        {"name": "Ahaldara Viewpoint", "coords": [26.9415, 88.3815], "day": "Day 4"},
+        {"name": "Sittong Orange Orchards", "coords": [26.9317, 88.3655], "day": "Day 4"},
+        {"name": "Mirik Lake", "coords": [26.8876, 88.1865], "day": "Day 5"},
+        {"name": "Simana (Nepal Border)", "coords": [26.9038, 88.1481], "day": "Day 5"}
+     ]'>
+        </div>
+    </section>
+
+    <section class="booking-bar">
+        <div class="package-info">
+            <span>PACKAGE</span>
+            <h3 id="package-name">Himalayan Escape: North Bengal</h3>
+        </div>
+        <div class="price-info">
+            <span>STARTING FROM</span>
+            <div class="price-display">
+                <span class="price-amount">INR 7,999</span>
+                <span class="price-unit">/ Person</span>
+            </div>
+        </div>
+        <a href="#" id="whatsapp-btn" class="btn-main" style="text-decoration: none;">CONTACT FOR BOOKING</a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kashmir-slider.js"></script>
+</body>
+
+</html>
