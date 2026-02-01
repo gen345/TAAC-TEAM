@@ -98,18 +98,20 @@ if (track && prevBtn && nextBtn) {
     });
 }
 
-// 4. GLOBAL FOOTER LOADER
+// 4. GLOBAL FOOTER LOADER (Use this exact code)
 document.addEventListener('DOMContentLoaded', () => {
-    if (!document.querySelector('.main-site-footer')) {
+    const placeholder = document.getElementById('footer-placeholder');
+    if (placeholder) {
+        // Remove the leading slash so it looks in the same folder as main.js
         fetch('components/footer.html') 
             .then(response => {
                 if (!response.ok) throw new Error('Footer not found');
                 return response.text();
             })
             .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
+                placeholder.innerHTML = data;
             })
-            .catch(err => console.error("Footer fetch error:", err));
+            .catch(err => console.error("Footer load error:", err));
     }
 
     // 5. MOBILE MENU TOGGLE

@@ -371,3 +371,18 @@ body {
     }
     .price-info { text-align: center; }
 }
+/* ============================================================
+   7. FOOTER FIX (STRICTLY NON-DUPLICATE)
+   ============================================================ */
+.booking-bar {
+    /* 80px gap above, 8% side margins, 60px gap below to separate from footer */
+    margin: 80px 8% 60px; 
+    background: #111111; /* Deep charcoal/black */
+    padding: 35px 50px;
+    border-radius: 25px; /* Rounded corners for the flowing look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Makes it float */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
