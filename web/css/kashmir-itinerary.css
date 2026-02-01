@@ -386,3 +386,24 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Makes it float */
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/*8. fitBounds */
+/* Container to provide the "Mid-Size" spacing */
+.itinerary-map-container {
+    padding: 40px 8%; /* Side margins to make it mid-size */
+    background: var(--bg-dark);
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 30px; /* High rounding like your green mark */
+    border: 2px solid rgba(255, 77, 0, 0.3); /* Thin orange border */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Optional: Darken the map tiles to match your theme better */
+.leaflet-tile-container {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}

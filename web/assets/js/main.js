@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-}); // <--- THIS WAS MISSING AND BREAKING EVERYTHING
+}); //6 <--- THIS WAS MISSING AND BREAKING EVERYTHING
 
 /* --- UNIVERSAL WHATSAPP ITINERARY LINK --- */
 document.addEventListener("DOMContentLoaded", function() {
@@ -154,3 +154,63 @@ document.addEventListener("DOMContentLoaded", function() {
         whatsappBtn.setAttribute('target', '_blank');
     }
 });
+// 7. GENERIC LEAFLET MAP INITIALIZATION
+function initGenericMap() {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    // 1. Parse Data
+    const spots = JSON.parse(mapEl.dataset.spots);
+    
+    // 2. Initialize Map (Start at center provided)
+    const center = JSON.parse(mapEl.dataset.center);
+    const zoom = parseInt(mapEl.dataset.zoom);
+    const map = L.map('map').setView(center, zoom);
+
+    // 3. Dark Theme Tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // 4. Custom Icon (Orange Glow)
+    const orangeIcon = L.divIcon({
+        className: 'custom-pin',
+        html: `<div style="background:#ff4d00; width:12px; height:12px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 10px #ff4d00;"></div>`,
+        iconSize: [12, 12]
+    });
+
+    const latLngs = []; // To store coordinates for the route line
+
+    // 5. Place Markers
+    spots.forEach(spot => {
+        latLngs.push(spot.coords); // Add to route
+        
+        const marker = L.marker(spot.coords, { icon: orangeIcon }).addTo(map);
+        
+        // Premium Popup
+        marker.bindPopup(`
+            <div style="font-family:'Inter',sans-serif; padding:5px;">
+                <strong style="color:#ff4d00;">${spot.day}</strong><br>
+                <span style="color:#333; font-weight:700;">${spot.name}</span>
+            </div>
+        `);
+
+        marker.on('mouseover', function() { this.openPopup(); });
+        marker.on('click', () => { map.flyTo(spot.coords, 13); });
+    });
+
+    // 6. Draw the Travel Route (Polyline)
+    L.polyline(latLngs, {
+        color: '#ff4d00',
+        weight: 2,
+        opacity: 0.5,
+        dashArray: '5, 10' // Makes it a dashed line for travel feel
+    }).addTo(map);
+
+    // 7. AUTO-FIT (The Map will zoom to fit all 15 pins automatically)
+    const bounds = L.latLngBounds(latLngs);
+    map.fitBounds(bounds, { padding: [50, 50] });
+}
+
+// Call the function
+document.addEventListener('DOMContentLoaded', initGenericMap);
