@@ -1,70 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinations | The Adventure Awaits Co</title>
+    <title>Destinations | Explore India</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        .dest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 120px 8% 50px;
-        }
-        .dest-card {
-            background: var(--glass-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s;
-        }
-        .dest-card:hover {
-            border-color: var(--primary-orange);
-            transform: translateY(-10px);
-        }
-        .dest-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .dest-info { padding: 20px; }
-        .price { color: var(--primary-orange); font-weight: 800; font-size: 1.2rem; }
-    </style>
+    <link rel="stylesheet" href="css/category-pages.css">
 </head>
-<body style="background: var(--deep-bg);">
 
-    <nav class="glass-nav">
-        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">The Adventure <span>Awaits Co.</span></a></div>
-    </nav>
+<body>
 
-    <section class="dest-grid">
-        <div class="dest-card scroll-reveal">
-            <img src="https://images.unsplash.com/photo-1585123334904-845d60e97b29?auto=format&fit=crop&w=600&q=80" class="dest-img" alt="Manali">
-            <div class="dest-info">
-                <h3>Kasol & Manali Backpacking</h3>
-                <p class="text-dim">5 Days | Group Trip</p>
-                <p class="price">₹7,499/-</p>
-                <br>
-                <a href="#" class="btn-main" style="padding: 10px 20px; font-size: 0.8rem;">Enquire Now</a>
-            </div>
-        </div>
+    <section class="destinations-hero">
+        <div class="hero-overlay">
+            <h1 class="tricolor-text">EXPLORE INDIA</h1>
 
-        <div class="dest-card scroll-reveal">
-            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80" class="dest-img" alt="Goa">
-            <div class="dest-info">
-                <h3>Unexplored South Goa</h3>
-                <p class="text-dim">4 Days | Couple Friendly</p>
-                <p class="price">₹6,999/-</p>
-                <br>
-                <a href="#" class="btn-main" style="padding: 10px 20px; font-size: 0.8rem;">Enquire Now</a>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for a state..." id="stateSearch">
+                    <button class="search-btn">Search</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <script src="js/main.js"></script>
+    <div class="vertical-gap-extra"></div>
+
+    <main class="states-section">
+        <div class="states-grid">
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/andhra.jpg" alt="Andhra Pradesh"></div>
+                <div class="state-info">
+                    <h3>Andhra Pradesh</h3>
+                    <div class="card-reveal">
+                        <a href="states/andhra-pradesh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/arunachal.jpg" alt="Arunachal Pradesh"></div>
+                <div class="state-info">
+                    <h3>Arunachal Pradesh</h3>
+                    <div class="card-reveal">
+                        <a href="states/arunachal-pradesh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/assam.jpg" alt="Assam"></div>
+                <div class="state-info">
+                    <h3>Assam</h3>
+                    <div class="card-reveal">
+                        <a href="states/assam.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/bihar.jpg" alt="Bihar"></div>
+                <div class="state-info">
+                    <h3>Bihar</h3>
+                    <div class="card-reveal">
+                        <a href="states/bihar.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/chhattisgarh.jpg" alt="Chhattisgarh"></div>
+                <div class="state-info">
+                    <h3>Chhattisgarh</h3>
+                    <div class="card-reveal">
+                        <a href="states/chhattisgarh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/goa.jpg" alt="Goa"></div>
+                <div class="state-info">
+                    <h3>Goa</h3>
+                    <div class="card-reveal">
+                        <a href="states/goa.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/gujarat.jpg" alt="Gujarat"></div>
+                <div class="state-info">
+                    <h3>Gujarat</h3>
+                    <div class="card-reveal">
+                        <a href="states/gujarat.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/haryana.jpg" alt="Haryana"></div>
+                <div class="state-info">
+                    <h3>Haryana</h3>
+                    <div class="card-reveal">
+                        <a href="states/haryana.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/himachal.jpg" alt="Himachal Pradesh"></div>
+                <div class="state-info">
+                    <h3>Himachal Pradesh</h3>
+                    <div class="card-reveal">
+                        <a href="states/himachal-pradesh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/jharkhand.jpg" alt="Jharkhand"></div>
+                <div class="state-info">
+                    <h3>Jharkhand</h3>
+                    <div class="card-reveal">
+                        <a href="states/jharkhand.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/karnataka.jpg" alt="Karnataka"></div>
+                <div class="state-info">
+                    <h3>Karnataka</h3>
+                    <div class="card-reveal">
+                        <a href="states/karnataka.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/kerala.jpg" alt="Kerala"></div>
+                <div class="state-info">
+                    <h3>Kerala</h3>
+                    <div class="card-reveal">
+                        <a href="states/kerala.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/mp.jpg" alt="Madhya Pradesh"></div>
+                <div class="state-info">
+                    <h3>Madhya Pradesh</h3>
+                    <div class="card-reveal">
+                        <a href="states/madhya-pradesh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/maharashtra.jpg" alt="Maharashtra"></div>
+                <div class="state-info">
+                    <h3>Maharashtra</h3>
+                    <div class="card-reveal">
+                        <a href="states/maharashtra.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/manipur.jpg" alt="Manipur"></div>
+                <div class="state-info">
+                    <h3>Manipur</h3>
+                    <div class="card-reveal">
+                        <a href="states/manipur.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/meghalaya.jpg" alt="Meghalaya"></div>
+                <div class="state-info">
+                    <h3>Meghalaya</h3>
+                    <div class="card-reveal">
+                        <a href="states/meghalaya.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/mizoram.jpg" alt="Mizoram"></div>
+                <div class="state-info">
+                    <h3>Mizoram</h3>
+                    <div class="card-reveal">
+                        <a href="states/mizoram.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/nagaland.jpg" alt="Nagaland"></div>
+                <div class="state-info">
+                    <h3>Nagaland</h3>
+                    <div class="card-reveal">
+                        <a href="states/nagaland.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/odisha.jpg" alt="Odisha"></div>
+                <div class="state-info">
+                    <h3>Odisha</h3>
+                    <div class="card-reveal">
+                        <a href="states/odisha.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/punjab.jpg" alt="Punjab"></div>
+                <div class="state-info">
+                    <h3>Punjab</h3>
+                    <div class="card-reveal">
+                        <a href="states/punjab.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/rajasthan.jpg" alt="Rajasthan"></div>
+                <div class="state-info">
+                    <h3>Rajasthan</h3>
+                    <div class="card-reveal">
+                        <a href="states/rajasthan.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/sikkim.jpg" alt="Sikkim"></div>
+                <div class="state-info">
+                    <h3>Sikkim</h3>
+                    <div class="card-reveal">
+                        <a href="states/sikkim.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/tn.jpg" alt="Tamil Nadu"></div>
+                <div class="state-info">
+                    <h3>Tamil Nadu</h3>
+                    <div class="card-reveal">
+                        <a href="states/tamil-nadu.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/telangana.jpg" alt="Telangana"></div>
+                <div class="state-info">
+                    <h3>Telangana</h3>
+                    <div class="card-reveal">
+                        <a href="states/telangana.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/tripura.jpg" alt="Tripura"></div>
+                <div class="state-info">
+                    <h3>Tripura</h3>
+                    <div class="card-reveal">
+                        <a href="states/tripura.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/up.jpg" alt="Uttar Pradesh"></div>
+                <div class="state-info">
+                    <h3>Uttar Pradesh</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/uttar-pradesh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/uk.jpg" alt="Uttarakhand"></div>
+                <div class="state-info">
+                    <h3>Uttarakhand</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/uttarakhand.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/wb.jpg" alt="West Bengal"></div>
+                <div class="state-info">
+                    <h3>West Bengal</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/west-bengal.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/andaman.jpg" alt="Andaman"></div>
+                <div class="state-info">
+                    <h3>Andaman & Nicobar</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/andaman.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/chandigarh-ut.jpg" alt="Chandigarh"></div>
+                <div class="state-info">
+                    <h3>Chandigarh</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/chandigarh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/daman-diu.jpg" alt="Daman Diu"></div>
+                <div class="state-info">
+                    <h3>Daman & Diu</h3>
+                    <div class="card-reveal">
+                        <a href="destinations/daman-diu.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/lakshadweep.jpg" alt="Lakshadweep"></div>
+                <div class="state-info">
+                    <h3>Lakshadweep</h3>
+                    <div class="card-reveal">
+                        <a href="states/lakshadweep.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/delhi.jpg" alt="Delhi"></div>
+                <div class="state-info">
+                    <h3>Delhi</h3>
+                    <div class="card-reveal">
+                        <a href="states/delhi.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/puducherry.jpg" alt="Puducherry"></div>
+                <div class="state-info">
+                    <h3>Puducherry</h3>
+                    <div class="card-reveal">
+                        <a href="states/puducherry.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/ladakh.jpg" alt="Ladakh"></div>
+                <div class="state-info">
+                    <h3>Ladakh</h3>
+                    <div class="card-reveal">
+                        <a href="states/ladakh.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="state-item">
+                <div class="state-img-wrapper"><img src="assets/images/states/jk.jpg" alt="Jammu and Kashmir"></div>
+                <div class="state-info">
+                    <h3>Jammu & Kashmir</h3>
+                    <div class="card-reveal">
+                        <a href="states/kashmir.html" class="view-btn">View Tour Packages</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="assets/js/destination.js"></script>
 </body>
+
 </html>
