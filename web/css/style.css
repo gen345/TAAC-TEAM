@@ -225,7 +225,7 @@ body {
 .v-card {
     background: rgba(255, 255, 255, 0.03);
     /* Subtle glass effect */
-    padding: 50px 30px;
+    padding: 650px 30px;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -553,56 +553,82 @@ body {
 }
 
 /* --- Mobile Fixes --- */
+/* --- 8. MASTER MOBILE OPTIMIZATION --- */
+/* --- 8. MASTER MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
-    .nav-arrow {
-        display: none;
+
+    /* 1. FAST SCROLLING & BORDER SAFETY */
+    .scroll-container {
+        /* Extra padding so the border doesn't get cut off when it appears */
+        padding: 40px 0 !important; 
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch; /* Momentum scrolling (Fast) */
+        scroll-snap-type: x mandatory;
+        display: block;
     }
 
-    /* Hide arrows on mobile, use swipe instead */
+    .scroll-track {
+        display: flex;
+        gap: 20px;
+        padding: 0 25px;
+        animation: scrollRightToLeft 30s linear infinite;
+    }
 
+    /* 2. CARD SETUP (Alignment + Dynamic Border) */
     .v-card {
-        width: 280px;
+        width: 290px !important;
+        height: 460px !important; /* Fixed height keeps buttons in a line */
         flex-shrink: 0;
+        scroll-snap-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        
+        /* BORDER HIDE: Transparent by default so it's not "bad" looking */
+        border: 2px solid transparent !important; 
+        background: rgba(255, 255, 255, 0.03);
+        padding: 20px;
+        border-radius: 24px;
+        position: relative;
+        transition: all 0.3s ease;
     }
-    
-}.main-site-footer {
-    background-color: #ffffff !important; /* Force white background */
-    color: #1a1a1a !important;
-    padding: 60px 8% 20px !important;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    width: 100%;
-}
 
-.footer-container {
-    display: grid;
-    /* Changed from 5 columns to 4 to match your HTML structure */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 40px;
-    margin-bottom: 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    /* 3. CLICK/TAP INTERACTION (Border + Button) */
+    /* When user clicks/taps the card: Border shows and Button appears */
+    .v-card:active {
+        border-color: #ff4d00 !important; /* Orange border shows on click */
+        transform: scale(0.98); /* Slight press effect */
+    }
 
-.footer-logo {
-    height: 50px;
-    margin-bottom: 15px;
-    /* Critical: This makes your white logo visible on the white footer */
-    filter: brightness(0); 
-}
+    .v-card:active .card-reveal {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+    }
 
-.footer-column ul {
-    list-style: none;
-    padding: 0; /* Removes default indentation */
-}
+    /* 4. BUTTON ALIGNMENT (Fixed Row) */
+    .card-reveal {
+        margin-top: auto !important; /* Pushes button to bottom of 460px card */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
 
-.footer-column ul li a {
-    color: #555 !important; /* Overrides the blue link color */
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
+    .btn-itinerary {
+        background: linear-gradient(135deg, #ff4d00, #ff8700) !important;
+        color: #ffffff !important;
+        width: 100% !important;
+        padding: 14px 0 !important;
+        border-radius: 50px !important;
+        font-weight: 700 !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(255, 77, 0, 0.4) !important;
+        text-transform: uppercase;
+    }
 
-.footer-column ul li a:hover {
-    color: #ff4d00 !important;
+    .nav-arrow {
+        display: none !important;
+    }
 }

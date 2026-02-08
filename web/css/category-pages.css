@@ -90,6 +90,8 @@ body {
 .state-item {
     background-color: #111;
     padding: 25px;
+    width: 320px;
+    height: 420px;
     border-radius: 25px; 
     text-align: center;
     border: 2px solid transparent; 
@@ -141,52 +143,119 @@ body {
     transform: translateY(0);
 }
 
+
 /* --- 7. THE BUTTON (THE 'RIGHT' LOOK) --- */
 /* --- THE "RIGHT" BUTTON LOOK WITH FIXED MIDDLE COLOR --- */
 
 /* 1. STATE: MOUSE ON CARD (Idle Button) */
 /* This fixes the "No Color in Mid Section" issue */
+/* --- 7. THE BUTTON (MATCHING LADAKH SNAPSHOT & TWO-STAGE HOVER) --- */
+
 .view-btn {
     display: inline-block;
-    width: 90%;
+    width: 100%;
     padding: 12px 0;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
     
-    /* THE FIX: Give the middle section a subtle color so it's not empty */
-    background-color: rgba(255, 255, 255, 0.05) !important; /* Very subtle grey/white */
-    border: 1.5px solid #ff6b00 !important; /* The Orange Border */
-    color: #ff6b00 !important; /* Orange Text */
+    /* 1. SOLID LOOK: Fills the "Blank Area" immediately upon reveal */
+    /* Using the exact gradient from your Ladakh snapshot/style.css */
+    background: linear-gradient(135deg, #ff4d00, #ff8700) !important;
+    color: #ffffff !important; 
+    border: none !important;
     
-    transition: 0.3s all ease;
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
-/* 2. STATE: MOUSE ON BUTTON (Filled) */
+/* 2. THE GLOW: When cursor moves from the Card onto the Button itself */
 .view-btn:hover {
-    /* Changes from subtle grey to Solid Orange Gradient */
-    background: linear-gradient(45deg, #ff6b00, #ff9933) !important;
-    
-    /* Text turns White */
-    color: #ffffff !important; 
-    
-    border-color: transparent !important;
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
-    transform: translateY(-3px);
+    /* Intense glow and slight lift as requested */
+    box-shadow: 0 8px 25px rgba(255, 77, 0, 0.6) !important;
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.1); /* Makes the orange look more vibrant/glowing */
 }
 
 /* 8. RESPONSIVE DESIGN */
+/* --- 8. RESPONSIVE DESIGN & MOBILE OPTIMIZATION --- */
+
+/* TABLETS & SMALL LAPTOPS */
 @media (max-width: 1200px) {
     .states-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* PHONES & SMALL TABLETS */
 @media (max-width: 768px) {
-    .states-grid { grid-template-columns: repeat(2, 1fr); }
+    /* 1. Grid: 2 columns is best for mobile so images aren't too small */
+    .states-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+        padding: 0 15px 50px 15px;
+    }
+
+    /* 2. Reveal Logic: Force buttons to be VISIBLE on mobile */
+    /* Since mobile has no hover, we show the solid button immediately */
+    .card-reveal {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        margin-top: 12px;
+    }
+
+    /* 3. Card Styling: Reduce padding to save space */
+    .state-item {
+        padding: 15px;
+        border-radius: 18px;
+        background-color: #111; /* Keep it dark */
+    }
+
+    /* 4. Text Sizes */
+    .state-info h3 {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .tricolor-text {
+        font-size: 2.2rem; /* Scaled down for smaller screens */
+        letter-spacing: 1px;
+    }
+
+    .destinations-hero {
+        height: 35vh;
+    }
+
+    /* 5. Search Box: Make it fit the width */
+    .search-box {
+        width: 95%;
+        padding: 6px;
+    }
+    
+    .search-btn {
+        padding: 15px 20px;
+        font-size: 0.8rem;
+    }
 }
 
+/* VERY SMALL PHONES */
 @media (max-width: 480px) {
-    .states-grid { grid-template-columns: repeat(1, 1fr); }
+    /* Switch to 1 column so the user can see the beautiful state images clearly */
+    .states-grid { 
+        grid-template-columns: 1fr; 
+        gap: 25px;
+    }
+    
+    .state-item {
+        max-width: 350px;
+        margin: 0 auto; /* Center the single card */
+    }
+
+    .vertical-gap-extra {
+        height: 60px; /* Less empty space on small screens */
+    }
 }
