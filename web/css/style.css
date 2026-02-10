@@ -20,28 +20,29 @@ body.menu-open {
     box-sizing: border-box;
 }
 
+/* 2. BASE RESET */
 body {
     background-color: var(--deep-bg);
     color: var(--text-main);
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
+    width: 100%;        /* FIX: Constrains width */
+    position: relative;
 }
 
 
-/* 3. GLASS NAVBAR - Final Layout */
-/* 3. GLASS NAVBAR */
+/* 3. GLASS NAVBAR - Fixed Conflict */
 .glass-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Changed from 8% to 3% to move everything toward the edges */
-    padding: 12px 3%;
+    padding: 12px 5%;   /* FIX: Balanced padding for all screens */
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;            /* FIX: Anchors to left edge */
     z-index: 1000;
     background: transparent;
-    /* Starts transparent for the sky view */
     transition: all 0.4s ease;
 }
 
@@ -554,15 +555,34 @@ body {
 
 /* --- Mobile Fixes --- */
 /* --- 8. MASTER MOBILE OPTIMIZATION --- */
-/* --- 8. MASTER MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
+
+    /* FIX: Force page to stay on screen (Kills the black void) */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        position: relative;
+    }
+
+    /* FIX: Bring Hamburger back from the dark area */
+    .glass-nav {
+        padding: 10px 15px !important;
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    .menu-toggle {
+        display: block !important; /* Shows icon */
+        color: white;
+        z-index: 1001;
+        cursor: pointer;
+    }
 
     /* 1. FAST SCROLLING & BORDER SAFETY */
     .scroll-container {
-        /* Extra padding so the border doesn't get cut off when it appears */
         padding: 40px 0 !important; 
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch; /* Momentum scrolling (Fast) */
+        -webkit-overflow-scrolling: touch; 
         scroll-snap-type: x mandatory;
         display: block;
     }
@@ -574,29 +594,24 @@ body {
         animation: scrollRightToLeft 30s linear infinite;
     }
 
-    /* 2. CARD SETUP (Alignment + Dynamic Border) */
+    /* 2. CARD SETUP (Alignment + Orange Border on Click) */
     .v-card {
-        width: 290px !important;
-        height: 460px !important; /* Fixed height keeps buttons in a line */
+        width: 285px !important;
+        height: 470px !important; /* Fixed height for button alignment */
         flex-shrink: 0;
         scroll-snap-align: center;
         display: flex !important;
         flex-direction: column !important;
-        
-        /* BORDER HIDE: Transparent by default so it's not "bad" looking */
         border: 2px solid transparent !important; 
         background: rgba(255, 255, 255, 0.03);
         padding: 20px;
         border-radius: 24px;
-        position: relative;
         transition: all 0.3s ease;
     }
 
-    /* 3. CLICK/TAP INTERACTION (Border + Button) */
-    /* When user clicks/taps the card: Border shows and Button appears */
+    /* Logic: Orange border and button appear ONLY on click/tap */
     .v-card:active {
-        border-color: #ff4d00 !important; /* Orange border shows on click */
-        transform: scale(0.98); /* Slight press effect */
+        border-color: #ff4d00 !important;
     }
 
     .v-card:active .card-reveal {
@@ -605,25 +620,22 @@ body {
         transform: translateY(0) !important;
     }
 
-    /* 4. BUTTON ALIGNMENT (Fixed Row) */
+    /* 4. BUTTON ALIGNMENT (Perfect Row) */
     .card-reveal {
-        margin-top: auto !important; /* Pushes button to bottom of 460px card */
+        margin-top: auto !important; 
         opacity: 0;
         visibility: hidden;
         transform: translateY(15px);
-        transition: all 0.3s ease;
         width: 100%;
-        text-align: center;
     }
 
     .btn-itinerary {
         background: linear-gradient(135deg, #ff4d00, #ff8700) !important;
         color: #ffffff !important;
         width: 100% !important;
-        padding: 14px 0 !important;
+        padding: 12px 0 !important;
         border-radius: 50px !important;
         font-weight: 700 !important;
-        border: none !important;
         box-shadow: 0 4px 15px rgba(255, 77, 0, 0.4) !important;
         text-transform: uppercase;
     }
