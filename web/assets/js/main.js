@@ -99,13 +99,20 @@ if (track && prevBtn && nextBtn) {
 }
 
 // 4. GLOBAL FOOTER LOADER (Use this exact code)
+// 4. GLOBAL FOOTER LOADER (Updated for subfolders)
 document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.getElementById('footer-placeholder');
     if (placeholder) {
-        // Remove the leading slash so it looks in the same folder as main.js
-        fetch('components/footer.html') 
+        // Check if the current page is inside a subfolder (like /packages/ or /destinations/)
+        const isSubfolder = window.location.pathname.includes('/packages/') || 
+                           window.location.pathname.includes('/destinations/');
+        
+        // If it's a subfolder, add '../' to go up one level to find the components folder
+        const path = isSubfolder ? '../components/footer.html' : 'components/footer.html';
+
+        fetch(path) 
             .then(response => {
-                if (!response.ok) throw new Error('Footer not found');
+                if (!response.ok) throw new Error('Footer not found at ' + path);
                 return response.text();
             })
             .then(data => {
@@ -113,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => console.error("Footer load error:", err));
     }
+
 
     // 5. MOBILE MENU TOGGLE
     const menuBtn = document.getElementById('mobile-menu');
