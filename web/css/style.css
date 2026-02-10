@@ -553,6 +553,59 @@ body {
     /* Hidden on Desktop */
 }
 
+/* --- FOOTER MAIN LAYOUT --- */
+footer {
+    width: 100% !important;
+    background: #0a0a0c; 
+    padding: 60px 5% 30px 5% !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* This creates 4 columns: One big one for the logo, three smaller for links */
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr; 
+    gap: 40px;
+}
+
+/* FIX FOR THE MASSIVE LOGO */
+.footer-logo-container img {
+    max-width: 250px; /* Limits the size of the mountain logo */
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.footer-column h4 {
+    color: #ff4d00; /* Your brand orange */
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
 /* --- Mobile Fixes --- */
 /* --- 8. MASTER MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
