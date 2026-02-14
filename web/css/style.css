@@ -608,6 +608,7 @@ footer {
 }
 /* --- Mobile Fixes --- */
 /* --- 8. MASTER MOBILE OPTIMIZATION --- */
+/* --- 8. MASTER MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
 
     /* FIX: Force page to stay on screen (Kills the black void) */
@@ -625,7 +626,7 @@ footer {
     }
 
     .menu-toggle {
-        display: block !important; /* Shows icon */
+        display: block !important;
         color: white;
         z-index: 1001;
         cursor: pointer;
@@ -647,10 +648,10 @@ footer {
         animation: scrollRightToLeft 30s linear infinite;
     }
 
-    /* 2. CARD SETUP (Alignment + Orange Border on Click) */
+    /* 2. CARD SETUP */
     .v-card {
         width: 285px !important;
-        height: 470px !important; /* Fixed height for button alignment */
+        height: 470px !important;
         flex-shrink: 0;
         scroll-snap-align: center;
         display: flex !important;
@@ -662,7 +663,6 @@ footer {
         transition: all 0.3s ease;
     }
 
-    /* Logic: Orange border and button appear ONLY on click/tap */
     .v-card:active {
         border-color: #ff4d00 !important;
     }
@@ -673,7 +673,7 @@ footer {
         transform: translateY(0) !important;
     }
 
-    /* 4. BUTTON ALIGNMENT (Perfect Row) */
+    /* 4. BUTTON ALIGNMENT */
     .card-reveal {
         margin-top: auto !important; 
         opacity: 0;
@@ -696,4 +696,31 @@ footer {
     .nav-arrow {
         display: none !important;
     }
-}
+
+    /* --- FOOTER MOBILE FIX (Now safely inside the media query) --- */
+    .footer-container {
+        display: flex !important;
+        flex-direction: column !important; /* Vertical for mobile */
+        align-items: center !important; 
+        text-align: center !important; 
+        gap: 40px !important; 
+        padding: 40px 20px !important;
+    }
+
+    .footer-section {
+        width: 100% !important;
+        max-width: 300px;
+    }
+
+    .footer-logo {
+        max-width: 180px !important;
+        margin: 0 auto 10px auto !important;
+        display: block !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+    }
+} /* <--- This bracket must be at the very end! */
