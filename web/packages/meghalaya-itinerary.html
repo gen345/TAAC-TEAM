@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghalaya: The Abode of Clouds | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/itinerary-template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── TRIP OVERVIEW STRIP ── */
+        .trip-overview {
+            background: var(--dark2);
+            border-bottom: 1px solid rgba(232,97,26,0.15);
+            padding: 0 8%;
+        }
+        .trip-overview-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+        .trip-stat {
+            padding: 28px 20px;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .trip-stat:last-child { border-right: none; }
+        .trip-stat-label {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange-light);
+            font-weight: 700;
+        }
+        .trip-stat-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--cream);
+            line-height: 1.2;
+        }
+
+        /* ── HIGHLIGHTS SECTION ── */
+        .highlights-section {
+            background: var(--dark);
+            padding: 70px 8%;
+            border-bottom: 1px solid rgba(232,97,26,0.1);
+        }
+        .highlights-section h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            color: var(--cream);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .highlights-section h3 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlights-subtitle {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(253,246,236,0.35);
+            margin-bottom: 36px;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .highlight-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 4px;
+            padding: 20px 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover {
+            background: rgba(232,97,26,0.08);
+            border-color: rgba(232,97,26,0.3);
+            transform: translateY(-3px);
+        }
+        .highlight-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .highlight-card h4 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--cream);
+            margin-bottom: 4px;
+        }
+        .highlight-card p {
+            font-size: 12px;
+            color: rgba(253,246,236,0.5);
+            line-height: 1.5;
+        }
+
+        /* ── TIPS inside timeline ── */
+        .timeline-tip {
+            margin-top: 12px;
+            background: rgba(232,97,26,0.08);
+            border-left: 3px solid var(--orange);
+            border-radius: 0 4px 4px 0;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: rgba(253,246,236,0.6);
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .timeline-tip strong {
+            color: var(--orange-light);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        /* ── TIMELINE BULLETS ── */
+        .timeline-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        .timeline-bullets li {
+            font-size: 13px;
+            color: rgba(253,246,236,0.6);
+            padding: 5px 0;
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .timeline-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-size: 10px;
+            top: 7px;
+        }
+        .timeline-bullets li strong { color: rgba(253,246,236,0.85); font-weight: 700; }
+
+        /* ── STAY TAG ── */
+        .stay-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            background: rgba(232,97,26,0.12);
+            border: 1px solid rgba(232,97,26,0.25);
+            border-radius: 2px;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--orange-light);
+            text-transform: uppercase;
+        }
+
+        /* ── TRAVEL TIPS TABLE ── */
+        .travel-tips-section {
+            background: var(--dark2);
+            padding: 70px 8%;
+        }
+        .travel-tips-section h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            color: var(--cream);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .travel-tips-section h3 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tips-table {
+            max-width: 900px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .tip-row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 0;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .tip-row:hover { border-color: rgba(232,97,26,0.3); }
+        .tip-label {
+            background: rgba(232,97,26,0.12);
+            padding: 16px 18px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--orange-light);
+            display: flex;
+            align-items: center;
+            border-right: 1px solid rgba(232,97,26,0.15);
+        }
+        .tip-value {
+            padding: 16px 20px;
+            font-size: 13px;
+            color: rgba(253,246,236,0.65);
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .trip-overview-inner { grid-template-columns: 1fr 1fr; }
+            .trip-stat { border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .highlights-grid { grid-template-columns: 1fr; }
+            .tip-row { grid-template-columns: 1fr; }
+            .tip-label { border-right: none; border-bottom: 1px solid rgba(232,97,26,0.15); }
+            .highlights-section, .travel-tips-section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="itinerary-hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image: url('https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/2132008/pexels-photo-2132008.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg');"></div>
+    </div>
+    <div class="bottom-fade"></div>
+    <div class="hero-controls">
+        <button class="nav-arrow left" id="heroPrev">❮</button>
+        <button class="nav-arrow right" id="heroNext">❯</button>
+    </div>
+    <div class="hero-content">
+        <p>4 Nights · 5 Days — Guwahati to Guwahati</p>
+        <h1>The Abode<span>of Clouds</span></h1>
+    </div>
+</section>
+
+<!-- ── TRIP OVERVIEW STRIP ── -->
+<div class="trip-overview">
+    <div class="trip-overview-inner">
+        <div class="trip-stat">
+            <span class="trip-stat-label">Duration</span>
+            <span class="trip-stat-value">4 Nights · 5 Days</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Entry / Exit</span>
+            <span class="trip-stat-value">Guwahati Airport / Station</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Stay Plan</span>
+            <span class="trip-stat-value">2N Shillong + 2N Cherrapunji</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Transport</span>
+            <span class="trip-stat-value">Innova Crysta</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── HIGHLIGHTS ── -->
+<section class="highlights-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">What Awaits You</div>
+        <h3>Highlights <span>at a Glance</span></h3>
+        <p class="highlights-subtitle">Six unmissable experiences across Meghalaya</p>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">🌊</div>
+                <div>
+                    <h4>Nohkalikai Falls</h4>
+                    <p>India's tallest plunge waterfall at 340m — best experienced in morning light</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🪨</div>
+                <div>
+                    <h4>Laitlum Canyon</h4>
+                    <p>Jaw-dropping gorge & valley views — the dramatic "End of Hills"</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🌲</div>
+                <div>
+                    <h4>Mawphlang Sacred Forest</h4>
+                    <p>Ancient sacred tribal grove untouched for centuries</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🚣</div>
+                <div>
+                    <h4>Dawki River Boating</h4>
+                    <p>Crystal-clear glass-water boating on the legendary Umngot River</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🏘️</div>
+                <div>
+                    <h4>Mawlynnong Village</h4>
+                    <p>Asia's cleanest village (2003) — bamboo walkways & eco-tourism</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🏔️</div>
+                <div>
+                    <h4>Shillong Peak</h4>
+                    <p>Highest point in Meghalaya with sweeping panoramic views</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ITINERARY ── -->
+<section class="itinerary-details">
+    <div class="container-wide">
+        <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+        <p class="itinerary-subtitle">Guwahati to Guwahati | 2N Shillong + 2N Cherrapunji</p>
+
+        <div class="itinerary-split-grid">
+            <div class="timeline-side">
+                <div class="timeline">
+
+                    <!-- Day 01 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 01</div>
+                        <div class="timeline-content">
+                            <h3>Guwahati → Shillong | Arrival + City Sightseeing</h3>
+                            <ul class="timeline-bullets">
+                                <li>Pickup from <strong>Guwahati Airport / Railway Station</strong></li>
+                                <li><strong>Umiam Lake (Barapani)</strong> — En-route scenic stop; 30–40 min lakeside break</li>
+                                <li>Hotel Check-in + Lunch — Settle in before afternoon sightseeing</li>
+                                <li><strong>Don Bosco Museum</strong> — 7-floor cultural museum of Northeast India</li>
+                                <li><strong>Ward's Lake</strong> — Colonial-era boating lake in central Shillong</li>
+                                <li>Drive past <strong>Shillong Golf Course</strong> — One of Asia's oldest scenic courses</li>
+                                <li><strong>Evening Walk at Police Bazaar</strong> — Local street food, markets & city vibe</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Shillong</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Drive is approx 3–4 hrs. Umiam Lake stop helps break the journey. Keep afternoon light for guests.</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 02 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 02</div>
+                        <div class="timeline-content">
+                            <h3>Shillong Local + Laitlum | Peaks, Canyons & City</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Shillong Peak</strong> — Highest point in Meghalaya; panoramic views (permit dependent)</li>
+                                <li><strong>Elephant Falls</strong> — Beautiful 3-tiered waterfall just outside Shillong</li>
+                                <li><strong>Laitlum Canyon</strong> — Dramatic 'End of Hills' gorge; jaw-dropping depth & valley views</li>
+                                <li>Return to Shillong by evening</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Shillong</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Check Shillong Peak permit availability the evening before. Laitlum is best in the afternoon when mist clears.</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 03 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 03</div>
+                        <div class="timeline-content">
+                            <h3>Shillong → Cherrapunji | Sohra Waterfall Circuit</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Mawkdok Valley View Point</strong> — Stunning gorge viewpoint on the Sohra highway</li>
+                                <li><strong>Nohkalikai Falls</strong> — India's tallest plunge waterfall (340m); best in morning light</li>
+                                <li><strong>Seven Sisters Falls</strong> — Iconic 7-segmented seasonal waterfall</li>
+                                <li><strong>Mawsmai Cave</strong> — Illuminated limestone cave; easy family-friendly walk-through</li>
+                                <li><strong>Arwah Cave</strong> — Fossil-rich cave with natural skylights (optional)</li>
+                                <li>Eco Park Sohra — Viewpoint and recreation area (optional)</li>
+                                <li>Check-in at Cherrapunji hotel · Cliff sunset from stay</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Cherrapunji (Sohra)</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Early start is key — long day with multiple stops. Pack lunch or plan a quick roadside meal.</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 04 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 04</div>
+                        <div class="timeline-content">
+                            <h3>Cherrapunji → Dawki → Mawlynnong → Cherrapunji</h3>
+                            <ul class="timeline-bullets">
+                                <li>Drive to <strong>Dawki</strong> — Approx 2 hrs from Cherrapunji via scenic hill roads</li>
+                                <li><strong>Boating at Umngot River, Dawki</strong> — Crystal-clear glass-water river boating</li>
+                                <li><strong>Indo-Bangladesh Border Viewpoint</strong> — View across the international boundary</li>
+                                <li><strong>Mawlynnong</strong> — Asia's cleanest village (2003); bamboo walkways & eco-tourism</li>
+                                <li><strong>Single Deck Living Root Bridge</strong> — Natural root bridge near Mawlynnong</li>
+                                <li>Return to Cherrapunji by late evening</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Cherrapunji (Sohra)</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Very early start (6:30–7 AM) is essential. Book boating in advance during peak season.</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 05 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 05</div>
+                        <div class="timeline-content">
+                            <h3>Cherrapunji → Guwahati | Departure Day</h3>
+                            <ul class="timeline-bullets">
+                                <li>Relaxed breakfast at Cherrapunji hotel</li>
+                                <li>Optional stop — <strong>Wei Sawdong Falls</strong> or Garden of Caves if time allows</li>
+                                <li>Drive to Guwahati via Shillong (approx 4–5 hrs total)</li>
+                                <li>Optional quick café stop in Shillong if time permits</li>
+                                <li>Drop at <strong>Guwahati Airport / Railway Station</strong></li>
+                            </ul>
+                            <div class="stay-tag">✈️ Departure — Guwahati</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Cherrapunji–Guwahati is approx 4–5 hrs. Depart by 8 AM to be comfortable for afternoon flights or trains.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SUMMARY CARDS -->
+            <div class="itinerary-summary">
+                <div class="summary-card">
+                    <div class="card-tab">Inclusions</div>
+                    <ul>
+                        <li><span class="inc-icon">✓</span> Cab (Innova Crysta) for entire trip</li>
+                        <li><span class="inc-icon">✓</span> Driver accommodation & allowances</li>
+                        <li><span class="inc-icon">✓</span> Cab parking & toll charges</li>
+                        <li><span class="inc-icon">✓</span> Hotel accommodation (4 nights)</li>
+                        <li><span class="inc-icon">✓</span> Daily breakfast & dinner</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <div class="card-tab" style="background: #333;">Exclusions</div>
+                    <ul>
+                        <li><span class="exc-icon">✕</span> Airfare / train tickets to/from Guwahati</li>
+                        <li><span class="exc-icon">✕</span> Lunch & beverages</li>
+                        <li><span class="exc-icon">✕</span> Entry fees to monuments & caves</li>
+                        <li><span class="exc-icon">✕</span> Adventure activities & boating charges</li>
+                        <li><span class="exc-icon">✕</span> Personal shopping & laundry</li>
+                        <li><span class="exc-icon">✕</span> Tips, porterage & travel insurance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TRAVEL TIPS ── -->
+<section class="travel-tips-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">Before You Go</div>
+        <h3>Travel Tips <span>& Essentials</span></h3>
+        <div class="tips-table">
+            <div class="tip-row">
+                <div class="tip-label">🌤️ Best Time</div>
+                <div class="tip-value">October – May. Monsoon (Jun–Sep) is scenic but roads can be challenging.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🏨 Stays</div>
+                <div class="tip-value">2 nights Shillong · 2 nights Cherrapunji. Dawki & Mawlynnong as a day trip.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📶 Connectivity</div>
+                <div class="tip-value">Download offline maps. Signal weak in Mawsynram, Laitlum & Mawlynnong.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📋 Permits</div>
+                <div class="tip-value">Shillong Peak needs a permit — confirm availability the evening before.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🎒 Gear</div>
+                <div class="tip-value">Comfortable walking shoes, light rain jacket, torch & refillable water bottle.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MAP ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>& Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[25.4670, 91.3662]" data-zoom="9" data-spots='[
+        {"name": "Guwahati Pickup", "coords": [26.1445, 91.7362], "day": "Day 1"},
+        {"name": "Umiam Lake Barapani", "coords": [25.6800, 91.8800], "day": "Day 1"},
+        {"name": "Don Bosco Museum", "coords": [25.5788, 91.8933], "day": "Day 1"},
+        {"name": "Wards Lake Shillong", "coords": [25.5700, 91.8830], "day": "Day 1"},
+        {"name": "Shillong Peak", "coords": [25.5398, 91.8827], "day": "Day 2"},
+        {"name": "Elephant Falls", "coords": [25.5390, 91.8530], "day": "Day 2"},
+        {"name": "Laitlum Canyon", "coords": [25.5080, 91.9780], "day": "Day 2"},
+        {"name": "Mawkdok Valley Viewpoint", "coords": [25.3700, 91.7200], "day": "Day 3"},
+        {"name": "Nohkalikai Falls", "coords": [25.2685, 91.7160], "day": "Day 3"},
+        {"name": "Seven Sisters Falls", "coords": [25.2900, 91.7250], "day": "Day 3"},
+        {"name": "Mawsmai Cave", "coords": [25.2710, 91.7330], "day": "Day 3"},
+        {"name": "Dawki Umngot River", "coords": [25.1950, 92.0280], "day": "Day 4"},
+        {"name": "Mawlynnong Village", "coords": [25.2030, 91.9340], "day": "Day 4"},
+        {"name": "Living Root Bridge", "coords": [25.2080, 91.9270], "day": "Day 4"}
+    ]'></div>
+</section>
+
+<!-- ── BOOKING BAR ── -->
+<section class="booking-bar">
+    <div class="package-info">
+        <span>Package</span>
+        <h3>Meghalaya: The Abode of Clouds</h3>
+    </div>
+    <div class="price-info">
+        <span>Starting From</span>
+        <div class="price-display">
+            <span class="price-amount">₹11,999</span>
+            <span class="price-unit">/ Person</span>
+        </div>
+    </div>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Meghalaya%20Abode%20of%20Clouds%20package%20starting%20from%20₹11,999.%20Please%20share%20details." target="_blank" class="btn-main" style="text-decoration:none;">Contact for Booking →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/kashmir-slider.js"></script>
+</body>
+</html>

@@ -1,168 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Silk Route: The Legacy Loop - Sikkim Itinerary</title>
+    <title>Old Silk Route: The Legacy Loop | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/itinerary-template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <section class="itinerary-hero">
-        <div class="hero-slider" id="heroSlider">
-            <div class="slide active" style="background-image: url('../assets/images/silk-route/sunrise-flag.jpg');">
-            </div>
-            <div class="slide active" style="background-image: url('../assets/images/silk-route/zuluk-zigzag.jpg');">
-            </div>
-            <div class="slide" style="background-image: url('../assets/images/silk-route/mountain-white.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/silk-route/gnathang-valley.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/silk-route/aritar-lake.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/silk-route/kupup-lake.jpg');"></div>
-        </div>
-        <div class="bottom-fade"></div>
-        <div class="hero-controls">
-            <button class="nav-arrow left" id="heroPrev">❮</button>
-            <button class="nav-arrow right" id="heroNext">❯</button>
-        </div>
-        <div class="hero-content">
-            <h1>The Legacy <span>Loop</span></h1>
-            <p>5 Days / 4 Nights: Old Silk Route Adventure</p>
-        </div>
-    </section>
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
 
-    <section class="itinerary-details" id="itinerary-start">
-        <div class="container-wide">
-            <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
-            <p class="itinerary-subtitle">NJP to NJP | The Historic High-Altitude Circuit</p>
+<!-- ── HERO ── -->
+<section class="itinerary-hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image: url('../assets/images/silk-route/sunrise-flag.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/zuluk-zigzag.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/mountain-white.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/gnathang-valley.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/aritar-lake.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/kupup-lake.jpg');"></div>
+    </div>
+    <div class="bottom-fade"></div>
+    <div class="hero-controls">
+        <button class="nav-arrow left" id="heroPrev">❮</button>
+        <button class="nav-arrow right" id="heroNext">❯</button>
+    </div>
+    <div class="hero-content">
+        <p>5 Days / 4 Nights — NJP to NJP</p>
+        <h1>The Legacy<span>Loop</span></h1>
+    </div>
+</section>
 
-            <div class="itinerary-split-grid">
+<!-- ── ITINERARY ── -->
+<section class="itinerary-details">
+    <div class="container-wide">
+        <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+        <p class="itinerary-subtitle">NJP to NJP | The Historic High-Altitude Circuit</p>
 
-                <div class="timeline-side">
-                    <div class="timeline">
+        <div class="itinerary-split-grid">
+            <div class="timeline-side">
+                <div class="timeline">
 
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 01</div>
-                            <div class="timeline-content">
-                                <h3>Arrival & Riverside Retreat</h3>
-                                <p>Pickup from NJP/Bagdogra. Drive to <strong>Rishikhola/Rongpokhola</strong>. Enjoy the
-                                    evening by the Rishi River with a riverside campfire and nature walks.</p>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 01</div>
+                        <div class="timeline-content">
+                            <h3>Arrival & Riverside Retreat</h3>
+                            <p>Pickup from NJP/Bagdogra. Drive to <strong>Rishikhola/Rongpokhola</strong>. Enjoy the evening by the Rishi River with a riverside campfire and nature walks.</p>
                         </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 02</div>
-                            <div class="timeline-content">
-                                <h3>Into the Clouds | The Ascent</h3>
-                                <p>Permit processing at Rongli. Visit <strong>Quekhola Waterfalls</strong>. Drive
-                                    through the dense forests of Nimachen to Padamchen (8,000 ft) for a spectacular
-                                    sunset.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 03</div>
-                            <div class="timeline-content">
-                                <h3>The Legendary Silk Route Trail</h3>
-                                <p>Sunrise at <strong>Thambi Viewpoint</strong> for the Zuluk Zig-Zag Road. Explore
-                                    Gnathang Valley, Old Baba Mandir, Tukla Valley, and Elephant Lake (Kupup).</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 04</div>
-                            <div class="timeline-content">
-                                <h3>Lakes & Legends | Aritar</h3>
-                                <p>Morning boating at <strong>Lampokhari Lake</strong>. Visit Aritar Monastery and the
-                                    historic British Bungalow before a hike to Mankhim Viewpoint.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 05</div>
-                            <div class="timeline-content">
-                                <h3>Farewell to the Hills</h3>
-                                <p>Final breakfast with Himalayan views. Drive back to NJP/Bagdogra via the
-                                    <strong>Rhenock-Rangpo road</strong>, completing the circular loop.</p>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 02</div>
+                        <div class="timeline-content">
+                            <h3>Into the Clouds | The Ascent</h3>
+                            <p>Permit processing at Rongli. Visit <strong>Quekhola Waterfalls</strong>. Drive through the dense forests of Nimachen to Padamchen (8,000 ft) for a spectacular sunset.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 03</div>
+                        <div class="timeline-content">
+                            <h3>The Legendary Silk Route Trail</h3>
+                            <p>Sunrise at <strong>Thambi Viewpoint</strong> for the Zuluk Zig-Zag Road. Explore Gnathang Valley, Old Baba Mandir, Tukla Valley, and Elephant Lake (Kupup).</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 04</div>
+                        <div class="timeline-content">
+                            <h3>Lakes & Legends | Aritar</h3>
+                            <p>Morning boating at <strong>Lampokhari Lake</strong>. Visit Aritar Monastery and the historic British Bungalow before a hike to Mankhim Viewpoint.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 05</div>
+                        <div class="timeline-content">
+                            <h3>Farewell to the Hills</h3>
+                            <p>Final breakfast with Himalayan views. Drive back to NJP/Bagdogra via the <strong>Rhenock-Rangpo road</strong>, completing the circular loop.</p>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-                <div class="itinerary-summary">
-                    <div class="summary-card">
-                        <div class="card-tab">Inclusions</div>
-                        <ul>
-                            <li><span class="inc-icon">✓</span> 4 Nights in Deluxe/Standard Homestays</li>
-                            <li><span class="inc-icon">✓</span> All Meals (Day 1 Lunch to Day 5 Breakfast)</li>
-                            <li><span class="inc-icon">✓</span> Dedicated Non-AC SUV (Bolero/Sumo/Maxx)</li>
-                            <li><span class="inc-icon">✓</span> Standard Silk Route Permit Assistance</li>
-                        </ul>
-                    </div>
-
-                    <div class="summary-card">
-                        <div class="card-tab" style="background: #333;">Exclusions</div>
-                        <ul>
-                            <li><span class="exc-icon">✕</span> Nathula Pass (Special Permit Required)</li>
-                            <li><span class="exc-icon">✕</span> Boating & Entry Fees</li>
-                            <li><span class="exc-icon">✕</span> Personal Snacks & Mineral Water</li>
-                            <li><span class="exc-icon">✕</span> Travel & Medical Insurance</li>
-                        </ul>
-                    </div>
+            <div class="itinerary-summary">
+                <div class="summary-card">
+                    <div class="card-tab">Inclusions</div>
+                    <ul>
+                        <li><span class="inc-icon">✓</span> 4 Nights in Deluxe/Standard Homestays</li>
+                        <li><span class="inc-icon">✓</span> All Meals (Day 1 Lunch to Day 5 Breakfast)</li>
+                        <li><span class="inc-icon">✓</span> Dedicated Non-AC SUV (Bolero/Sumo/Maxx)</li>
+                        <li><span class="inc-icon">✓</span> Standard Silk Route Permit Assistance</li>
+                    </ul>
                 </div>
-
+                <div class="summary-card">
+                    <div class="card-tab" style="background: #333;">Exclusions</div>
+                    <ul>
+                        <li><span class="exc-icon">✕</span> Nathula Pass (Special Permit Required)</li>
+                        <li><span class="exc-icon">✕</span> Boating & Entry Fees</li>
+                        <li><span class="exc-icon">✕</span> Personal Snacks & Mineral Water</li>
+                        <li><span class="exc-icon">✕</span> Travel & Medical Insurance</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="itinerary-map-container">
-        <h2 style="color: var(--accent-color); margin-bottom: 30px; font-size: 2rem;">Visual Route & Sightseeing</h2>
-        <div id="map" data-center="[27.2600, 88.7500]" data-zoom="11" data-spots='[
-                {"name": "Rishikhola River", "coords": [27.1685, 88.6366], "day": "Day 1"},
-                {"name": "Padamchen", "coords": [27.2471, 88.6833], "day": "Day 2"},
-                {"name": "Zuluk Zig-Zag", "coords": [27.2515, 88.7772], "day": "Day 3"},
-                {"name": "Gnathang Valley", "coords": [27.3050, 88.8260], "day": "Day 3"},
-                {"name": "Kupup (Elephant Lake)", "coords": [27.3621, 88.8378], "day": "Day 3"},
-                {"name": "Lampokhari Lake (Aritar)", "coords": [27.1883, 88.6144], "day": "Day 4"}
-             ]'>
+<!-- ── MAP ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>& Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[27.2600, 88.7500]" data-zoom="11" data-spots='[
+        {"name": "Rishikhola River", "coords": [27.1685, 88.6366], "day": "Day 1"},
+        {"name": "Padamchen", "coords": [27.2471, 88.6833], "day": "Day 2"},
+        {"name": "Zuluk Zig-Zag", "coords": [27.2515, 88.7772], "day": "Day 3"},
+        {"name": "Gnathang Valley", "coords": [27.3050, 88.8260], "day": "Day 3"},
+        {"name": "Kupup (Elephant Lake)", "coords": [27.3621, 88.8378], "day": "Day 3"},
+        {"name": "Lampokhari Lake (Aritar)", "coords": [27.1883, 88.6144], "day": "Day 4"}
+    ]'></div>
+</section>
+
+<!-- ── BOOKING BAR ── -->
+<section class="booking-bar">
+    <div class="package-info">
+        <span>Package</span>
+        <h3>Silk Route: The Legacy Loop</h3>
+    </div>
+    <div class="price-info">
+        <span>Starting From</span>
+        <div class="price-display">
+            <span class="price-amount">₹7,999</span>
+            <span class="price-unit">/ Person</span>
         </div>
-    </section>
+    </div>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Sikkim%20Old%20Silk%20Route%20package%20starting%20from%20₹7,999.%20Please%20share%20details." target="_blank" class="btn-main" style="text-decoration:none;">Contact for Booking →</a>
+</section>
 
-    <section class="booking-bar">
-        <div class="package-info">
-            <span>PACKAGE</span>
-            <h3 id="package-name">Silk Route: The Legacy Loop</h3>
-        </div>
-        <div class="price-info">
-            <span>STARTING FROM</span>
-            <div class="price-display">
-                <span class="price-amount">INR 7,999</span>
-                <span class="price-unit">/ Person</span>
-            </div>
-        </div>
-        <a href="#" id="whatsapp-btn" class="btn-main" style="text-decoration: none;">CONTACT FOR BOOKING</a>
-    </section>
+<!-- ── FOOTER ── -->
+<footer>
+    <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
+</footer>
 
-    <footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-        <p>&copy; 2026 The Adventure Awaits Co.</p>
-    </footer>
-
-    
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <div id="footer-placeholder"></div>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/kashmir-slider.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/kashmir-slider.js"></script>
 </body>
-
 </html>

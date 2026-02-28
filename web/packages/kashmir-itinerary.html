@@ -1,182 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kashmir Itinerary - 6 Days of Paradise</title>
+    <title>Kashmir: Heaven on Earth | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/itinerary-template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <section class="itinerary-hero">
-        <div class="hero-slider" id="heroSlider">
-            <div class="slide active" style="background-image: url('../assets/images/kashmir/kashmir1.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir2.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir3.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir4.jpg');"></div>
-            <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir5.jpg');"></div>
-        </div>
-        <div class="bottom-fade"></div>
-        <div class="hero-controls">
-            <button class="nav-arrow left" id="heroPrev">❮</button>
-            <button class="nav-arrow right" id="heroNext">❯</button>
-        </div>
-        <div class="hero-content">
-            <h1>Heaven on <span>Earth</span></h1>
-            <p>6 Days / 5 Nights: The Crown of Kashmir</p>
-        </div>
-    </section>
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
 
-    <section class="itinerary-details" id="itinerary-start">
-        <div class="container-wide">
-            <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
-            <p class="itinerary-subtitle">Jammu to Jammu | Detailed Experience</p>
+<!-- ── HERO ── -->
+<section class="itinerary-hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image: url('../assets/images/kashmir/kashmir1.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir2.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir3.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir4.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/kashmir/kashmir5.jpg');"></div>
+    </div>
+    <div class="bottom-fade"></div>
+    <div class="hero-controls">
+        <button class="nav-arrow left" id="heroPrev">❮</button>
+        <button class="nav-arrow right" id="heroNext">❯</button>
+    </div>
+    <div class="hero-content">
+        <p>6 Days / 5 Nights — Jammu to Jammu</p>
+        <h1>Heaven on<span>Earth</span></h1>
+    </div>
+</section>
 
-            <div class="itinerary-split-grid">
+<!-- ── ITINERARY ── -->
+<section class="itinerary-details">
+    <div class="container-wide">
+        <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+        <p class="itinerary-subtitle">Jammu to Jammu | Detailed Experience</p>
 
-                <div class="timeline-side">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 01</div>
-                            <div class="timeline-content">
-                                <h3>Arrival in Jammu | Transfer to Srinagar</h3>
-                                <p>Meet our representative at Jammu and proceed towards Srinagar. Enjoy a <strong>Stay
-                                        at cozy Houseboat with Complimentary 1 Hr Shikara Ride</strong> on Dal Lake.</p>
-                            </div>
-                        </div>
+        <div class="itinerary-split-grid">
+            <div class="timeline-side">
+                <div class="timeline">
 
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 02</div>
-                            <div class="timeline-content">
-                                <h3>Srinagar Local Sightseeing</h3>
-                                <p>Visit the famous Mughal Gardens: <strong>Nishat Bagh</strong> and <strong>Shalimar
-                                        Bagh</strong>. Later, visit the historic Shankaracharya Temple for a panoramic
-                                    view.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 03</div>
-                            <div class="timeline-content">
-                                <h3>Gulmarg – The Meadow of Flowers</h3>
-                                <p>Full-day excursion to Gulmarg. Explore high-altitude meadows and pine forests.
-                                    Optional Gondola Cable Car ride to Apharwat peaks.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 04</div>
-                            <div class="timeline-content">
-                                <h3>Sonamarg – The Meadow of Gold</h3>
-                                <p>Full-day trip to Sonamarg along the Sindh River. Visit the <strong>Thajiwas
-                                        Glacier</strong> by hiring a local pony or trekking.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 05</div>
-                            <div class="timeline-content">
-                                <h3>Srinagar to Pahalgam</h3>
-                                <p>Drive to Pahalgam, stopping at Saffron Fields. Explore the <strong>ABC
-                                        Valleys</strong> (Aru, Betaab, and Chandanwari) via local Union Taxi.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Day 06</div>
-                            <div class="timeline-content">
-                                <h3>Baisaran Valley | Return to Jammu</h3>
-                                <p>Experience a Pony Ride to Baisaran Valley (Mini Switzerland). Begin the return
-                                    journey for drop-off at Jammu.</p>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 01</div>
+                        <div class="timeline-content">
+                            <h3>Arrival in Jammu | Transfer to Srinagar</h3>
+                            <p>Meet our representative at Jammu and proceed towards Srinagar. Enjoy a <strong>Stay at cozy Houseboat with Complimentary 1 Hr Shikara Ride</strong> on Dal Lake.</p>
                         </div>
                     </div>
-                </div>
 
-
-
-
-                <div class="itinerary-summary">
-                    <div class="summary-card">
-                        <div class="card-tab">Inclusions</div>
-                        <ul>
-                            <li><span class="inc-icon">✓</span> 1 Night Stay At Houseboat (Sikara Ride)</li>
-                            <li><span class="inc-icon">✓</span> 4 Nights Srinagar & 1 Night Pahalgam</li>
-                            <li><span class="inc-icon">✓</span> Daily Breakfast & Dinner</li>
-                            <li><span class="inc-icon">✓</span> Private Car for all Transfers</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 02</div>
+                        <div class="timeline-content">
+                            <h3>Srinagar Local Sightseeing</h3>
+                            <p>Visit the famous Mughal Gardens: <strong>Nishat Bagh</strong> and <strong>Shalimar Bagh</strong>. Later, visit the historic Shankaracharya Temple for a panoramic view.</p>
+                        </div>
                     </div>
 
-                    <div class="summary-card">
-                        <div class="card-tab" style="background: #333;">Exclusions</div>
-                        <ul>
-                            <li><span class="exc-icon">✕</span> Lunch & Personal Expenses</li>
-                            <li><span class="exc-icon">✕</span> Local Union Cabs (Pahalagam/Sonamarg)</li>
-                            <li><span class="exc-icon">✕</span> Gondola Tickets & Entry Fees</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 03</div>
+                        <div class="timeline-content">
+                            <h3>Gulmarg – The Meadow of Flowers</h3>
+                            <p>Full-day excursion to Gulmarg. Explore high-altitude meadows and pine forests. Optional Gondola Cable Car ride to Apharwat peaks.</p>
+                        </div>
                     </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 04</div>
+                        <div class="timeline-content">
+                            <h3>Sonamarg – The Meadow of Gold</h3>
+                            <p>Full-day trip to Sonamarg along the Sindh River. Visit the <strong>Thajiwas Glacier</strong> by hiring a local pony or trekking.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 05</div>
+                        <div class="timeline-content">
+                            <h3>Srinagar to Pahalgam</h3>
+                            <p>Drive to Pahalgam, stopping at Saffron Fields. Explore the <strong>ABC Valleys</strong> (Aru, Betaab, and Chandanwari) via local Union Taxi.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 06</div>
+                        <div class="timeline-content">
+                            <h3>Baisaran Valley | Return to Jammu</h3>
+                            <p>Experience a Pony Ride to Baisaran Valley (Mini Switzerland). Begin the return journey for drop-off at Jammu.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-    </section>
-    </section>
 
-    <section class="itinerary-map-container" style="padding: 60px 8%; background: var(--bg-dark);">
-        <h2 style="color: var(--accent-color); margin-bottom: 30px; font-size: 2rem;">Visual Route & Sightseeing</h2>
-
-        <div id="map" data-center="[34.1200, 74.8500]" data-zoom="9" data-spots='[
-        {"name": "Dal Lake", "coords": [34.0837, 74.7973], "day": "Srinagar"},
-        {"name": "Nishat Bagh", "coords": [34.1250, 74.8811], "day": "Srinagar"},
-        {"name": "Shalimar Bagh", "coords": [34.1424, 74.8796], "day": "Srinagar"},
-        {"name": "Shankaracharya Temple", "coords": [34.0728, 74.8430], "day": "Srinagar"},
-        {"name": "Gulmarg Gondola", "coords": [34.0484, 74.3805], "day": "Gulmarg"},
-        {"name": "Strawberry Valley", "coords": [34.0550, 74.3900], "day": "Gulmarg"},
-        {"name": "Thajiwas Glacier", "coords": [34.2950, 75.3050], "day": "Sonamarg"},
-        {"name": "Baltal Valley", "coords": [34.2544, 75.4147], "day": "Sonamarg"},
-        {"name": "Saffron Fields", "coords": [34.0150, 74.9300], "day": "En Route Pahalgam"},
-        {"name": "Awantipora Ruins", "coords": [33.9232, 75.0128], "day": "En Route Pahalgam"},
-        {"name": "Betaab Valley (ABC Valley)", "coords": [34.0481, 75.3283], "day": "Pahalgam"},
-        {"name": "Aru Valley (ABC Valley)", "coords": [34.0881, 75.2639], "day": "Pahalgam"},
-        {"name": "Chandanwari (ABC Valley)", "coords": [34.0100, 75.3200], "day": "Pahalgam"},
-        {"name": "Baisaran Valley (Mini Kashmir)", "coords": [34.0036, 75.3336], "day": "Pahalgam"},
-        {"name": "Lidder River Point", "coords": [34.0112, 75.3169], "day": "Pahalgam"}
-     ]'>
-        </div>
-    </section>
-    <section class="booking-bar">
-        <div class="package-info">
-            <span>PACKAGE</span>
-            <h3 id="package-name">Kashmir: Heaven on Earth</h3>
-        </div>
-        <div class="price-info">
-            <span>STARTING FROM</span>
-            <div class="price-display">
-                <span class="price-amount">INR 24,999</span>
-                <span class="price-unit">/ Person</span>
+            <div class="itinerary-summary">
+                <div class="summary-card">
+                    <div class="card-tab">Inclusions</div>
+                    <ul>
+                        <li><span class="inc-icon">✓</span> 1 Night Stay At Houseboat (Shikara Ride)</li>
+                        <li><span class="inc-icon">✓</span> 4 Nights Srinagar & 1 Night Pahalgam</li>
+                        <li><span class="inc-icon">✓</span> Daily Breakfast & Dinner</li>
+                        <li><span class="inc-icon">✓</span> Private Car for all Transfers</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <div class="card-tab" style="background: #333;">Exclusions</div>
+                    <ul>
+                        <li><span class="exc-icon">✕</span> Lunch & Personal Expenses</li>
+                        <li><span class="exc-icon">✕</span> Local Union Cabs (Pahalgam/Sonamarg)</li>
+                        <li><span class="exc-icon">✕</span> Gondola Tickets & Entry Fees</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <a href="#" id="whatsapp-btn" class="btn-main" style="text-decoration: none;">CONTACT FOR BOOKING</a>
-    </section>
+    </div>
+</section>
 
-    <footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-        <p>&copy; 2026 The Adventure Awaits Co.</p>
-    </footer>
+<!-- ── MAP ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>& Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[34.1200, 74.8500]" data-zoom="9" data-spots='[
+        {"name": "Dal Lake", "coords": [34.0837, 74.7973], "day": "Day 1"},
+        {"name": "Nishat Bagh", "coords": [34.1250, 74.8811], "day": "Day 2"},
+        {"name": "Shalimar Bagh", "coords": [34.1424, 74.8796], "day": "Day 2"},
+        {"name": "Shankaracharya Temple", "coords": [34.0728, 74.8430], "day": "Day 2"},
+        {"name": "Gulmarg Gondola", "coords": [34.0484, 74.3805], "day": "Day 3"},
+        {"name": "Thajiwas Glacier", "coords": [34.2950, 75.3050], "day": "Day 4"},
+        {"name": "Saffron Fields", "coords": [34.0150, 74.9300], "day": "Day 5"},
+        {"name": "Betaab Valley", "coords": [34.0481, 75.3283], "day": "Day 5"},
+        {"name": "Aru Valley", "coords": [34.0881, 75.2639], "day": "Day 5"},
+        {"name": "Baisaran Valley", "coords": [34.0036, 75.3336], "day": "Day 6"}
+    ]'></div>
+</section>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <div id="footer-placeholder"></div>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/kashmir-slider.js"></script>
+<!-- ── BOOKING BAR ── -->
+<section class="booking-bar">
+    <div class="package-info">
+        <span>Package</span>
+        <h3>Kashmir: Heaven on Earth</h3>
+    </div>
+    <div class="price-info">
+        <span>Starting From</span>
+        <div class="price-display">
+            <span class="price-amount">₹24,999</span>
+            <span class="price-unit">/ Person</span>
+        </div>
+    </div>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Kashmir%20Heaven%20on%20Earth%20package%20starting%20from%20₹24,999.%20Please%20share%20details." target="_blank" class="btn-main" style="text-decoration:none;">Contact for Booking →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/kashmir-slider.js"></script>
 </body>
-
 </html>
