@@ -4,25 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Adventure Awaits Co | Futuristic Budget Travel India</title>
+    <title>The Adventure Awaits Co | Budget Travel India | Barasat, Kolkata</title>
 
     <link rel="icon" type="image/png" href="assets/logo/logo.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 
-<nav class="glass-nav">
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
     <div class="logo">
         <a href="#home" class="logo-link">
-            <img src="assets/logo/logo-w.png" alt="Logo" id="main-logo">
-            <div class="logo-text">The Adventure <span>Awaits Co.</span></div>
+            <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
         </a>
     </div>
 
-    <button class="menu-toggle" id="mobile-menu">
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -31,45 +32,91 @@
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="destinations.html">Destinations</a></li>
-        <li><a href="#calculator">Budget Tool</a></li>
+        <li><a href="#enquiry">Book Now</a></li>
         <li><a href="about.html">Our Story</a></li>
     </ul>
+
+    <a href="#enquiry" class="nav-cta-btn">Get Free Quote</a>
 </nav>
 
+<!-- ── HERO ── -->
 <section id="home" class="hero">
-    <div class="video-container" style="background: #000;">
+    <div class="video-container">
         <video autoplay muted loop playsinline preload="auto" class="hero-video" id="mainVideo">
             <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
+        <div class="hero-eyebrow reveal-text">Barasat, Kolkata — Budget Travel Experts</div>
         <h1 class="reveal-text">Adventure Within <br><span class="gradient-text">Your Reach.</span></h1>
-        <p>High-touch budget experiences across India. <br>Designed for students, families, and solo explorers.</p>
+        <p>High-touch budget experiences across India.<br>Designed for students, families, and solo explorers.</p>
         <div class="hero-btns">
             <a href="destinations.html" class="btn-main">View Packages</a>
-            <a href="#calculator" class="btn-outline">Estimate Budget</a>
+            <a href="#enquiry" class="btn-outline">Get Free Quote</a>
+        </div>
+    </div>
+    <div class="hero-stats-bar">
+        <div class="h-stat">
+            <span class="h-stat-num" data-target="500">0</span>
+            <span class="h-stat-label">Happy Travelers</span>
+        </div>
+        <div class="h-stat">
+            <span class="h-stat-num" data-target="25">0</span>
+            <span class="h-stat-label">Destinations</span>
+        </div>
+        <div class="h-stat">
+            <span class="h-stat-num">5.0★</span>
+            <span class="h-stat-label">Rated</span>
+        </div>
+        <div class="h-stat">
+            <span class="h-stat-num">₹5,999</span>
+            <span class="h-stat-label">Trips From</span>
         </div>
     </div>
 </section>
 
-<section class="value-prop">
+<!-- ── MARQUEE ── -->
+<div class="marquee-bar">
+    <div class="marquee-inner">
+        <span class="m-item"><span class="m-dot"></span>North Bengal</span>
+        <span class="m-item"><span class="m-dot"></span>Sikkim Silk Route</span>
+        <span class="m-item"><span class="m-dot"></span>Dooars Safari</span>
+        <span class="m-item"><span class="m-dot"></span>Kashmir Awaits</span>
+        <span class="m-item"><span class="m-dot"></span>Kerala Unexplored</span>
+        <span class="m-item"><span class="m-dot"></span>Ladakh Expedition</span>
+        <span class="m-item"><span class="m-dot"></span>Himachal Paradise</span>
+        <span class="m-item"><span class="m-dot"></span>Goa Unexplored</span>
+        <span class="m-item"><span class="m-dot"></span>Budget Travel India</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="m-item"><span class="m-dot"></span>North Bengal</span>
+        <span class="m-item"><span class="m-dot"></span>Sikkim Silk Route</span>
+        <span class="m-item"><span class="m-dot"></span>Dooars Safari</span>
+        <span class="m-item"><span class="m-dot"></span>Kashmir Awaits</span>
+        <span class="m-item"><span class="m-dot"></span>Kerala Unexplored</span>
+        <span class="m-item"><span class="m-dot"></span>Ladakh Expedition</span>
+        <span class="m-item"><span class="m-dot"></span>Himachal Paradise</span>
+        <span class="m-item"><span class="m-dot"></span>Goa Unexplored</span>
+        <span class="m-item"><span class="m-dot"></span>Budget Travel India</span>
+    </div>
+</div>
+
+<!-- ── VALUE PROP ── -->
+<section class="value-prop scroll-reveal">
+    <div class="section-label">How We Work</div>
     <h2>How We <span>Re-imagine</span> Travel</h2>
     <div class="value-grid">
-        <div class="value-card">
+        <div class="value-card scroll-reveal">
             <span class="icon">⛰️</span>
             <h3>Off-Beat Trails</h3>
             <p>We skip the crowded tourist spots to find the secret valleys of Himachal and Ladakh.</p>
         </div>
-
-        <div class="value-card">
+        <div class="value-card scroll-reveal">
             <span class="icon">💳</span>
             <h3>Budget Transparency</h3>
-            <p>No hidden costs. Use our tool to plan a trip that fits your pocket perfectly.</p>
+            <p>No hidden costs. Every rupee accounted for so you travel stress-free and confident.</p>
         </div>
-
-        <div class="value-card">
+        <div class="value-card scroll-reveal">
             <span class="icon">🌿</span>
             <h3>Sustainable Impact</h3>
             <p>We partner with local homestays to ensure your adventure helps the community grow.</p>
@@ -77,86 +124,92 @@
     </div>
 </section>
 
+<!-- ── ONGOING PACKAGES ── -->
 <section class="ongoing-packages">
+    <div class="section-label">Currently Running</div>
     <h2>Ongoing <span>Tour Packages</span></h2>
 
     <div class="scroll-container">
-        <button class="nav-arrow left" id="prevBtn" aria-label="Previous">❮</button>
-        <button class="nav-arrow right" id="nextBtn" aria-label="Next">❯</button>
+        <button class="nav-arrow left" id="prevBtn" aria-label="Previous">&#10094;</button>
+        <button class="nav-arrow right" id="nextBtn" aria-label="Next">&#10095;</button>
 
         <div class="scroll-track" id="scrollTrack">
+
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.pexels.com/photos/34744752/pexels-photo-34744752.jpeg') center/cover;">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/34744752/pexels-photo-34744752.jpeg') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>North Bengal: Tea & Hills</h3>
-                <p class="text-dim">4 N - 5 D | Budget: ₹8,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary" onclick="window.location.href='packages/north-bengal-itinerary.html'">View Full
-                        Itinerary</button>
+                <div class="card-body">
+                    <h3>North Bengal: Tea &amp; Hills</h3>
+                    <p class="text-dim">4 N – 5 D &nbsp;|&nbsp; From ₹7,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="window.location.href='packages/north-bengal-itinerary.html'">View Full Itinerary</button>
+                    </div>
                 </div>
             </div>
 
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.pexels.com/photos/6083324/pexels-photo-6083324.jpeg') center/cover;">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/6083324/pexels-photo-6083324.jpeg') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>Sikkim: The Silk Route</h3>
-                <p class="text-dim">6 N - 7 D | Budget: ₹16,499</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary" onclick="window.location.href='packages/sikkim-old-silk-route.html'">View Full
-                        Itinerary</button>
+                <div class="card-body">
+                    <h3>Sikkim: The Silk Route</h3>
+                    <p class="text-dim">6 N – 7 D &nbsp;|&nbsp; From ₹16,499</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="window.location.href='packages/sikkim-old-silk-route.html'">View Full Itinerary</button>
+                    </div>
                 </div>
             </div>
 
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://northbengaltourism.com/blog/wp-content/uploads/2020/10/Dooars-Tour-Packages.jpg') center/cover;">
+                <div class="card-img" style="background: url('https://northbengaltourism.com/blog/wp-content/uploads/2020/10/Dooars-Tour-Packages.jpg') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>Dooars: Jungle Safari</h3>
-                <p class="text-dim">3 N - 4 D | Budget: ₹7,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary" onclick="window.location.href='packages/dooars-itinerary.html'">View Full
-                        Itinerary</button>
+                <div class="card-body">
+                    <h3>Dooars: Jungle Safari</h3>
+                    <p class="text-dim">3 N – 4 D &nbsp;|&nbsp; From ₹5,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="window.location.href='packages/dooars-itinerary.html'">View Full Itinerary</button>
+                    </div>
                 </div>
             </div>
 
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>Kashmir Awaits</h3>
-                <p class="text-dim">5 N - 6 D | Budget: ₹14,499</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary" onclick="window.location.href='packages/kashmir-itinerary.html'">View Full
-                        Itinerary</button>
+                <div class="card-body">
+                    <h3>Kashmir Awaits</h3>
+                    <p class="text-dim">5 N – 6 D &nbsp;|&nbsp; From ₹14,499</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="window.location.href='packages/kashmir-itinerary.html'">View Full Itinerary</button>
+                    </div>
                 </div>
             </div>
+
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.pexels.com/photos/28890056/pexels-photo-28890056.jpeg') center/cover;">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/28890056/pexels-photo-28890056.jpeg') center/cover;">
                     <span class="badge limited">LIMITED</span>
                 </div>
-                <h3>Kerala Unexplored</h3>
-                <p class="text-dim">4 Days | Budget: ₹6,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary">View Full Itinerary</button>
+                <div class="card-body">
+                    <h3>Kerala Unexplored</h3>
+                    <p class="text-dim">4 Days &nbsp;|&nbsp; From ₹6,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="sendToWhatsApp('Kerala Unexplored','₹6,999')">Enquire Now</button>
+                    </div>
                 </div>
             </div>
 
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
+                <div class="card-img" style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>Ladakh Expedition</h3>
-                <p class="text-dim">7 Days | Budget: ₹14,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary">View Full Itinerary</button>
+                <div class="card-body">
+                    <h3>Ladakh Expedition</h3>
+                    <p class="text-dim">7 Days &nbsp;|&nbsp; From ₹14,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="sendToWhatsApp('Ladakh Expedition','₹14,999')">Enquire Now</button>
+                    </div>
                 </div>
             </div>
 
@@ -164,34 +217,25 @@
                 <div class="card-img" style="background: url('assets/images/mountains/himachal.jpg') center/cover;">
                     <span class="badge ongoing">ONGOING</span>
                 </div>
-                <h3>Himachal Paradise</h3>
-                <p class="text-dim">5 Days | Budget: ₹7,499</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary">View Full Itinerary</button>
+                <div class="card-body">
+                    <h3>Himachal Paradise</h3>
+                    <p class="text-dim">5 Days &nbsp;|&nbsp; From ₹7,499</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="sendToWhatsApp('Himachal Paradise','₹7,499')">Enquire Now</button>
+                    </div>
                 </div>
             </div>
 
             <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.pexels.com/photos/2432269/pexels-photo-2432269.jpeg') center/cover;">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/2432269/pexels-photo-2432269.jpeg') center/cover;">
                     <span class="badge limited">LIMITED</span>
                 </div>
-                <h3>Goa Unexplored</h3>
-                <p class="text-dim">4 Days | Budget: ₹6,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary">View Full Itinerary</button>
-                </div>
-            </div>
-
-            <div class="v-card">
-                <div class="card-img"
-                    style="background: url('https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=1000') center/cover;">
-                    <span class="badge ongoing">ONGOING</span>
-                </div>
-                <h3>Ladakh Expedition</h3>
-                <p class="text-dim">7 Days | Budget: ₹14,999</p>
-                <div class="card-reveal">
-                    <button class="btn-itinerary">View Full Itinerary</button>
+                <div class="card-body">
+                    <h3>Goa Unexplored</h3>
+                    <p class="text-dim">4 Days &nbsp;|&nbsp; From ₹6,999</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="sendToWhatsApp('Goa Unexplored','₹6,999')">Enquire Now</button>
+                    </div>
                 </div>
             </div>
 
@@ -199,70 +243,158 @@
     </div>
 </section>
 
-<section id="calculator" class="value-prop"
-    style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
-    <div class="container" style="max-width: 600px; margin: auto; text-align: center;">
-        <h2 class="gradient-text">Smart Budget Estimator</h2>
-        <p class="text-dim">Get an instant estimate for your Pan-India trip.</p>
-
-        <div class="v-card" style="margin-top: 30px; text-align: left; background: #111;">
-            <div class="input-group" style="margin-bottom:15px;">
-                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
-                    of Days</label>
-                <input type="number" id="days" placeholder="e.g. 5"
-                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
+<!-- ── ENQUIRY FORM (replaces calculator) ── -->
+<section id="enquiry" class="enquiry-section scroll-reveal">
+    <div class="enquiry-inner">
+        <div class="enquiry-info">
+            <div class="section-label">Free Consultation</div>
+            <h2>Plan Your Next <span>Adventure</span></h2>
+            <p>Tell us where you want to go and we'll craft a personalised, budget-optimised itinerary just for you. No hidden charges. No obligation.</p>
+            <div class="enq-features">
+                <div class="enq-feat"><span>✓</span> Reply within 2 hours</div>
+                <div class="enq-feat"><span>✓</span> 100% free consultation</div>
+                <div class="enq-feat"><span>✓</span> Zero hidden charges</div>
+                <div class="enq-feat"><span>✓</span> WhatsApp support 7 days</div>
             </div>
-            <div class="input-group" style="margin-bottom:15px;">
-                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Number
-                    of Travelers</label>
-                <input type="number" id="travelers" placeholder="e.g. 2"
-                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
-            </div>
-            <div class="input-group" style="margin-bottom:20px;">
-                <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:var(--primary-orange);">Travel
-                    Style</label>
-                <select id="type"
-                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #333; background:#000; color:#fff;">
-                    <option value="student">Student (Hostels & Local Transport)</option>
-                    <option value="family">Mid-Range (Hotels & Private Cab)</option>
-                </select>
-            </div>
-            <button onclick="calculateBudget()" class="btn-main"
-                style="width:100%; border:none; cursor:pointer;">Calculate Now</button>
-            <div id="result" style="text-align:center;"></div>
+            <a href="https://wa.me/918420565320" target="_blank" class="whatsapp-direct-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="22" height="22" alt="WA">
+                Chat on WhatsApp
+            </a>
         </div>
+
+        <form class="enquiry-form" id="enquiryForm" onsubmit="submitEnquiry(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone / WhatsApp</label>
+                    <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@example.com">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Destination</label>
+                    <select>
+                        <option value="">Choose destination</option>
+                        <option>North Bengal / Darjeeling</option>
+                        <option>Sikkim Silk Route</option>
+                        <option>Dooars Safari</option>
+                        <option>Kashmir</option>
+                        <option>Ladakh</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Kerala</option>
+                        <option>Goa</option>
+                        <option>Custom / Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Travel Month</label>
+                    <select>
+                        <option value="">Select month</option>
+                        <option>March 2025</option>
+                        <option>April 2025</option>
+                        <option>May 2025</option>
+                        <option>June 2025</option>
+                        <option>July 2025</option>
+                        <option>August 2025</option>
+                        <option>September 2025</option>
+                        <option>October 2025</option>
+                        <option>November 2025</option>
+                        <option>December 2025</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>No. of Travelers</label>
+                    <select>
+                        <option>1 – Solo</option>
+                        <option>2 – Couple / Friends</option>
+                        <option>3 – 5 Persons</option>
+                        <option>6 – 10 Persons</option>
+                        <option>10+ Group</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Budget Per Person</label>
+                    <select>
+                        <option>Under ₹8,000</option>
+                        <option>₹8,000 – ₹15,000</option>
+                        <option>₹15,000 – ₹25,000</option>
+                        <option>Above ₹25,000</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Special Requests (optional)</label>
+                <textarea placeholder="Any special requirements, dietary needs, celebrations..."></textarea>
+            </div>
+            <button type="submit" class="btn-main form-submit-btn" id="submitBtn">
+                <span>Send Enquiry & Get Free Quote →</span>
+            </button>
+        </form>
     </div>
 </section>
 
-<footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-    <p>&copy; 2026 The Adventure Awaits Co.</p>
-</footer>
+<!-- ── FOOTER PLACEHOLDER ── -->
+<div id="footer-placeholder"></div>
 
+<!-- scroll restoration -->
 <script>
-    // 1. Force the browser to stop remembering scroll position
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-
-    // 2. Immediate jump to Site Header (0,0)
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
+    window.addEventListener('load', () => setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 10));
+</script>
 
-    // 3. Delayed jump to account for video/image loading lag
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'instant'
-            });
-        }, 10);
+<!-- counter animation -->
+<script>
+    const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('[data-target]').forEach(el => {
+                    const target = parseInt(el.dataset.target);
+                    if (isNaN(target)) return;
+                    let count = 0;
+                    const inc = Math.ceil(target / 60);
+                    const t = setInterval(() => {
+                        count += inc;
+                        if (count >= target) { count = target; clearInterval(t); }
+                        el.textContent = count + '+';
+                    }, 25);
+                });
+                counterObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    document.addEventListener('DOMContentLoaded', () => {
+        const bar = document.querySelector('.hero-stats-bar');
+        if (bar) counterObs.observe(bar);
     });
 </script>
 
-<div id="footer-placeholder"></div>
+<!-- enquiry form submit -->
+<script>
+    function submitEnquiry(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn').querySelector('span');
+        btn.textContent = '✓ Sent! We\'ll WhatsApp you shortly.';
+        document.getElementById('submitBtn').style.background = 'var(--brown)';
+        setTimeout(() => {
+            btn.textContent = 'Send Enquiry & Get Free Quote →';
+            document.getElementById('submitBtn').style.background = '';
+            e.target.reset();
+        }, 4000);
+    }
+</script>
 
 <script src="assets/js/main.js"></script>
-<script src="assets/js/calculator.js"></script>
 <script src="assets/js/whatsapp-bot.js"></script>
-</body>
 
+</body>
 </html>

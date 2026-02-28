@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Sikkim Wonders: Gangtok, Lachen & Lachung</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/itinerary-template.css">
+</head>
+
+<body>
+
+    <section class="itinerary-hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active" style="background-image: url('../assets/images/north-sikkim/gurudongmar.jpg');"></div>
+            <div class="slide" style="background-image: url('../assets/images/north-sikkim/yumthang.jpg');"></div>
+            <div class="slide" style="background-image: url('../assets/images/north-sikkim/lachen.jpg');"></div>
+        </div>
+        <div class="bottom-fade"></div>
+        <div class="hero-controls">
+            <button class="nav-arrow left" id="heroPrev">❮</button>
+            <button class="nav-arrow right" id="heroNext">❯</button>
+        </div>
+        <div class="hero-content">
+            <h1>North Sikkim <span>Wonders</span></h1>
+            <p>5 Days / 4 Nights: Gangtok, Lachen & Lachung</p>
+        </div>
+    </section>
+
+    <section class="itinerary-details" id="itinerary-start">
+        <div class="container-wide">
+            <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+            <p class="itinerary-subtitle">NJP to NJP | The High-Altitude Alpine Circuit</p>
+
+            <div class="itinerary-split-grid">
+
+                <div class="timeline-side">
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 01</div>
+                            <div class="timeline-content">
+                                <h3>Arrival & Capital Vibes</h3>
+                                <p>Pickup from NJP/Bagdogra. Drive to <strong>Gangtok</strong>. Check-in at the hotel and spend your evening exploring <strong>MG Marg</strong>, the cultural heart of the city.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 02</div>
+                            <div class="timeline-content">
+                                <h3>The High Frontier | Lachen</h3>
+                                <p>Drive to Lachen (8,800 ft). Witness the <strong>Seven Sisters Waterfalls</strong> and <strong>Singhik View Point</strong> for a panoramic view of Mt. Kanchenjunga.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 03</div>
+                            <div class="timeline-content">
+                                <h3>Sacred Waters & Lachung</h3>
+                                <p>Early morning excursion to <strong>Gurudongmar Lake (17,800 ft)</strong>. Traverse through Thangu and Chopta Valley's alpine meadows before heading to Lachung.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 04</div>
+                            <div class="timeline-content">
+                                <h3>Valley of Flowers | Yumthang</h3>
+                                <p>Explore <strong>Yumthang Valley</strong> and its natural Hot Springs. Surrounded by snow-capped peaks, this is Sikkim’s "Valley of Flowers." Return to Gangtok by evening.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Day 05</div>
+                            <div class="timeline-content">
+                                <h3>Farewell to the Mountains</h3>
+                                <p>Final breakfast in Gangtok. Drive back to NJP/Bagdogra with memories of the high Himalayas.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="itinerary-summary">
+                    <div class="summary-card">
+                        <div class="card-tab">Inclusions</div>
+                        <ul>
+                            <li><span class="inc-icon">✓</span> 4 Nights (Gangtok, Lachen, Lachung)</li>
+                            <li><span class="inc-icon">✓</span> Full Meals in North Sikkim</li>
+                            <li><span class="inc-icon">✓</span> Private SUV (NJP to NJP)</li>
+                            <li><span class="inc-icon">✓</span> North Sikkim Permit Assistance</li>
+                            <li><span class="inc-icon">✓</span> Professional Mountain Driver</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-tab" style="background: #333;">Exclusions</div>
+                        <ul>
+                            <li><span class="exc-icon">✕</span> Zero Point / Kala Patthar Extra Costs</li>
+                            <li><span class="exc-icon">✕</span> Lunch & Dinner in Gangtok</li>
+                            <li><span class="exc-icon">✕</span> Personal Expenses & Tips</li>
+                            <li><span class="exc-icon">✕</span> Entry Fees & Camera Charges</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="itinerary-map-container">
+        <h2 style="color: var(--accent-color); margin-bottom: 30px; font-size: 2rem;">Visual Route & Sightseeing</h2>
+        <div id="map" data-center="[27.6000, 88.6000]" data-zoom="10" data-spots='[
+                {"name": "Gangtok", "coords": [27.3314, 88.6138], "day": "Day 1"},
+                {"name": "Lachen", "coords": [27.7167, 88.5577], "day": "Day 2"},
+                {"name": "Gurudongmar Lake", "coords": [28.0258, 88.7097], "day": "Day 3"},
+                {"name": "Lachung", "coords": [27.6891, 88.7430], "day": "Day 3"},
+                {"name": "Yumthang Valley", "coords": [27.8268, 88.6979], "day": "Day 4"}
+             ]'>
+        </div>
+    </section>
+
+    <section class="booking-bar">
+        <div class="package-info">
+            <span>PACKAGE</span>
+            <h3 id="package-name">North Sikkim Wonders</h3>
+        </div>
+        <div class="price-info">
+            <span>STARTING FROM</span>
+            <div class="price-display">
+                <span class="price-amount">INR 9,499</span>
+                <span class="price-unit">/ Person</span>
+            </div>
+        </div>
+        <a href="https://wa.me/yournumber" id="whatsapp-btn" class="btn-main" style="text-decoration: none;">CONTACT FOR BOOKING</a>
+    </section>
+
+    <footer style="padding: 50px 8%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p>&copy; 2026 The Adventure Awaits Co.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/kashmir-slider.js"></script>
+</body>
+</html>

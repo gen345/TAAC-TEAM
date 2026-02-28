@@ -1,11 +1,18 @@
 /* --- THE ADVENTURE AWAITS CO. - MASTER DESTINATION STYLES --- */
 
 /* 1. GLOBAL PAGE SETUP */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* THE FIX: Keeps everything inside the screen */
+}
+
 body {
     background-color: #000;
     color: #fff;
-    margin: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    width: 100%;
 }
 
 /* 2. INDIAN FLAG TRICOLOR TEXT EFFECT */
@@ -35,10 +42,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 .search-box {
-    width: 90%;
+    width: 100%;
     max-width: 650px;
     display: flex;
     background: #fff;
@@ -54,6 +62,7 @@ body {
     padding: 0 25px;
     font-size: 1rem;
     color: #333;
+    background: transparent;
 }
 
 .search-btn {
@@ -73,14 +82,15 @@ body {
     background-color: #000;
 }
 
-/* --- 4. PREMIUM 4-COLUMN GRID (Corrected Size) --- */
+/* --- 4. PREMIUM GRID (THE ZOOM FIX) --- */
 .states-section {
     padding: 0 5% 100px 5%;
 }
 
 .states-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Matching the spacing in 'Right' images */
+    /* FIX: 'auto-fit' moves cards to the next row when zooming in */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px 25px;
     max-width: 1400px;
     margin: 0 auto;
@@ -90,8 +100,8 @@ body {
 .state-item {
     background-color: #111;
     padding: 25px;
-    width: 320px;
-    height: 420px;
+    /* Removed fixed width to allow the grid to control size */
+    min-height: 420px;
     border-radius: 25px; 
     text-align: center;
     border: 2px solid transparent; 
@@ -100,7 +110,6 @@ body {
     flex-direction: column;
 }
 
-/* Card Hover: Orange Border Glow */
 .state-item:hover {
     border-color: #ff6b00;
     transform: translateY(-10px);
@@ -134,7 +143,7 @@ body {
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.4s ease;
-    margin-top: 15px;
+    margin-top: auto; /* Pushes button to bottom of card */
 }
 
 .state-item:hover .card-reveal {
@@ -143,14 +152,7 @@ body {
     transform: translateY(0);
 }
 
-
-/* --- 7. THE BUTTON (THE 'RIGHT' LOOK) --- */
-/* --- THE "RIGHT" BUTTON LOOK WITH FIXED MIDDLE COLOR --- */
-
-/* 1. STATE: MOUSE ON CARD (Idle Button) */
-/* This fixes the "No Color in Mid Section" issue */
-/* --- 7. THE BUTTON (MATCHING LADAKH SNAPSHOT & TWO-STAGE HOVER) --- */
-
+/* --- 7. THE BUTTON (VIBRANT GRADIENT) --- */
 .view-btn {
     display: inline-block;
     width: 100%;
@@ -162,100 +164,33 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
-    
-    /* 1. SOLID LOOK: Fills the "Blank Area" immediately upon reveal */
-    /* Using the exact gradient from your Ladakh snapshot/style.css */
     background: linear-gradient(135deg, #ff4d00, #ff8700) !important;
     color: #ffffff !important; 
     border: none !important;
-    
-    /* Subtle shadow for depth */
     box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-/* 2. THE GLOW: When cursor moves from the Card onto the Button itself */
 .view-btn:hover {
-    /* Intense glow and slight lift as requested */
     box-shadow: 0 8px 25px rgba(255, 77, 0, 0.6) !important;
-    transform: translateY(-3px) scale(1.02);
-    filter: brightness(1.1); /* Makes the orange look more vibrant/glowing */
+    transform: scale(1.02);
+    filter: brightness(1.1);
 }
 
-/* 8. RESPONSIVE DESIGN */
-/* --- 8. RESPONSIVE DESIGN & MOBILE OPTIMIZATION --- */
-
-/* TABLETS & SMALL LAPTOPS */
-@media (max-width: 1200px) {
-    .states-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* PHONES & SMALL TABLETS */
+/* --- 8. MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
-    /* 1. Grid: 2 columns is best for mobile so images aren't too small */
     .states-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px;
-        padding: 0 15px 50px 15px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 20px;
     }
 
-    /* 2. Reveal Logic: Force buttons to be VISIBLE on mobile */
-    /* Since mobile has no hover, we show the solid button immediately */
     .card-reveal {
         opacity: 1 !important;
         visibility: visible !important;
         transform: translateY(0) !important;
-        margin-top: 12px;
-    }
-
-    /* 3. Card Styling: Reduce padding to save space */
-    .state-item {
-        padding: 15px;
-        border-radius: 18px;
-        background-color: #111; /* Keep it dark */
-    }
-
-    /* 4. Text Sizes */
-    .state-info h3 {
-        font-size: 1rem;
-        margin: 5px 0;
     }
 
     .tricolor-text {
-        font-size: 2.2rem; /* Scaled down for smaller screens */
-        letter-spacing: 1px;
-    }
-
-    .destinations-hero {
-        height: 35vh;
-    }
-
-    /* 5. Search Box: Make it fit the width */
-    .search-box {
-        width: 95%;
-        padding: 6px;
-    }
-    
-    .search-btn {
-        padding: 15px 20px;
-        font-size: 0.8rem;
-    }
-}
-
-/* VERY SMALL PHONES */
-@media (max-width: 480px) {
-    /* Switch to 1 column so the user can see the beautiful state images clearly */
-    .states-grid { 
-        grid-template-columns: 1fr; 
-        gap: 25px;
-    }
-    
-    .state-item {
-        max-width: 350px;
-        margin: 0 auto; /* Center the single card */
-    }
-
-    .vertical-gap-extra {
-        height: 60px; /* Less empty space on small screens */
+        font-size: 2.2rem;
     }
 }

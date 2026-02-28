@@ -1,57 +1,85 @@
-/* 1. DEFINE THE ANIMATIONS */
+/* ============================================
+   THE ADVENTURE AWAITS CO — ANIMATIONS.CSS
+   ============================================ */
 
-/* Fade in from the bottom */
+/* ── KEYFRAMES ── */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Subtle glow pulse for buttons */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(255, 77, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(232, 97, 26, 0.45); }
+    70%  { box-shadow: 0 0 0 16px rgba(232, 97, 26, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 97, 26, 0); }
 }
 
-/* Text reveal gradient sweep */
 @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
 }
 
-/* 2. APPLY TO CLASSES */
+@keyframes waPulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50%      { box-shadow: 0 4px 40px rgba(37,211,102,0.7); }
+}
+
+/* ── HERO ENTRANCE ── */
+.hero-eyebrow {
+    opacity: 0;
+    animation: fadeInDown 0.8s ease-out 0.2s forwards;
+}
 
 .reveal-text {
-    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.4s forwards;
 }
 
 .hero-content p {
     opacity: 0;
-    animation: fadeInUp 1s ease-out 0.3s forwards; /* 0.3s Delay */
+    animation: fadeInUp 1s ease-out 0.65s forwards;
 }
+
 .hero-btns {
     opacity: 0;
-    animation: fadeInUp 1s ease-out 0.6s forwards; /* 0.6s Delay */
+    animation: fadeInUp 1s ease-out 0.9s forwards;
 }
 
+.hero-stats-bar {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.15s forwards;
+}
+
+/* ── BUTTON PULSE ── */
 .btn-main {
-    animation: pulseGlow 2s infinite;
+    animation: pulseGlow 2.5s infinite;
 }
 
-/* Scroll Reveal Class (We will trigger this with JS later) */
+/* ── SCROLL REVEAL ── */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 .scroll-reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Staggered children inside a revealed parent */
+.scroll-reveal.active .value-card:nth-child(1) { transition-delay: 0.1s; }
+.scroll-reveal.active .value-card:nth-child(2) { transition-delay: 0.25s; }
+.scroll-reveal.active .value-card:nth-child(3) { transition-delay: 0.4s; }
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float {
+    animation: waPulse 2.5s infinite;
+}
+
+/* ── MARQUEE PAUSE ON HOVER (already in style.css, kept for clarity) ── */
+.marquee-inner:hover { animation-play-state: paused; }
