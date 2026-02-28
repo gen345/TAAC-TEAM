@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir Tour Packages | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/category-pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+
+    <!-- ✅ Only this one line changes per state page -->
+    <style>
+        .state-hero-bg { background-image: url('https://images.pexels.com/photos/7792059/pexels-photo-7792059.jpeg'); }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="state-hero">
+    <div class="state-hero-bg"></div>
+    <div class="state-hero-overlay"></div>
+    <div class="state-hero-content">
+        <div class="hero-eyebrow">North India — Paradise on Earth</div>
+        <h1>Kash<span>mir</span></h1>
+        <p>Srinagar · Gulmarg · Pahalgam · Sonmarg · Dal Lake</p>
+    </div>
+</section>
+
+<!-- ── PACKAGES ── -->
+<section class="state-packages">
+    <div class="section-header scroll-reveal">
+        <div class="section-label">Available Packages</div>
+        <h2>Explore <span>Kashmir</span></h2>
+    </div>
+
+    <div class="pkg-grid">
+
+        <div class="v-card scroll-reveal">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
+                <span class="badge ongoing">ONGOING</span>
+            </div>
+            <div class="card-body">
+                <h3>Kashmir Awaits</h3>
+                <p class="text-dim">5 N – 6 D &nbsp;|&nbsp; From ₹14,499</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary" onclick="window.location.href='../packages/kashmir-itinerary.html'">View Full Itinerary</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-card scroll-reveal">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
+                <span class="badge coming-soon">COMING SOON</span>
+            </div>
+            <div class="card-body">
+                <h3>Gulmarg Snow &amp; Skiing</h3>
+                <p class="text-dim">3 N – 4 D &nbsp;|&nbsp; Coming Soon</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary" onclick="sendToWhatsApp('Gulmarg Snow Skiing Kashmir','TBD')">Enquire Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-card scroll-reveal">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
+                <span class="badge coming-soon">COMING SOON</span>
+            </div>
+            <div class="card-body">
+                <h3>Pahalgam Valley Retreat</h3>
+                <p class="text-dim">4 N – 5 D &nbsp;|&nbsp; Coming Soon</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary" onclick="sendToWhatsApp('Pahalgam Valley Retreat Kashmir','TBD')">Enquire Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── ENQUIRY NOTE ── -->
+<section class="state-enquiry-note scroll-reveal">
+    <div class="section-label">Don't See What You Need?</div>
+    <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); color: var(--text); font-weight: 800; margin: 10px 0 14px;">
+        We Craft <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Custom Packages</span> Too
+    </h2>
+    <p>Have a specific destination in Kashmir in mind? Tell us and we'll build a personalised itinerary for you — free of charge.</p>
+    <a href="../index.html#enquiry" class="btn-main">Get Free Custom Quote →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<div id="footer-placeholder"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/whatsapp-bot.js"></script>
+<link rel="stylesheet" href="../css/category-pages.css">
+<script>
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('active');
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>
