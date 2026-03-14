@@ -155,9 +155,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// 7. GENERIC LEAFLET MAP INITIALIZATION
+// 7. GENERIC LEAFLET MAP — lazy load only when map exists on page
 function initGenericMap() {
     const mapEl = document.getElementById('map');
+    if (!mapEl) return; // No map on this page — skip Leaflet entirely
+
+    if (typeof L === 'undefined') {
+        // Dynamically inject Leaflet only on pages that need it
+        const leafletCSS = document.createElement('link');
+        leafletCSS.rel = 'stylesheet';
+        leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(leafletCSS);
+
+        const leafletJS = document.createElement('script');
+        leafletJS.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        leafletJS.onload = () => renderMap(mapEl);
+        document.head.appendChild(leafletJS);
+        return;
+    }
+    renderMap(mapEl);
+}
+
+function renderMap(mapEl) {
     if (!mapEl || typeof L === 'undefined') return;
 
     const spots = JSON.parse(mapEl.dataset.spots);
