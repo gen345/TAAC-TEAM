@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghalaya East & Central Circuit | 5N 6D | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/itinerary-template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="itinerary-hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image: url('https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/2132008/pexels-photo-2132008.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg');"></div>
+    </div>
+    <div class="bottom-fade"></div>
+    <div class="hero-controls">
+        <button class="nav-arrow left" id="heroPrev">❮</button>
+        <button class="nav-arrow right" id="heroNext">❯</button>
+    </div>
+    <div class="hero-content">
+        <p>5 Nights · 6 Days — East &amp; Central Circuit</p>
+        <h1>East &amp; Central<span>Meghalaya</span></h1>
+    </div>
+</section>
+
+<!-- ── TRIP OVERVIEW STRIP ── -->
+<div class="trip-overview">
+    <div class="trip-overview-inner">
+        <div class="trip-stat">
+            <span class="trip-stat-label">Duration</span>
+            <span class="trip-stat-value">5 Nights · 6 Days</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Entry / Exit</span>
+            <span class="trip-stat-value">Guwahati Airport / Station</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Stay Plan</span>
+            <span class="trip-stat-value">1N Shillong + 2N Cherrapunji + 1N Dawki + 1N Jowai</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Transport</span>
+            <span class="trip-stat-value">Innova Crysta</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── HIGHLIGHTS ── -->
+<section class="highlights-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">What Awaits You</div>
+        <h3>Highlights <span>at a Glance</span></h3>
+        <p class="highlights-subtitle">Six unmissable experiences across East &amp; Central Meghalaya</p>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">🌅</div>
+                <div>
+                    <h4>Nongjrong Sunrise</h4>
+                    <p>Breathtaking panoramic sunrise over the Meghalaya plateau — arrive before dawn</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🌊</div>
+                <div>
+                    <h4>Nohkalikai Falls</h4>
+                    <p>India's tallest plunge waterfall at 340m — best viewed in morning light</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🚣</div>
+                <div>
+                    <h4>Dawki River Boating</h4>
+                    <p>Crystal-clear Umngot River with visible riverbed — one of India's most scenic rivers</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🏘️</div>
+                <div>
+                    <h4>Mawlynnong Village</h4>
+                    <p>Asia's cleanest village with bamboo walkways, Living Root Bridge &amp; Balancing Rock</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🕳️</div>
+                <div>
+                    <h4>Krem Chympe Cave</h4>
+                    <p>Raw cave adventure with Jeep Ride included — one of Meghalaya's most thrilling experiences</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🏔️</div>
+                <div>
+                    <h4>Laitlum Canyon</h4>
+                    <p>'End of Hills' — dramatic canyon gorge with sweeping valley views</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ITINERARY ── -->
+<section class="itinerary-details">
+    <div class="container-wide">
+        <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+        <p class="itinerary-subtitle">Guwahati → Shillong → Cherrapunji → Dawki → Jowai → Guwahati</p>
+
+        <div class="itinerary-split-grid">
+            <div class="timeline-side">
+                <div class="timeline">
+
+                    <!-- DAY 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 01</div>
+                        <div class="timeline-content">
+                            <h3>Guwahati → Shillong | Arrival · Lakeside · City Evening</h3>
+                            <ul class="timeline-bullets">
+                                <li>Pickup from <strong>Guwahati Airport / Railway Station</strong> — Begin your Meghalaya journey</li>
+                                <li><strong>Umiam Lake (Barapani)</strong> — Scenic en route stop; serene lakeside views and misty hills</li>
+                                <li><strong>Ward's Lake</strong> — Charming colonial-era garden lake at the heart of Shillong</li>
+                                <li><strong>Police Bazaar</strong> — Shillong's bustling market hub; street food, shopping and evening city vibe</li>
+                                <li>Arrive Shillong — Check-in and overnight rest</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Shillong</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Guwahati to Shillong is approx 3 hrs. Umiam Lake is a great pitstop to stretch. Police Bazaar is liveliest after 5 PM — perfect for a relaxed evening walk.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 02</div>
+                        <div class="timeline-content">
+                            <h3>Nongjrong Sunrise → Laitlum Canyon → Cherrapunji</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Nongjrong Sunrise Point</strong> — Breathtaking panoramic sunrise over the Meghalaya plateau; arrive before dawn</li>
+                                <li><strong>Laitlum Canyon</strong> — 'End of Hills' in Khasi; dramatic canyon gorge with sweeping valley views</li>
+                                <li><strong>Shillong Peak</strong> — Highest point in Meghalaya at 6,449 ft; panoramic city and hill views (ID proof mandatory)</li>
+                                <li><strong>Elephant Falls</strong> — Beautiful 3-tiered waterfall just outside Shillong; lush forested setting</li>
+                                <li>Transfer to <strong>Cherrapunji</strong> — Scenic drive through East Khasi Hills</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Cherrapunji</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Start as early as 5 AM for Nongjrong sunrise. Laitlum is best in the morning before clouds roll in. ID proof is mandatory for Shillong Peak — carry original.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 03</div>
+                        <div class="timeline-content">
+                            <h3>Cherrapunji Local Sightseeing | Waterfalls · Caves · Classic Sohra Circuit</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Seven Sisters Falls</strong> — Iconic 7-segmented seasonal waterfall; most spectacular during and after monsoon</li>
+                                <li><strong>Mawsmai Cave</strong> — Illuminated limestone cave with natural formations; easy walk-through suitable for all</li>
+                                <li><strong>Nohkalikai Falls</strong> — India's tallest plunge waterfall at 340m; best viewed in morning light</li>
+                                <li><strong>Wei Sawdong Falls</strong> — Hidden 3-tier waterfall with emerald pools; steep descent involved (wear grip footwear)</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Cherrapunji</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Pack this day carefully — 4 major spots. Start by 8 AM sharp. Wei Sawdong descent is steep; wear grip footwear. Seven Sisters Falls is seasonal and best Jun–Oct.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 04</div>
+                        <div class="timeline-content">
+                            <h3>Mawlynnong → Dawki River Activities | Cleanest Village · River Fun</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Mawlynnong Village</strong> — Asia's cleanest village; immaculate lanes, bamboo dustbins and community pride</li>
+                                <li><strong>Balancing Rock</strong> — Natural wonder; a giant boulder perfectly balanced on a smaller rock</li>
+                                <li><strong>Single Decker Living Root Bridge</strong> — A living bridge grown from tree roots over centuries; unique bio-engineering</li>
+                                <li><strong>Dawki River Boating</strong> — Crystal-clear Umngot River; the riverbed is visible through the water</li>
+                                <li><strong>Cliff Jumping at Dawki / Shnongpdeng</strong> — Thrilling cliff jump into the emerald river (optional)</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Dawki / Shnongpdeng</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Mawlynnong is closed on Sundays — plan accordingly. Carry a change of clothes for river activities at Dawki. Don't miss sunset at Shnongpdeng.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 05</div>
+                        <div class="timeline-content">
+                            <h3>Krem Chympe Cave → Khaddum Waterfall → Jowai | Cave Adventure · Jaintia Hills</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Krem Chympe Cave</strong> — Raw unlit cave adventure with Jeep Ride included; one of the most thrilling cave experiences in Meghalaya</li>
+                                <li><strong>Khaddum Waterfall</strong> — Beautiful hidden waterfall tucked in the Jaintia Hills; serene and relatively untouched</li>
+                                <li>Drive to <strong>Jowai</strong> — Scenic transfer through East Meghalaya highlands</li>
+                                <li>Arrive Jowai — Check-in and evening local exploration</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Jowai</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Krem Chympe is a raw unlit cave — carry a torch. Not recommended for claustrophobic guests. Start early to reach Jowai comfortably.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 06</div>
+                        <div class="timeline-content">
+                            <h3>Jowai → Guwahati | Departure Day</h3>
+                            <ul class="timeline-bullets">
+                                <li>Check-out from Jowai — Post-breakfast departure</li>
+                                <li>Scenic drive back through the <strong>Meghalaya highlands</strong></li>
+                                <li>Drop at <strong>Guwahati Airport / Railway Station</strong> — Tour ends here with beautiful memories</li>
+                            </ul>
+                            <div class="stay-tag">✈️ Departure — Guwahati</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Start by 7–8 AM from Jowai for a comfortable drive to Guwahati (~4 hrs). Allow extra buffer time during peak season.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SUMMARY CARDS -->
+            <div class="itinerary-summary">
+                <div class="summary-card">
+                    <div class="card-tab">Inclusions</div>
+                    <ul>
+                        <li><span class="inc-icon">✓</span> Accommodation in mentioned hotels on double sharing basis</li>
+                        <li><span class="inc-icon">✓</span> Meals as per plan (MAP) — Breakfast &amp; Dinner daily</li>
+                        <li><span class="inc-icon">✓</span> Private vehicle (Innova Crysta) for all transfers</li>
+                        <li><span class="inc-icon">✓</span> Driver allowance, fuel &amp; parking charges</li>
+                        <li><span class="inc-icon">✓</span> Pickup &amp; drop from Guwahati Airport / Station</li>
+                        <li><span class="inc-icon">✓</span> All toll taxes &amp; driver expenses</li>
+                        <li><span class="inc-icon">✓</span> Jeep Ride for Krem Chympe Cave access</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <div class="card-tab" style="background: var(--brown);">Exclusions</div>
+                    <ul>
+                        <li><span class="exc-icon">✕</span> Airfare / train tickets to/from Guwahati</li>
+                        <li><span class="exc-icon">✕</span> Entry fees for tourist attractions &amp; sightseeing points</li>
+                        <li><span class="exc-icon">✕</span> Personal expenses — laundry, tips, shopping, etc.</li>
+                        <li><span class="exc-icon">✕</span> Meals not mentioned (lunches)</li>
+                        <li><span class="exc-icon">✕</span> Travel insurance &amp; GST (if applicable)</li>
+                        <li><span class="exc-icon">✕</span> Additional sightseeing or extra vehicle usage</li>
+                        <li><span class="exc-icon">✕</span> Costs due to natural calamities or road blockage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TRAVEL TIPS ── -->
+<section class="travel-tips-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">Before You Go</div>
+        <h3>Travel Tips <span>&amp; Essentials</span></h3>
+        <div class="tips-table">
+            <div class="tip-row">
+                <div class="tip-label">🌤️ Best Time</div>
+                <div class="tip-value">October–May for clear skies and waterfalls. Monsoon (Jun–Sep) makes roads risky but Seven Sisters Falls is at its best.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🏘️ Mawlynnong</div>
+                <div class="tip-value">Asia's cleanest village is closed on Sundays — plan Day 4 accordingly.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🕳️ Krem Chympe</div>
+                <div class="tip-value">Raw unlit cave — torch is mandatory. Jeep Ride is arranged. Not recommended for claustrophobic guests.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🚣 Dawki River</div>
+                <div class="tip-value">Boating and river activities at Dawki / Shnongpdeng at extra cost. Carry a change of clothes.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📋 Permits</div>
+                <div class="tip-value">Shillong Peak requires valid Govt. ID proof — carry original, not photocopy.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📶 Connectivity</div>
+                <div class="tip-value">Mobile signal can be weak in Jowai, Dawki and Jaintia Hills. Download offline maps before departure.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🎒 Gear</div>
+                <div class="tip-value">Comfortable grip footwear for caves and Wei Sawdong descent. Light rain jacket recommended year-round.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MAP ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>&amp; Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[25.4000, 91.5000]" data-zoom="8" data-spots="[
+        {&quot;name&quot;: &quot;Guwahati Airport Pickup&quot;, &quot;coords&quot;: [26.1445, 91.7362], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Umiam Lake (Barapani)&quot;, &quot;coords&quot;: [25.6800, 91.8800], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Wards Lake Shillong&quot;, &quot;coords&quot;: [25.5700, 91.8830], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Police Bazaar Shillong&quot;, &quot;coords&quot;: [25.5744, 91.8903], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Nongjrong Sunrise Point&quot;, &quot;coords&quot;: [25.5650, 91.9650], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Laitlum Canyon&quot;, &quot;coords&quot;: [25.5080, 91.9780], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Shillong Peak&quot;, &quot;coords&quot;: [25.5398, 91.8827], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Elephant Falls&quot;, &quot;coords&quot;: [25.5390, 91.8530], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Seven Sisters Falls&quot;, &quot;coords&quot;: [25.2900, 91.7250], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Mawsmai Cave&quot;, &quot;coords&quot;: [25.2710, 91.7330], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Nohkalikai Falls&quot;, &quot;coords&quot;: [25.2685, 91.7160], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Wei Sawdong Falls&quot;, &quot;coords&quot;: [25.2550, 91.7050], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Mawlynnong Village&quot;, &quot;coords&quot;: [25.2030, 91.9340], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Balancing Rock Mawlynnong&quot;, &quot;coords&quot;: [25.2000, 91.9310], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Dawki Umngot River&quot;, &quot;coords&quot;: [25.1950, 92.0280], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Shnongpdeng&quot;, &quot;coords&quot;: [25.1900, 92.0200], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Krem Chympe Cave&quot;, &quot;coords&quot;: [25.4200, 92.2000], &quot;day&quot;: &quot;Day 5&quot;},
+        {&quot;name&quot;: &quot;Khaddum Waterfall&quot;, &quot;coords&quot;: [25.4500, 92.1800], &quot;day&quot;: &quot;Day 5&quot;},
+        {&quot;name&quot;: &quot;Jowai&quot;, &quot;coords&quot;: [25.4480, 92.2030], &quot;day&quot;: &quot;Day 5&quot;}
+    ]"></div>
+</section>
+
+<!-- ── BOOKING BAR ── -->
+<section class="booking-bar">
+    <div class="package-info">
+        <span>Package</span>
+        <h3>Meghalaya: East &amp; Central Circuit</h3>
+    </div>
+    <div class="price-info">
+        <span>Starting From</span>
+        <div class="price-display">
+            <span class="price-amount">₹15,999</span>
+            <span class="price-unit">/ Person</span>
+        </div>
+    </div>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Meghalaya%20East%20%26%20Central%20Circuit%20(5N%206D)%20at%20%E2%82%B915%2C999%20per%20person.%20Please%20share%20details." target="_blank" class="btn-main">Contact for Booking →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/kashmir-slider.js"></script>
+<script src="../assets/js/whatsapp-bot.js"></script>
+</body>
+</html>

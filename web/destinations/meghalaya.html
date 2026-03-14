@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/category-pages.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
-
     <!-- ✅ Only this one line changes per state page -->
     <style>
         .state-hero-bg { background-image: url('../assets/images/states/meghalaya.jpg'); }
@@ -57,6 +56,7 @@
 
     <div class="pkg-grid">
 
+        <!-- Package 1: Abode of Clouds 4N5D -->
         <div class="v-card scroll-reveal">
             <div class="card-img" style="background: url('https://images.pexels.com/photos/19469039/pexels-photo-19469039.jpeg') center/cover;">
                 <span class="badge ongoing">ONGOING</span>
@@ -70,21 +70,37 @@
             </div>
         </div>
 
+        <!-- Package 2: Honeymoon 5N6D -->
         <div class="v-card scroll-reveal">
-            <div class="card-img" style="background: url('https://images.pexels.com/photos/27820314/pexels-photo-27820314.jpeg') center/cover;">
-                <span class="badge coming-soon">COMING SOON</span>
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg') center/cover;">
+                <span class="badge limited">HONEYMOON</span>
             </div>
             <div class="card-body">
-                <h3>Dawki &amp; Living Root Bridges</h3>
-                <p class="text-dim">5 N – 6 D &nbsp;|&nbsp; Coming Soon</p>
+                <h3>Meghalaya Honeymoon: The Abode of Clouds</h3>
+                <p class="text-dim">5 N – 6 D &nbsp;|&nbsp; From ₹26,499</p>
                 <div class="card-reveal">
-                    <button class="btn-itinerary" onclick="sendToWhatsApp('Dawki Living Root Bridges Meghalaya','TBD')">Enquire Now</button>
+                    <button class="btn-itinerary" onclick="window.location.href='../packages/meghalaya-honeymoon-itinerary.html'">View Full Itinerary</button>
                 </div>
             </div>
         </div>
 
+        <!-- Package 3: East & Central Circuit 5N6D -->
         <div class="v-card scroll-reveal">
-            <div class="card-img" style="background: url('https://in.pinterest.com/pin/wari-chora-meghalaya--1029354058578295373/') center/cover;">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg') center/cover;">
+                <span class="badge ongoing">ONGOING</span>
+            </div>
+            <div class="card-body">
+                <h3>Meghalaya: East &amp; Central Circuit</h3>
+                <p class="text-dim">5 N – 6 D &nbsp;|&nbsp; From ₹15,999</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary" onclick="window.location.href='../packages/meghalaya-east-circuit-itinerary.html'">View Full Itinerary</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Package 4: Cherrapunji Circuit (Coming Soon) -->
+        <div class="v-card scroll-reveal">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/2132008/pexels-photo-2132008.jpeg') center/cover;">
                 <span class="badge coming-soon">COMING SOON</span>
             </div>
             <div class="card-body">
@@ -114,18 +130,13 @@
 
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/whatsapp-bot.js"></script>
-<link rel="stylesheet" href="../css/category-pages.css">
 <script>
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('active');
-                revealObs.unobserve(e.target);
-            }
+            if (e.isIntersecting) { e.target.classList.add('active'); revealObs.unobserve(e.target); }
         });
     }, { threshold: 0.1 });
     document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el));
 </script>
-
 </body>
 </html>

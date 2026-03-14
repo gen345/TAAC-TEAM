@@ -69,7 +69,7 @@ if (track && prevBtn && nextBtn) {
     nextBtn.addEventListener('click', () => moveSlider('next'));
     prevBtn.addEventListener('click', () => moveSlider('prev'));
 
-    // --- MOBILE TOUCH SWIPE ---
+    // Mobile Touch Swipe
     let startX = 0;
     let isMoving = false;
     track.addEventListener('touchstart', (e) => {
@@ -98,29 +98,31 @@ if (track && prevBtn && nextBtn) {
     });
 }
 
-// 4. GLOBAL FOOTER LOADER (Use this exact code)
-// 4. GLOBAL FOOTER LOADER (Updated for subfolders)
+// 4. GLOBAL FOOTER LOADER
 document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.getElementById('footer-placeholder');
     if (placeholder) {
-        // Check if the current page is inside a subfolder (like /packages/ or /destinations/)
-        const isSubfolder = window.location.pathname.includes('/packages/') || 
-                           window.location.pathname.includes('/destinations/');
-        
-        // If it's a subfolder, add '../' to go up one level to find the components folder
-        const path = isSubfolder ? '../components/footer.html' : 'components/footer.html';
+        // Detect folder depth
+        const path = window.location.pathname;
+        const isSubfolder = path.includes('/packages/') || path.includes('/destinations/');
+        const footerPath = isSubfolder ? '../components/footer.html' : 'components/footer.html';
+        const logoPrefix = isSubfolder ? '../' : '';
 
-        fetch(path) 
+        fetch(footerPath)
             .then(response => {
-                if (!response.ok) throw new Error('Footer not found at ' + path);
+                if (!response.ok) throw new Error('Footer not found at ' + footerPath);
                 return response.text();
             })
             .then(data => {
                 placeholder.innerHTML = data;
+                // ✅ Fix logo path after injection — works locally AND on live site
+                const footerLogo = placeholder.querySelector('.footer-logo');
+                if (footerLogo) {
+                    footerLogo.src = logoPrefix + 'assets/logo/logo-w.png';
+                }
             })
             .catch(err => console.error("Footer load error:", err));
     }
-
 
     // 5. MOBILE MENU TOGGLE
     const menuBtn = document.getElementById('mobile-menu');
@@ -138,87 +140,64 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-}); //6 <--- THIS WAS MISSING AND BREAKING EVERYTHING
+});
 
-/* --- UNIVERSAL WHATSAPP ITINERARY LINK --- */
-document.addEventListener("DOMContentLoaded", function() {
+// 6. UNIVERSAL WHATSAPP ITINERARY LINK
+document.addEventListener("DOMContentLoaded", function () {
     const whatsappBtn = document.getElementById('whatsapp-btn');
     const packageName = document.getElementById('package-name');
-
     if (whatsappBtn && packageName) {
-        // 1. Replace with your actual phone number (include country code, no +)
-        const phoneNumber = "918420565320"; 
-        
-        // 2. Get the text from the H3 tag (e.g., "Kashmir: Heaven on Earth")
+        const phoneNumber = "918420565320";
         const tripTitle = packageName.innerText || packageName.textContent;
-        
-        // 3. Create the encoded message
         const message = encodeURIComponent(`Hi! I'm interested in the ${tripTitle} package. Please share more details.`);
-        
-        // 4. Set the link
         whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${message}`;
-        
-        // 5. Ensure it opens in a new tab
         whatsappBtn.setAttribute('target', '_blank');
     }
 });
+
 // 7. GENERIC LEAFLET MAP INITIALIZATION
 function initGenericMap() {
     const mapEl = document.getElementById('map');
     if (!mapEl || typeof L === 'undefined') return;
 
-    // 1. Parse Data
     const spots = JSON.parse(mapEl.dataset.spots);
-    
-    // 2. Initialize Map (Start at center provided)
     const center = JSON.parse(mapEl.dataset.center);
     const zoom = parseInt(mapEl.dataset.zoom);
     const map = L.map('map').setView(center, zoom);
 
-    // 3. Dark Theme Tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    // 4. Custom Icon (Orange Glow)
     const orangeIcon = L.divIcon({
         className: 'custom-pin',
-        html: `<div style="background:#ff4d00; width:12px; height:12px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 10px #ff4d00;"></div>`,
+        html: `<div style="background:#E8611A; width:12px; height:12px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 10px #E8611A;"></div>`,
         iconSize: [12, 12]
     });
 
-    const latLngs = []; // To store coordinates for the route line
-
-    // 5. Place Markers
+    const latLngs = [];
     spots.forEach(spot => {
-        latLngs.push(spot.coords); // Add to route
-        
+        latLngs.push(spot.coords);
         const marker = L.marker(spot.coords, { icon: orangeIcon }).addTo(map);
-        
-        // Premium Popup
         marker.bindPopup(`
-            <div style="font-family:'Inter',sans-serif; padding:5px;">
-                <strong style="color:#ff4d00;">${spot.day}</strong><br>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:5px;">
+                <strong style="color:#E8611A;">${spot.day}</strong><br>
                 <span style="color:#333; font-weight:700;">${spot.name}</span>
             </div>
         `);
-
-        marker.on('mouseover', function() { this.openPopup(); });
+        marker.on('mouseover', function () { this.openPopup(); });
         marker.on('click', () => { map.flyTo(spot.coords, 13); });
     });
 
-    // 6. Draw the Travel Route (Polyline)
     L.polyline(latLngs, {
-        color: '#ff4d00',
+        color: '#E8611A',
         weight: 2,
         opacity: 0.5,
-        dashArray: '5, 10' // Makes it a dashed line for travel feel
+        dashArray: '5, 10'
     }).addTo(map);
 
-    // 7. AUTO-FIT (The Map will zoom to fit all 15 pins automatically)
     const bounds = L.latLngBounds(latLngs);
     map.fitBounds(bounds, { padding: [50, 50] });
 }
 
-// Call the function
 document.addEventListener('DOMContentLoaded', initGenericMap);
