@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cancellation Policy | The Adventure Awaits Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #E8650A;
+      --orange-lt:   #F5813A;
+      --orange-dk:   #C75508;
+      --cream:       #FDF6EC;
+      --cream-mid:   #F5EAD8;
+      --cream-dark:  #EDD8BB;
+      --ink:         #1C1208;
+      --text:        #3D2B0E;
+      --muted:       #8A6A42;
+      --border:      #E6D5BD;
+      --white:       #FFFFFF;
+      --red:         #C0392B;
+      --red-lt:      #F8D7D4;
+      --amber:       #D97706;
+      --amber-lt:    #FEF3C7;
+      --green:       #16A34A;
+      --green-lt:    #DCFCE7;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.75; }
+
+    .topbar { background: var(--ink); color: rgba(253,246,236,.55); text-align: center; font-size: 12px; letter-spacing: .1em; padding: 7px 20px; text-transform: uppercase; font-weight: 500; }
+    header { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(28,18,8,.06); }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark { width: 40px; height: 40px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 900; flex-shrink: 0; }
+    .logo-text .brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--ink); display: block; }
+    .logo-text .tagline { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-weight: 500; display: block; }
+    .header-badge { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; }
+
+    /* HERO */
+    .hero { background: var(--ink); background-image: radial-gradient(ellipse at 20% 60%, rgba(232,101,10,.18) 0%, transparent 55%); padding: 60px 40px 52px; text-align: center; }
+    .hero-pill { display: inline-block; background: rgba(232,101,10,.15); color: var(--orange-lt); border: 1px solid rgba(232,101,10,.3); padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
+    .hero h1 span { color: var(--orange-lt); font-style: italic; }
+    .hero p { color: rgba(253,246,236,.6); font-size: 15px; max-width: 540px; margin: 0 auto; font-weight: 300; }
+
+    /* BREADCRUMB */
+    .breadcrumb { background: var(--cream-mid); border-bottom: 1px solid var(--border); padding: 10px 40px; font-size: 12px; color: var(--muted); }
+    .breadcrumb a { color: var(--orange); text-decoration: none; }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* WRAP */
+    .page-wrap { max-width: 820px; margin: 0 auto; padding: 52px 24px 80px; }
+
+    /* NOTICE */
+    .notice-banner { background: linear-gradient(135deg, rgba(232,101,10,.1), rgba(232,101,10,.04)); border: 1px solid rgba(232,101,10,.25); border-left: 4px solid var(--orange); border-radius: 8px; padding: 20px 24px; margin-bottom: 40px; display: flex; gap: 16px; align-items: flex-start; }
+    .notice-icon { font-size: 24px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .notice-banner h3 { font-size: 15px; font-weight: 600; color: var(--orange-dk); margin-bottom: 4px; }
+    .notice-banner p { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+    /* SECTION */
+    .section { margin-bottom: 48px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+    .section-title .icon { font-size: 22px; }
+    .section-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; border-bottom: 2px solid var(--cream-dark); padding-bottom: 14px; position: relative; }
+    .section-sub::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 40px; height: 2px; background: var(--orange); }
+    .body-text { font-size: 15px; color: #5A4020; line-height: 1.8; margin-bottom: 14px; }
+    .body-text strong { color: var(--text); }
+
+    /* CANCELLATION TABLE */
+    .cancel-grid { display: grid; gap: 12px; margin: 24px 0; }
+    .cancel-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: box-shadow .2s; position: relative; overflow: hidden; }
+    .cancel-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+    .cancel-card.safe::before { background: var(--green); }
+    .cancel-card.caution::before { background: var(--amber); }
+    .cancel-card.warning::before { background: var(--orange); }
+    .cancel-card.danger::before { background: var(--red); }
+    .cancel-card:hover { box-shadow: 0 4px 16px rgba(28,18,8,.08); }
+    .cancel-card .timeline { min-width: 140px; }
+    .cancel-card .timeline .label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+    .cancel-card .timeline .days { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.1; }
+    .cancel-card .divider { width: 1px; background: var(--border); align-self: stretch; flex-shrink: 0; }
+    .cancel-card .charge { flex: 1; }
+    .cancel-card .charge .pct { font-size: 28px; font-weight: 700; font-family: 'Playfair Display', serif; line-height: 1; margin-bottom: 4px; }
+    .cancel-card.safe .charge .pct { color: var(--green); }
+    .cancel-card.caution .charge .pct { color: var(--amber); }
+    .cancel-card.warning .charge .pct { color: var(--orange); }
+    .cancel-card.danger .charge .pct { color: var(--red); }
+    .cancel-card .charge .desc { font-size: 13px; color: var(--muted); }
+    .cancel-card .badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+    .cancel-card.safe .badge { background: var(--green-lt); color: var(--green); }
+    .cancel-card.caution .badge { background: var(--amber-lt); color: var(--amber); }
+    .cancel-card.warning .badge { background: rgba(232,101,10,.1); color: var(--orange-dk); }
+    .cancel-card.danger .badge { background: var(--red-lt); color: var(--red); }
+
+    /* INFO BOXES */
+    .info-box { border-radius: 10px; padding: 20px 24px; margin: 16px 0; }
+    .info-box.amber { background: var(--amber-lt); border: 1px solid rgba(217,119,6,.25); }
+    .info-box.red { background: var(--red-lt); border: 1px solid rgba(192,57,43,.2); }
+    .info-box.green { background: var(--green-lt); border: 1px solid rgba(22,163,74,.2); }
+    .info-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .info-box.amber h4 { color: var(--amber); }
+    .info-box.red h4 { color: var(--red); }
+    .info-box.green h4 { color: var(--green); }
+    .info-box p, .info-box ul { font-size: 14px; color: var(--text); line-height: 1.7; }
+    .info-box ul { list-style: none; padding: 0; }
+    .info-box ul li { display: flex; gap: 10px; padding: 2px 0; }
+    .info-box ul li::before { content: '→'; flex-shrink: 0; }
+    .info-box.amber ul li::before { color: var(--amber); }
+    .info-box.green ul li::before { color: var(--green); }
+
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+    .step-line { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .step-dot { width: 36px; height: 36px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .step-connector { width: 2px; background: var(--cream-dark); flex: 1; min-height: 24px; margin: 4px 0; }
+    .step-content { padding-bottom: 28px; flex: 1; }
+    .step-content h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; margin-top: 6px; }
+    .step-content p { font-size: 14px; color: #5A4020; line-height: 1.7; }
+
+    /* CONTACT CARD */
+    .contact-card { background: var(--ink); border-radius: 14px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 40px; }
+    .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); margin-bottom: 6px; }
+    .contact-card p { font-size: 14px; color: rgba(253,246,236,.5); }
+    .contact-card .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .contact-card .links a { display: inline-block; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all .2s; }
+    .contact-card .links a.primary { background: var(--orange); color: white; }
+    .contact-card .links a.secondary { background: rgba(255,255,255,.08); color: rgba(253,246,236,.8); border: 1px solid rgba(255,255,255,.1); }
+    .contact-card .links a:hover { opacity: .85; }
+
+    footer { background: var(--ink); color: rgba(253,246,236,.45); text-align: center; padding: 36px 24px; font-size: 13px; }
+    footer .fb { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); margin-bottom: 6px; }
+    footer a { color: var(--orange-lt); text-decoration: none; }
+
+    .btt { position: fixed; bottom: 26px; right: 26px; width: 42px; height: 42px; background: var(--orange); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; box-shadow: 0 4px 16px rgba(232,101,10,.4); opacity: 0; transform: translateY(8px); transition: all .3s; z-index: 200; }
+    .btt.show { opacity: 1; transform: translateY(0); }
+
+    .section { opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s; }
+    .section.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:640px) {
+      header { padding: 14px 20px; } .hero { padding: 44px 20px 36px; } .breadcrumb { padding: 10px 20px; }
+      .cancel-card { flex-wrap: wrap; } .cancel-card .timeline { min-width: unset; } .cancel-card .divider { display: none; }
+      .contact-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">Northeast India · Kashmir · Andaman · Sikkim · North Bengal</div>
+
+<header>
+  <a href="/" class="logo">
+    <div class="logo-mark">A</div>
+    <div class="logo-text">
+      <span class="brand">The Adventure Awaits Co.</span>
+      <span class="tagline">Travel · Explore · Discover</span>
+    </div>
+  </a>
+  <span class="header-badge">Cancellation Policy</span>
+</header>
+
+<section class="hero">
+  <div class="hero-pill">Policy</div>
+  <h1>Cancellation <span>Policy</span></h1>
+  <p>We understand plans change. Here's everything you need to know about cancellations — explained simply and clearly.</p>
+</section>
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span>›</span><a href="/terms.html">Policies</a><span>›</span> Cancellation Policy
+</div>
+
+<div class="page-wrap">
+
+  <div class="notice-banner">
+    <div class="notice-icon">📌</div>
+    <div>
+      <h3>Please read before cancelling</h3>
+      <p>All cancellations must be submitted <strong>in writing</strong> via WhatsApp or email. The date we receive your written request is the official cancellation date. Verbal or phone cancellations are not accepted.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: GUEST CANCELLATION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🙋</span> If You Need to Cancel</div>
+    <p class="section-sub">Cancellation charges based on how much notice you give us</p>
+
+    <p class="body-text">We hate cancellations as much as you do! But if you need to cancel, here's how the charges work. The earlier you let us know, the less you lose.</p>
+
+    <div class="cancel-grid">
+      <div class="cancel-card safe">
+        <div class="timeline">
+          <div class="label">Notice Given</div>
+          <div class="days">30+ days<br><span style="font-size:13px;font-weight:400;color:var(--muted);">before departure</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="charge">
+          <div class="pct">25%</div>
+          <div class="desc">Only the advance / token amount is forfeited</div>
+        </div>
+        <div class="badge">Best Case</div>
+      </div>
+
+      <div class="cancel-card caution">
+        <div class="timeline">
+          <div class="label">Notice Given</div>
+          <div class="days">15–30 days<br><span style="font-size:13px;font-weight:400;color:var(--muted);">before departure</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="charge">
+          <div class="pct">50%</div>
+          <div class="desc">50% of total package cost is charged</div>
+        </div>
+        <div class="badge">Moderate</div>
+      </div>
+
+      <div class="cancel-card warning">
+        <div class="timeline">
+          <div class="label">Notice Given</div>
+          <div class="days">7–14 days<br><span style="font-size:13px;font-weight:400;color:var(--muted);">before departure</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="charge">
+          <div class="pct">75%</div>
+          <div class="desc">75% of total package cost is charged</div>
+        </div>
+        <div class="badge">High Charge</div>
+      </div>
+
+      <div class="cancel-card danger">
+        <div class="timeline">
+          <div class="label">Notice Given</div>
+          <div class="days">Less than 7 days<br><span style="font-size:13px;font-weight:400;color:var(--muted);">or No-Show</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="charge">
+          <div class="pct">100%</div>
+          <div class="desc">Full package cost — no refund applicable</div>
+        </div>
+        <div class="badge">No Refund</div>
+      </div>
+    </div>
+
+    <div class="info-box amber">
+      <h4>⚠️ Peak Season — Special Rules Apply</h4>
+      <p>For tours departing during <strong>Durga Puja, Diwali, Holi, Eid, December 20 – January 5</strong>, and other declared long weekends, cancellation charges may be higher than the standard slabs above. These will be clearly communicated in your booking confirmation.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: COMPANY CANCELLATION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏢</span> If We Cancel the Tour</div>
+    <p class="section-sub">It's rare, but here's our commitment to you</p>
+
+    <p class="body-text">We may need to cancel a tour in exceptional circumstances — such as natural calamities, road closures, political unrest, insufficient group size, or any Force Majeure situation beyond our reasonable control. In such cases, we will:</p>
+
+    <div class="info-box green">
+      <h4>✅ What we offer you if we cancel:</h4>
+      <ul>
+        <li>A <strong>full credit note</strong> valid for 12 months — use it for any future booking</li>
+        <li>OR a <strong>refund</strong> of the amount paid, minus non-recoverable costs already incurred (hotel deposits, permit fees paid, transport advances, etc.)</li>
+        <li>We'll inform you as early as possible and work with you to find the best alternative</li>
+      </ul>
+    </div>
+
+    <div class="info-box red">
+      <h4>❗ Please note:</h4>
+      <p>If you've booked non-refundable flights, trains, or made personal arrangements for the trip, those losses are not covered by us. This is why we strongly recommend <strong>travel insurance</strong> — it can cover such situations.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HOW TO CANCEL -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📝</span> How to Cancel — Step by Step</div>
+    <p class="section-sub">Follow these simple steps to submit a cancellation</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+        <div class="step-content">
+          <h4>Send a written cancellation request</h4>
+          <p>Email us at <a href="mailto:info@theadventureawaitsco.com" style="color:var(--orange);font-weight:600;">info@theadventureawaitsco.com</a> or message us on WhatsApp. Include your booking name, travel dates, and destination.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+        <div class="step-content">
+          <h4>We confirm receipt</h4>
+          <p>We'll acknowledge your cancellation within 24 hours and confirm the applicable charge based on the date we received your request.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-line"><div class="step-dot">3</div><div class="step-connector"></div></div>
+        <div class="step-content">
+          <h4>Refund processed (if applicable)</h4>
+          <p>Any eligible refund will be processed within <strong>7–15 working days</strong> to your original payment method. You'll receive a confirmation once it's initiated.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-line"><div class="step-dot">4</div></div>
+        <div class="step-content">
+          <h4>Consider rescheduling instead!</h4>
+          <p>Before you cancel, ask us about rescheduling. We'd love to help you travel at a better time — often at little to no extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PARTIAL / NO REFUND -->
+  <div class="section">
+    <div class="section-title"><span class="icon">ℹ️</span> Important Things to Know</div>
+    <p class="section-sub">A few more points to keep in mind</p>
+
+    <p class="body-text"><strong>Partial usage:</strong> If you join a tour and leave midway, no refund is applicable for unused services.</p>
+    <p class="body-text"><strong>No-shows:</strong> If you don't show up on the departure day without prior notice, 100% of the package cost is forfeited — no exceptions.</p>
+    <p class="body-text"><strong>GST:</strong> GST paid at the time of booking is non-refundable as per Indian tax laws, regardless of the reason for cancellation.</p>
+    <p class="body-text"><strong>Third-party bookings:</strong> Hotel or activity bookings made directly by you (outside our package) are governed by the respective provider's policies — we cannot intervene.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <div>
+      <h3>Want to reschedule instead?</h3>
+      <p>Talk to us before cancelling — we'll do our best to find a solution!</p>
+      <div class="links">
+        <a href="mailto:info@theadventureawaitsco.com" class="primary">Email Us</a>
+        <a href="refund-policy.html" class="secondary">View Refund Policy →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fb">The Adventure Awaits Co.</div>
+  <p>Barasat, Kolkata, West Bengal &nbsp;·&nbsp; <a href="mailto:theadventurawaitsco@gmail.com">theadventurawaitsco@gmail.com</a></p>
+  <p style="margin-top:6px;">© 2025 The Adventure Awaits Co. All rights reserved.</p>
+</footer>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => document.getElementById('btt').classList.toggle('show', scrollY > 400));
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.07 });
+  document.querySelectorAll('.section').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

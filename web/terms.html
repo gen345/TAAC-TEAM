@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | The Adventure Awaits Co.</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        .tc-hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+            padding: 140px 6% 70px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .tc-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 70% 30%, rgba(232,97,26,0.12) 0%, transparent 60%),
+                        radial-gradient(ellipse at 20% 80%, rgba(212,168,67,0.06) 0%, transparent 50%);
+        }
+        .tc-hero-content { position: relative; z-index: 2; }
+        .tc-hero .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+            color: var(--orange-light); font-weight: 600; margin-bottom: 16px;
+        }
+        .tc-hero .hero-eyebrow::before {
+            content: ''; width: 30px; height: 1px; background: var(--orange-light);
+        }
+        .tc-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--cream); font-weight: 800; margin-bottom: 14px;
+        }
+        .tc-hero h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .tc-hero p {
+            font-size: 13px; color: rgba(253,246,236,0.45);
+            max-width: 500px; margin: 0 auto;
+            line-height: 1.7;
+        }
+        .tc-meta {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 20px;
+            background: rgba(232,97,26,0.12);
+            border: 1px solid rgba(232,97,26,0.2);
+            padding: 8px 18px; border-radius: 2px;
+            font-size: 11px; color: var(--orange-light);
+            letter-spacing: 1px;
+        }
+
+        /* ── BODY ── */
+        .tc-body {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 80px 6% 100px;
+        }
+
+        /* Intro note */
+        .tc-intro {
+            background: var(--cream2, #F5E9D4);
+            border-left: 3px solid var(--orange);
+            border-radius: 0 4px 4px 0;
+            padding: 20px 24px;
+            margin-bottom: 50px;
+            font-size: 13px;
+            color: var(--text, #1A0F07);
+            line-height: 1.8;
+        }
+
+        /* Section */
+        .tc-section { margin-bottom: 44px; }
+        .tc-section-header {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(232,97,26,0.15);
+        }
+        .tc-num {
+            width: 36px; height: 36px; flex-shrink: 0;
+            background: var(--orange);
+            color: #fff;
+            font-size: 13px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 2px;
+        }
+        .tc-section-header h2 {
+            font-size: 1.05rem; font-weight: 800;
+            color: var(--text, #1A0F07);
+            margin: 0; line-height: 1.3;
+        }
+
+        /* Clauses */
+        .tc-clause {
+            margin-bottom: 14px;
+            padding-left: 18px;
+            border-left: 2px solid rgba(232,97,26,0.12);
+            font-size: 13.5px;
+            color: var(--text-light, #5C3317);
+            line-height: 1.85;
+        }
+        .tc-clause strong {
+            color: var(--text, #1A0F07);
+            font-weight: 700;
+        }
+
+        /* Sub list */
+        .tc-list {
+            list-style: none; padding: 0; margin: 10px 0 0 0;
+        }
+        .tc-list li {
+            font-size: 13px;
+            color: var(--text-light, #5C3317);
+            line-height: 1.8;
+            padding: 6px 0 6px 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(232,97,26,0.06);
+        }
+        .tc-list li:last-child { border-bottom: none; }
+        .tc-list li::before {
+            content: '';
+            position: absolute; left: 0; top: 15px;
+            width: 6px; height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+        }
+
+        /* Highlight box */
+        .tc-highlight {
+            background: rgba(232,97,26,0.06);
+            border: 1px solid rgba(232,97,26,0.15);
+            border-radius: 4px;
+            padding: 14px 18px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: var(--text, #1A0F07);
+            line-height: 1.8;
+        }
+        .tc-highlight strong { color: var(--orange-dark, #C04E10); }
+
+        /* Cancellation table */
+        .tc-table {
+            width: 100%; border-collapse: collapse;
+            margin: 14px 0; font-size: 13px;
+        }
+        .tc-table th {
+            background: var(--dark2, #251507);
+            color: var(--orange-light);
+            padding: 10px 14px;
+            text-align: left; font-size: 11px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            font-weight: 700;
+        }
+        .tc-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(232,97,26,0.1);
+            color: var(--text, #1A0F07);
+            vertical-align: top;
+        }
+        .tc-table tr:nth-child(even) td { background: rgba(232,97,26,0.03); }
+        .tc-table tr:last-child td { border-bottom: none; }
+
+        /* Warning box */
+        .tc-warning {
+            background: rgba(192,78,16,0.08);
+            border-left: 3px solid var(--orange-dark, #C04E10);
+            border-radius: 0 4px 4px 0;
+            padding: 14px 18px;
+            margin: 12px 0;
+            font-size: 12.5px;
+            color: var(--brown, #5C3317);
+            line-height: 1.8;
+        }
+        .tc-warning strong { color: var(--orange-dark, #C04E10); }
+
+        /* Footer CTA */
+        .tc-footer-note {
+            margin-top: 60px;
+            background: var(--dark2, #251507);
+            border-radius: 4px;
+            padding: 36px 32px;
+            text-align: center;
+        }
+        .tc-footer-note h3 {
+            font-size: 1.2rem; color: var(--cream);
+            font-weight: 800; margin-bottom: 10px;
+        }
+        .tc-footer-note p {
+            font-size: 13px; color: rgba(253,246,236,0.45);
+            margin-bottom: 20px; line-height: 1.7;
+        }
+        .tc-footer-note .btn-main {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 11px; letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .tc-hero { padding: 110px 5% 50px; }
+            .tc-body { padding: 50px 5% 70px; }
+            .tc-table { font-size: 12px; }
+            .tc-table th, .tc-table td { padding: 8px 10px; }
+            .tc-section-header h2 { font-size: 0.95rem; }
+            .tc-footer-note { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="index.html" class="logo-link">
+            <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="index.html#enquiry">Book Now</a></li>
+        <li><a href="about.html">Our Story</a></li>
+    </ul>
+    <a href="index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="tc-hero">
+    <div class="tc-hero-content">
+        <div class="hero-eyebrow">Legal · Policies · Guidelines</div>
+        <h1>Terms &amp; <span>Conditions</span></h1>
+        <p>Domestic Tour Operations &nbsp;|&nbsp; India Travel Packages</p>
+        <div class="tc-meta">Last Updated: March 2025</div>
+    </div>
+</section>
+
+<!-- ── BODY ── -->
+<div class="tc-body">
+
+    <!-- Intro -->
+    <div class="tc-intro">
+        Please read the following Terms &amp; Conditions carefully before booking any tour package with <strong>The Adventure Awaits Co.</strong> By making a booking or payment, you confirm that you have read, understood, and agree to be bound by these terms in their entirety.
+    </div>
+
+    <!-- 1. Definitions -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">1</div>
+            <h2>Definitions</h2>
+        </div>
+        <div class="tc-clause"><strong>"Company"</strong> refers to The Adventure Awaits Co., a sole proprietorship travel agency registered and operating from Barasat, Kolkata, West Bengal.</div>
+        <div class="tc-clause"><strong>"Package"</strong> refers to any tour, itinerary, or travel service offered by the Company, whether fixed departure or customised.</div>
+        <div class="tc-clause"><strong>"Guest / Client / Traveller"</strong> refers to the individual(s) who has made a booking or on whose behalf a booking has been made.</div>
+        <div class="tc-clause"><strong>"Lead Guest"</strong> refers to the primary contact person who made the booking and is responsible for all communications and payments.</div>
+        <div class="tc-clause"><strong>"Confirmation"</strong> refers to the booking confirmation issued by the Company upon receipt of the advance payment.</div>
+    </div>
+
+    <!-- 2. Booking & Confirmation -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">2</div>
+            <h2>Booking &amp; Confirmation</h2>
+        </div>
+        <div class="tc-clause"><strong>2.1</strong> All bookings must be made in writing (email, WhatsApp, or online booking form). A booking is considered confirmed only after receipt of the advance/token amount and issuance of a written confirmation by the Company.</div>
+        <div class="tc-clause"><strong>2.2</strong> The Lead Guest must be at least 18 years of age and is responsible for providing accurate information for all travellers in the group.</div>
+        <div class="tc-clause"><strong>2.3</strong> Any special requests (dietary needs, room preferences, accessibility requirements) must be communicated at the time of booking. We will make reasonable efforts to accommodate them but cannot guarantee fulfilment.</div>
+        <div class="tc-clause"><strong>2.4</strong> The Company reserves the right to decline any booking at its discretion without being required to give a reason.</div>
+    </div>
+
+    <!-- 3. Payment Terms -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">3</div>
+            <h2>Payment Terms</h2>
+        </div>
+        <div class="tc-clause"><strong>3.1 Advance Payment (Token Amount)</strong><br>A non-refundable advance payment of 25%–50% of the total package cost (as specified in the booking quote) is required to confirm the booking.</div>
+        <div class="tc-clause"><strong>3.2 Balance Payment</strong><br>The balance payment must be cleared as per the schedule mentioned in the booking confirmation, and in any case no later than <strong>15 days prior to departure</strong>, unless otherwise agreed in writing.</div>
+        <div class="tc-clause"><strong>3.3 Last-Minute Bookings</strong><br>For bookings made within 15 days of the departure date, <strong>100% of the tour cost</strong> must be paid at the time of booking.</div>
+        <div class="tc-clause"><strong>3.4 Payment Modes</strong><br>Payments may be made via bank transfer (NEFT/IMPS/UPI) or as communicated by the Company. All payments must be made in Indian Rupees (INR).</div>
+        <div class="tc-clause"><strong>3.5 Payment Confirmation</strong><br>Payments are considered received only after full clearance of the transaction. Please share a payment screenshot or UTR number immediately after transfer.</div>
+    </div>
+
+    <!-- 4. Pricing & Inclusions -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">4</div>
+            <h2>Pricing &amp; Inclusions</h2>
+        </div>
+        <div class="tc-clause"><strong>4.1</strong> All package prices are as mentioned in the respective itinerary/quotation document. Prices are subject to change without prior notice until a booking is confirmed.</div>
+        <div class="tc-clause"><strong>4.2</strong> The Company reserves the right to revise prices in case of significant changes in fuel costs, government taxes, permit fees, or force majeure circumstances.</div>
+        <div class="tc-clause"><strong>4.3</strong> Unless explicitly stated in writing, package prices do <strong>NOT</strong> include:</div>
+        <ul class="tc-list">
+            <li>Airfare / train tickets / any inter-city transport to and from the origin city</li>
+            <li>Personal expenses such as laundry, telephone, room service, tips, and gratuities</li>
+            <li>Travel insurance</li>
+            <li>Entry fees to monuments, national parks, or protected areas (unless specified)</li>
+            <li>Any meals not mentioned in the inclusions</li>
+            <li>GST / applicable taxes (unless stated as inclusive)</li>
+            <li>Costs arising from delays due to weather, road conditions, strikes, or natural calamities</li>
+        </ul>
+        <div class="tc-clause"><strong>4.4</strong> The Company may offer group discounts or promotional prices at its sole discretion. Such offers may be withdrawn at any time without notice.</div>
+    </div>
+
+    <!-- 5. Cancellation Policy -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">5</div>
+            <h2>Cancellation Policy</h2>
+        </div>
+        <div class="tc-clause"><strong>5.1 Cancellation by the Guest</strong><br>All cancellation requests must be made in writing (email / WhatsApp). The date of receipt shall be considered the cancellation date.</div>
+
+        <table class="tc-table">
+            <thead>
+                <tr>
+                    <th>Days Before Departure</th>
+                    <th>Cancellation Charge</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>More than 30 days</td>
+                    <td>Advance/token forfeited (up to 25% of total cost)</td>
+                </tr>
+                <tr>
+                    <td>15 – 30 days</td>
+                    <td>50% of total package cost</td>
+                </tr>
+                <tr>
+                    <td>7 – 14 days</td>
+                    <td>75% of total package cost</td>
+                </tr>
+                <tr>
+                    <td>Less than 7 days</td>
+                    <td>100% — No Refund</td>
+                </tr>
+                <tr>
+                    <td>No-show (no communication)</td>
+                    <td>100% — No Refund</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tc-warning"><strong>Peak Season Note:</strong> For departures during December 20 – January 5, Durga Puja, Diwali, Eid, Holi, and long weekends, cancellation charges may be higher and will be communicated at the time of booking.</div>
+
+        <div class="tc-clause" style="margin-top:16px;"><strong>5.2 Cancellation by the Company</strong><br>The Company reserves the right to cancel a tour due to insufficient group size, natural calamities, political unrest, or Force Majeure events. In such cases, the Company will offer:</div>
+        <ul class="tc-list">
+            <li>A full credit note valid for 12 months for a future booking, OR</li>
+            <li>A refund of the amount paid after deducting non-recoverable costs already incurred (hotel deposits, permit fees, transport advances, etc.)</li>
+        </ul>
+        <div class="tc-highlight">The Company shall not be liable for additional costs incurred by the Guest such as <strong>non-refundable air tickets, personal bookings, or consequential losses.</strong></div>
+    </div>
+
+    <!-- 6. Refund Policy -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">6</div>
+            <h2>Refund Policy</h2>
+        </div>
+        <div class="tc-clause"><strong>6.1</strong> Eligible refunds will be processed within <strong>7–15 working days</strong> of approval, subject to deduction of applicable cancellation charges and non-recoverable third-party costs.</div>
+        <div class="tc-clause"><strong>6.2</strong> Refunds will be made only to the original payment source (bank account / UPI used for payment).</div>
+        <div class="tc-clause"><strong>6.3</strong> Refunds shall not apply to services partially used or any benefits not availed during the tour.</div>
+        <div class="tc-clause"><strong>6.4</strong> All GST paid on cancelled bookings is non-refundable as per applicable tax laws.</div>
+    </div>
+
+    <!-- 7. Changes & Amendments -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">7</div>
+            <h2>Changes &amp; Amendments</h2>
+        </div>
+        <div class="tc-clause"><strong>7.1</strong> Any changes to a confirmed booking (dates, travellers, destinations, hotel category) must be requested in writing.</div>
+        <div class="tc-clause"><strong>7.2</strong> Changes are subject to availability and may attract additional costs. Amendment fees of <strong>₹500 per person per change request</strong> may apply.</div>
+        <div class="tc-clause"><strong>7.3</strong> The Company reserves the right to modify itineraries, substitute hotels with equivalent alternatives, or alter transport arrangements due to operational reasons, weather, or road conditions. No refund will apply for such changes.</div>
+    </div>
+
+    <!-- 8. Travel Documents & Permits -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">8</div>
+            <h2>Travel Documents &amp; Permits</h2>
+        </div>
+        <div class="tc-clause"><strong>8.1</strong> It is the sole responsibility of the Guest to carry all necessary valid identity documents (Aadhaar, Voter ID, Passport, or any other government-approved ID).</div>
+        <div class="tc-clause"><strong>8.2</strong> For destinations requiring permits (Sikkim Inner Line, Andaman Entry, Restricted Areas, etc.), the Company will assist provided documents are submitted well in advance. The Company is not responsible for denial of permits by authorities.</div>
+        <div class="tc-clause"><strong>8.3</strong> All guests must carry at least 2 passport-size photographs and a clear copy of their government-issued photo ID.</div>
+        <div class="tc-clause"><strong>8.4</strong> Foreign nationals or OCI cardholders must ensure compliance with all applicable visa and permit regulations.</div>
+    </div>
+
+    <!-- 9. Accommodation -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">9</div>
+            <h2>Accommodation</h2>
+        </div>
+        <div class="tc-clause"><strong>9.1</strong> Hotels, homestays, camps, or guesthouses in the itinerary are subject to availability. Alternatives of similar category will be arranged at no extra cost if needed.</div>
+        <div class="tc-clause"><strong>9.2</strong> Standard check-in is <strong>2:00 PM</strong> and check-out is <strong>11:00 AM</strong>. Early check-in or late check-out is subject to availability and may incur extra charges payable at the property.</div>
+        <div class="tc-clause"><strong>9.3</strong> Any damage caused to hotel property by the Guest will be the Guest's personal financial responsibility.</div>
+        <div class="tc-clause"><strong>9.4</strong> The Company acts as an agent between Guest and accommodation providers and is not responsible for quality or safety of third-party accommodations beyond the contracted standard.</div>
+    </div>
+
+    <!-- 10. Transport & Vehicle -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">10</div>
+            <h2>Transport &amp; Vehicle</h2>
+        </div>
+        <div class="tc-clause"><strong>10.1</strong> Ground transport will be arranged as per the itinerary. Vehicle type depends on group size and terrain.</div>
+        <div class="tc-clause"><strong>10.2</strong> All vehicles are driven by licensed local drivers. The Company is not responsible for mechanical breakdowns or delays caused by road conditions or traffic.</div>
+        <div class="tc-clause"><strong>10.3</strong> Guests must follow the driver's safety instructions, especially on mountain roads. The Company holds no liability for accidents caused by Guest negligence.</div>
+        <div class="tc-clause"><strong>10.4</strong> Vehicle usage is strictly limited to the itinerary route. Additional usage will be charged extra and payable directly to the driver/operator.</div>
+    </div>
+
+    <!-- 11. Health, Safety & Fitness -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">11</div>
+            <h2>Health, Safety &amp; Fitness</h2>
+        </div>
+        <div class="tc-clause"><strong>11.1</strong> The Guest declares they are in good health and physically fit for the chosen tour. It is the Guest's responsibility to assess their own fitness before booking adventure or high-altitude tours.</div>
+        <div class="tc-clause"><strong>11.2</strong> The Company recommends all Guests purchase adequate travel insurance covering medical emergencies, trip cancellation, baggage loss, and evacuation prior to departure.</div>
+        <div class="tc-clause"><strong>11.3</strong> For high-altitude destinations (North Sikkim, Chopta Valley, etc.), Guests are advised to carry personal medications, consult a doctor, and disclose pre-existing conditions. The Company shall not be liable for health complications arising from pre-existing conditions.</div>
+        <div class="tc-clause"><strong>11.4</strong> The Company reserves the right to remove any Guest whose behaviour poses a risk to themselves or the group, without any refund.</div>
+    </div>
+
+    <!-- 12. Code of Conduct -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">12</div>
+            <h2>Code of Conduct</h2>
+        </div>
+        <div class="tc-clause"><strong>12.1</strong> Guests are expected to respect local customs, traditions, and laws of all destinations visited.</div>
+        <div class="tc-clause"><strong>12.2</strong> Consumption of alcohol or intoxicants in a manner that disturbs other guests or endangers safety is strictly prohibited during the tour.</div>
+        <div class="tc-clause"><strong>12.3</strong> The Company promotes responsible and eco-friendly tourism. Guests are requested to minimise plastic use, not litter, and respect flora and fauna.</div>
+        <div class="tc-clause"><strong>12.4</strong> Any discriminatory, abusive, or disrespectful behaviour towards fellow travellers, Company staff, or local residents may lead to immediate removal from the tour without refund.</div>
+    </div>
+
+    <!-- 13. Limitation of Liability -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">13</div>
+            <h2>Limitation of Liability</h2>
+        </div>
+        <div class="tc-clause"><strong>13.1</strong> The Company acts as an organiser and intermediary arranging third-party services. It cannot be held liable for the quality, availability, or safety of third-party services.</div>
+        <div class="tc-clause"><strong>13.2</strong> The Company shall not be responsible for any loss, injury, damage, delay, or inconvenience caused directly or indirectly by:</div>
+        <ul class="tc-list">
+            <li>Acts of God, natural disasters, extreme weather, floods, landslides</li>
+            <li>Political unrest, riots, strikes, epidemics, pandemics</li>
+            <li>Failure of any third-party service provider</li>
+            <li>Accidents, road conditions, mechanical failures</li>
+            <li>Acts or omissions by the Guest</li>
+            <li>Any other Force Majeure event beyond the Company's reasonable control</li>
+        </ul>
+        <div class="tc-highlight"><strong>13.3</strong> In any case, the Company's maximum liability to the Guest shall not exceed the <strong>total amount paid by the Guest</strong> for the tour package.</div>
+    </div>
+
+    <!-- 14. Travel Insurance -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">14</div>
+            <h2>Travel Insurance</h2>
+        </div>
+        <div class="tc-clause"><strong>14.1</strong> The Company strongly recommends all Guests obtain comprehensive travel insurance covering trip cancellation, medical evacuation, personal accident, and baggage loss before the tour commences.</div>
+        <div class="tc-clause"><strong>14.2</strong> The Company does not provide travel insurance and is not responsible for any losses that would otherwise have been covered by appropriate insurance.</div>
+    </div>
+
+    <!-- 15. Complaints & Grievance -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">15</div>
+            <h2>Complaints &amp; Grievance Redressal</h2>
+        </div>
+        <div class="tc-clause"><strong>15.1</strong> Any complaint during the tour must be reported to the Company's representative immediately, giving the Company an opportunity to address the issue.</div>
+        <div class="tc-clause"><strong>15.2</strong> Complaints raised more than <strong>7 days post-return</strong> may not be entertained.</div>
+        <div class="tc-clause"><strong>15.3</strong> For formal complaints, please write to <strong>theadventureawaitsco@gmail.com</strong>. We aim to respond within 5 working days.</div>
+    </div>
+
+    <!-- 16. Privacy & Data -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">16</div>
+            <h2>Privacy &amp; Data</h2>
+        </div>
+        <div class="tc-clause"><strong>16.1</strong> Personal information collected during booking (name, contact, ID details) will be used solely for fulfilling the tour booking and complying with statutory requirements.</div>
+        <div class="tc-clause"><strong>16.2</strong> The Company shall not sell or share personal data with unrelated third parties. Data may be shared with hotels, transport providers, and permit authorities as necessary.</div>
+        <div class="tc-clause"><strong>16.3</strong> By accepting these terms, the Guest grants the Company permission to use photographs or videos taken during group tours for marketing purposes, unless the Guest explicitly opts out in writing before the tour.</div>
+    </div>
+
+    <!-- 17. Governing Law -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">17</div>
+            <h2>Governing Law &amp; Jurisdiction</h2>
+        </div>
+        <div class="tc-clause"><strong>17.1</strong> These Terms &amp; Conditions shall be governed by and construed in accordance with the laws of India.</div>
+        <div class="tc-clause"><strong>17.2</strong> Any disputes shall be subject to the exclusive jurisdiction of the courts in <strong>Kolkata, West Bengal</strong>.</div>
+        <div class="tc-clause"><strong>17.3</strong> Before approaching any court, the parties agree to first attempt to resolve any dispute through good-faith negotiation.</div>
+    </div>
+
+    <!-- 18. Amendments -->
+    <div class="tc-section">
+        <div class="tc-section-header">
+            <div class="tc-num">18</div>
+            <h2>Amendments to Terms</h2>
+        </div>
+        <div class="tc-clause">The Company reserves the right to amend these Terms &amp; Conditions at any time without prior notice. The most current version shall be available on our website. Continued use of our services constitutes acceptance of the revised terms.</div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="tc-footer-note">
+        <h3>Have Questions About These Terms?</h3>
+        <p>We're happy to clarify anything before you book. Reach out to us on WhatsApp or email — we respond within 24 hours.</p>
+        <a href="https://wa.me/918420565320?text=Hi!%20I%20have%20a%20question%20about%20your%20Terms%20%26%20Conditions." target="_blank" class="btn-main">Chat on WhatsApp →</a>
+    </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<div id="footer-placeholder"></div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/whatsapp-bot.js"></script>
+</body>
+</html>
