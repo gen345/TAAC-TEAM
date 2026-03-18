@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Sikkim Delight Tour | 6D 5N | The Adventure Awaits Co</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/itinerary-template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+        </a>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../index.html#enquiry">Book Now</a></li>
+        <li><a href="../about.html">Our Story</a></li>
+    </ul>
+    <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="itinerary-hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg');"></div>
+    </div>
+    <div class="bottom-fade"></div>
+    <div class="hero-controls">
+        <button class="nav-arrow left" id="heroPrev">❮</button>
+        <button class="nav-arrow right" id="heroNext">❯</button>
+    </div>
+    <div class="hero-content">
+        <p>6 Days · 5 Nights — North Sikkim Explorer</p>
+        <h1>North Sikkim<span>Delight Tour</span></h1>
+    </div>
+</section>
+
+<!-- ── TRIP OVERVIEW STRIP ── -->
+<div class="trip-overview">
+    <div class="trip-overview-inner">
+        <div class="trip-stat">
+            <span class="trip-stat-label">Duration</span>
+            <span class="trip-stat-value">6 Days · 5 Nights</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Entry / Exit</span>
+            <span class="trip-stat-value">NJP Railway Station / Bagdogra Airport</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Stay Plan</span>
+            <span class="trip-stat-value">1N Gangtok + 1N Lachen + 2N Lachung + 1N Gangtok</span>
+        </div>
+        <div class="trip-stat">
+            <span class="trip-stat-label">Transport</span>
+            <span class="trip-stat-value">Bolero / Sumo / SUV</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── HIGHLIGHTS ── -->
+<section class="highlights-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">What Awaits You</div>
+        <h3>Highlights <span>at a Glance</span></h3>
+        <p class="highlights-subtitle">Six unmissable experiences across North Sikkim</p>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">🏔️</div>
+                <div>
+                    <h4>Gurudongmar Lake</h4>
+                    <p>One of the world's highest sacred lakes at 17,100 ft — sacred to Buddhists &amp; Sikhs (extra cost)</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🌸</div>
+                <div>
+                    <h4>Yumthang Valley</h4>
+                    <p>The Valley of Flowers of Sikkim at 11,800 ft — alpine meadows, hot springs &amp; river views</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">❄️</div>
+                <div>
+                    <h4>Zero Point</h4>
+                    <p>Last motorable point in North Sikkim at 15,300 ft — snow-covered landscapes (extra cost)</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">💧</div>
+                <div>
+                    <h4>Seven Sisters Waterfall</h4>
+                    <p>Stunning cascade of 7 waterfalls visible from the roadside en route to North Sikkim</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🗻</div>
+                <div>
+                    <h4>Kala Patthar Viewpoint</h4>
+                    <p>Panoramic Himalayan peak views near Gurudongmar — a breathtaking high-altitude experience (extra cost)</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🛍️</div>
+                <div>
+                    <h4>MG Marg, Gangtok</h4>
+                    <p>Vibrant pedestrian boulevard for shopping, street food &amp; Sikkimese souvenirs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ITINERARY ── -->
+<section class="itinerary-details">
+    <div class="container-wide">
+        <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
+        <p class="itinerary-subtitle">NJP / IXB → Gangtok → Lachen → Lachung → Gangtok → NJP / IXB</p>
+
+        <div class="itinerary-split-grid">
+            <div class="timeline-side">
+                <div class="timeline">
+
+                    <!-- DAY 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 01</div>
+                        <div class="timeline-content">
+                            <h3>NJP / IXB → Gangtok | Arrival · Teesta Valley Drive · MG Marg</h3>
+                            <ul class="timeline-bullets">
+                                <li>Pickup from <strong>NJP Railway Station / Bagdogra Airport</strong> — Begin your North Sikkim journey</li>
+                                <li>Scenic drive along the <strong>Teesta River</strong> — Stunning river gorge and mountain views en route</li>
+                                <li>Arrive Gangtok — Check-in at hotel and freshen up</li>
+                                <li>Evening free for leisure / <strong>MG Marg exploration</strong> — Gangtok's vibrant pedestrian boulevard; local food, shopping and city energy</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Gangtok</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> NJP to Gangtok is approx 4–5 hrs on winding mountain roads. Avoid heavy meals before the drive. MG Marg is best explored after 6 PM.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 02</div>
+                        <div class="timeline-content">
+                            <h3>Gangtok → Lachen | Mountain Drive · Waterfalls · Chungthang</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Seven Sisters Waterfall</strong> — A stunning cascade of 7 waterfalls visible from the roadside</li>
+                                <li><strong>Naga Waterfall</strong> — Powerful and scenic waterfall en route to North Sikkim</li>
+                                <li><strong>Chungthang</strong> — Scenic confluence of Lachen Chu and Lachung Chu rivers; brief stopover</li>
+                                <li>Arrive <strong>Lachen</strong> — Check-in at hotel and overnight rest before the early morning lake visit</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Lachen</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Roads beyond Chungthang are narrow and high-altitude. Carry warm layers. Early arrival at Lachen recommended for rest before the 4 AM start.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 03</div>
+                        <div class="timeline-content">
+                            <h3>Gurudongmar Lake → Lachung | Sacred Lake · High Altitude · Transfer</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Gurudongmar Lake (17,100 ft)</strong> — One of the world's highest lakes; sacred to Buddhists and Sikhs; breathtaking high-altitude landscape</li>
+                                <li><strong>Kala Patthar Viewpoint</strong> — Stunning panoramic view of surrounding Himalayan peaks (at extra cost)</li>
+                                <li>Return to Lachen for breakfast and check-out</li>
+                                <li>Transfer to <strong>Lachung</strong> — Scenic valley road through alpine forests and mountain streams</li>
+                                <li>Arrive Lachung — Check-in at hotel and rest</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Lachung</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Gurudongmar Lake &amp; Kala Patthar are at extra cost. Altitude sickness is possible at 17,100 ft — carry warm clothes, water and medicines. Drive back before noon to avoid cold winds.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 04</div>
+                        <div class="timeline-content">
+                            <h3>Yumthang Valley &amp; Zero Point | Valley of Flowers · Zero Point Excursion</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Yumthang Valley (11,800 ft)</strong> — The 'Valley of Flowers of Sikkim'; alpine meadows, hot springs and river views</li>
+                                <li><strong>Zero Point / Yumesamdong (15,300 ft)</strong> — Last motorable point in North Sikkim; snow-covered landscapes (optional, at extra cost)</li>
+                                <li>Return to Lachung — Evening rest and overnight stay</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Lachung</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Zero Point is optional and charged extra. Carry very warm clothing as temperatures can drop below freezing even in summer. Confirm Zero Point road availability before departure.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 05</div>
+                        <div class="timeline-content">
+                            <h3>Lachung → Gangtok | Return Drive · Shopping at MG Marg</h3>
+                            <ul class="timeline-bullets">
+                                <li>Drive back to <strong>Gangtok</strong> — Scenic valley road descent through North Sikkim</li>
+                                <li>Arrive Gangtok — Check-in at hotel and freshen up</li>
+                                <li>Evening free for shopping at <strong>MG Marg</strong> — Pick up local handicrafts, woolens and Sikkimese souvenirs</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Gangtok</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Keep the return drive relaxed and enjoy the mountain scenery. MG Marg evening is a great opportunity for last-minute shopping and local street food.</div>
+                        </div>
+                    </div>
+
+                    <!-- DAY 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Day 06</div>
+                        <div class="timeline-content">
+                            <h3>Gangtok → NJP / IXB | Departure Day</h3>
+                            <ul class="timeline-bullets">
+                                <li>Check-out from Gangtok — Post-breakfast departure</li>
+                                <li>Drive to <strong>NJP / Bagdogra</strong> — Scenic Teesta Valley descent (~4–5 hrs)</li>
+                                <li>Drop at <strong>NJP Railway Station / Bagdogra Airport</strong> — Tour ends with beautiful memories</li>
+                            </ul>
+                            <div class="stay-tag">✈️ Departure — NJP / IXB</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Plan your onward train or flight with sufficient buffer time. The drive can take longer during peak season.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SUMMARY CARDS -->
+            <div class="itinerary-summary">
+                <div class="summary-card">
+                    <div class="card-tab">Inclusions</div>
+                    <ul>
+                        <li><span class="inc-icon">✓</span> Accommodation on double sharing basis</li>
+                        <li><span class="inc-icon">✓</span> Meals as per plan (MAP) — Breakfast &amp; Dinner daily</li>
+                        <li><span class="inc-icon">✓</span> Private vehicle (Bolero/Sumo/SUV) for all transfers</li>
+                        <li><span class="inc-icon">✓</span> Driver allowance, fuel &amp; parking charges</li>
+                        <li><span class="inc-icon">✓</span> Pickup &amp; drop from NJP / Bagdogra Airport</li>
+                        <li><span class="inc-icon">✓</span> All toll taxes &amp; driver expenses</li>
+                        <li><span class="inc-icon">✓</span> Inner Line Permit (ILP) facilitation assistance</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <div class="card-tab" style="background: var(--brown);">Exclusions</div>
+                    <ul>
+                        <li><span class="exc-icon">✕</span> Airfare / train tickets to/from NJP / Bagdogra</li>
+                        <li><span class="exc-icon">✕</span> Entry fees for tourist attractions</li>
+                        <li><span class="exc-icon">✕</span> Personal expenses — laundry, tips, shopping, etc.</li>
+                        <li><span class="exc-icon">✕</span> Meals not mentioned (lunches)</li>
+                        <li><span class="exc-icon">✕</span> Zero Point excursion (optional, charged extra)</li>
+                        <li><span class="exc-icon">✕</span> Kala Patthar excursion (charged extra)</li>
+                        <li><span class="exc-icon">✕</span> Travel insurance &amp; GST (if applicable)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 2026 PERMIT REGULATIONS NOTE ── -->
+<section class="travel-tips-section" style="background: var(--dark2, #251507); padding-top: 50px; padding-bottom: 50px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label" style="color: var(--orange-light);">As Per 2026 Rules</div>
+        <h3 style="color: var(--cream);">Sikkim Permit <span>Regulations</span></h3>
+        <p style="font-size: 13px; color: rgba(253,246,236,0.5); margin-bottom: 24px; line-height: 1.7;">
+            The Government of Sikkim has updated its entry and permit regulations. Please read carefully before booking.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+
+            <!-- Indian Nationals -->
+            <div style="background: rgba(253,246,236,0.04); border: 1px solid rgba(232,97,26,0.2); border-radius: 4px; padding: 20px 22px;">
+                <div style="font-size: 11px; letter-spacing: 2px; color: var(--orange-light); font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">🇮🇳 Indian Nationals</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;">No permit required to enter Sikkim state</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: var(--orange-light);">PAP required</strong> for North Sikkim — Lachen, Lachung, Yumthang, Gurudongmar Lake, Zero Point &amp; Thangu</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; line-height: 1.7;">PAP obtained in Gangtok via registered tour operator. We handle this for you.</li>
+                </ul>
+            </div>
+
+            <!-- Foreign Nationals -->
+            <div style="background: rgba(253,246,236,0.04); border: 1px solid rgba(232,97,26,0.2); border-radius: 4px; padding: 20px 22px;">
+                <div style="font-size: 11px; letter-spacing: 2px; color: var(--orange-light); font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">🌍 Foreign Nationals / OCI</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: var(--orange-light);">RAP (Restricted Area Permit)</strong> mandatory to enter Sikkim — free of cost</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: var(--orange-light);">PAP additionally required</strong> for North Sikkim (Lachung, Yumthang, Lachen). Min group of 2 persons. Must apply via Sikkim-registered travel agent.</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: #ff6b6b;">Gurudongmar Lake &amp; Zero Point — NOT open to foreign nationals</strong> (international border proximity)</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; line-height: 1.7;">From 2026: All RAP/PAP for foreigners must be applied digitally via <strong style="color: var(--orange-light);">e-FRRO portal</strong> — physical permits discontinued</li>
+                </ul>
+            </div>
+
+            <!-- Documents & Vehicle Rules -->
+            <div style="background: rgba(253,246,236,0.04); border: 1px solid rgba(232,97,26,0.2); border-radius: 4px; padding: 20px 22px;">
+                <div style="font-size: 11px; letter-spacing: 2px; color: var(--orange-light); font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">📋 Documents &amp; Vehicle Rules</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;">Carry valid Govt. ID — Aadhaar, Voter ID or Passport. <strong style="color: #ff6b6b;">PAN card not accepted</strong></li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;">2 passport-size photographs mandatory for all permit applications</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: var(--orange-light);">Only Sikkim-registered vehicles</strong> permitted beyond checkpoints — self-drive from Siliguri/NJP not allowed</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.7;"><strong style="color: #ff6b6b;">Children below 5 years not permitted</strong> at Gurudongmar Lake &amp; Zero Point (extreme altitude ~5,400m)</li>
+                    <li style="font-size: 13px; color: rgba(253,246,236,0.7); padding: 6px 0; line-height: 1.7;">Permits verified at multiple checkpoints — Rangpo, Chungthang, Lachen &amp; Thangu</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div style="background: rgba(232,97,26,0.1); border: 1px solid rgba(232,97,26,0.25); border-radius: 4px; padding: 16px 20px; font-size: 13px; color: rgba(253,246,236,0.6); line-height: 1.8;">
+            <strong style="color: var(--orange-light);">Note:</strong> Permit rules are subject to change by the Sikkim Government. We stay updated on the latest regulations and handle all permit arrangements for our guests. For official information visit
+            <a href="https://sikkimtourism.gov.in" target="_blank" style="color: var(--orange-light);">sikkimtourism.gov.in</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── TRAVEL TIPS ── -->
+<section class="travel-tips-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">Before You Go</div>
+        <h3>Travel Tips <span>&amp; Essentials</span></h3>
+        <div class="tips-table">
+            <div class="tip-row">
+                <div class="tip-label">🌤️ Best Time</div>
+                <div class="tip-value">March–May (spring blooms) and October–December (clear skies). Nov–Feb may have snow at Zero Point and Yumthang.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📋 Permits</div>
+                <div class="tip-value">Indian nationals require an Inner Line Permit (ILP) for North Sikkim. Foreigners need a Restricted Area Permit. Arrange in Gangtok.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">🏔️ Altitude</div>
+                <div class="tip-value">Gurudongmar Lake is at 17,100 ft and Zero Point at 15,300 ft. Acclimatize in Gangtok before heading north.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">💊 Health</div>
+                <div class="tip-value">Carry altitude sickness medication (Diamox), ORS, warm layers and a basic first aid kit. Avoid alcohol at high altitude.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">💰 Extra Cost</div>
+                <div class="tip-value">Gurudongmar Lake, Kala Patthar Viewpoint and Zero Point are not included and will be charged extra on actuals.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">💵 Cash</div>
+                <div class="tip-value">Carry sufficient cash from Gangtok. ATMs are unavailable beyond Chungthang.</div>
+            </div>
+            <div class="tip-row">
+                <div class="tip-label">📶 Connectivity</div>
+                <div class="tip-value">Mobile signal is very limited beyond Gangtok. Download offline maps and inform family before departure.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MAP ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>&amp; Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[27.6, 88.5]" data-zoom="9" data-spots="[
+        {&quot;name&quot;: &quot;NJP Railway Station&quot;, &quot;coords&quot;: [26.7000, 88.3667], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Bagdogra Airport&quot;, &quot;coords&quot;: [26.6812, 88.3285], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Teesta River Drive&quot;, &quot;coords&quot;: [27.0500, 88.5000], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;MG Marg Gangtok&quot;, &quot;coords&quot;: [27.3314, 88.6138], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Seven Sisters Waterfall&quot;, &quot;coords&quot;: [27.5200, 88.5900], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Naga Waterfall&quot;, &quot;coords&quot;: [27.5600, 88.5700], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Chungthang&quot;, &quot;coords&quot;: [27.6167, 88.6333], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Lachen&quot;, &quot;coords&quot;: [27.7333, 88.5667], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Gurudongmar Lake&quot;, &quot;coords&quot;: [27.9167, 88.7167], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Kala Patthar Viewpoint&quot;, &quot;coords&quot;: [27.8800, 88.6900], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Lachung&quot;, &quot;coords&quot;: [27.6833, 88.7333], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Yumthang Valley&quot;, &quot;coords&quot;: [27.8167, 88.7167], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Zero Point Yumesamdong&quot;, &quot;coords&quot;: [27.9000, 88.7500], &quot;day&quot;: &quot;Day 4&quot;}
+    ]"></div>
+</section>
+
+<!-- ── BOOKING BAR ── -->
+<section class="booking-bar">
+    <div class="package-info">
+        <span>Package</span>
+        <h3>North Sikkim Delight Tour</h3>
+    </div>
+    <div class="price-info">
+        <span>Starting From</span>
+        <div class="price-display">
+            <span class="price-amount">₹11,499</span>
+            <span class="price-unit">/ Person</span>
+        </div>
+    </div>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20North%20Sikkim%20Delight%20Tour%20(6D%205N)%20at%20%E2%82%B911%2C499%20per%20person.%20Please%20share%20details." target="_blank" class="btn-main">Contact for Booking →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/kashmir-slider.js"></script>
+<script src="../assets/js/whatsapp-bot.js"></script>
+</body>
+</html>

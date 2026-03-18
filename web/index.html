@@ -22,20 +22,17 @@
             <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
         </a>
     </div>
-
     <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </button>
-
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="destinations.html">Destinations</a></li>
         <li><a href="#enquiry">Book Now</a></li>
         <li><a href="about.html">Our Story</a></li>
     </ul>
-
     <a href="#enquiry" class="nav-cta-btn">Get Free Quote</a>
 </nav>
 
@@ -88,7 +85,6 @@
         <span class="m-item"><span class="m-dot"></span>Himachal Paradise</span>
         <span class="m-item"><span class="m-dot"></span>Goa Unexplored</span>
         <span class="m-item"><span class="m-dot"></span>Budget Travel India</span>
-        <!-- Duplicate for seamless loop -->
         <span class="m-item"><span class="m-dot"></span>North Bengal</span>
         <span class="m-item"><span class="m-dot"></span>Sikkim Silk Route</span>
         <span class="m-item"><span class="m-dot"></span>Dooars Safari</span>
@@ -154,9 +150,23 @@
                 </div>
                 <div class="card-body">
                     <h3>Sikkim: The Silk Route</h3>
-                    <p class="text-dim">6 N – 7 D &nbsp;|&nbsp; From ₹16,499</p>
+                    <p class="text-dim">6 N – 7 D &nbsp;|&nbsp; From ₹7,999</p>
                     <div class="card-reveal">
                         <button class="btn-itinerary" onclick="window.location.href='packages/sikkim-old-silk-route.html'">View Full Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ North Sikkim Delight Tour -->
+            <div class="v-card">
+                <div class="card-img" style="background: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg') center/cover;">
+                    <span class="badge ongoing">ONGOING</span>
+                </div>
+                <div class="card-body">
+                    <h3>North Sikkim Delight Tour</h3>
+                    <p class="text-dim">6 D – 5 N &nbsp;|&nbsp; From ₹11,499</p>
+                    <div class="card-reveal">
+                        <button class="btn-itinerary" onclick="window.location.href='packages/north-sikkim-itinerary.html'">View Full Itinerary</button>
                     </div>
                 </div>
             </div>
@@ -183,11 +193,9 @@
                     <p class="text-dim">4 N – 5 D &nbsp;|&nbsp; From ₹11,999</p>
                     <div class="card-reveal">
                         <button class="btn-itinerary" onclick="window.location.href='packages/meghalaya-itinerary.html'">View Full Itinerary</button>
-                        
                     </div>
                 </div>
             </div>
-
 
             <div class="v-card">
                 <div class="card-img" style="background: url('https://images.pexels.com/photos/30189869/pexels-photo-30189869.jpeg') center/cover;">
@@ -258,7 +266,7 @@
     </div>
 </section>
 
-<!-- ── ENQUIRY FORM (replaces calculator) ── -->
+<!-- ── ENQUIRY FORM ── -->
 <section id="enquiry" class="enquiry-section scroll-reveal">
     <div class="enquiry-inner">
         <div class="enquiry-info">
@@ -299,7 +307,9 @@
                         <option value="">Choose destination</option>
                         <option>North Bengal / Darjeeling</option>
                         <option>Sikkim Silk Route</option>
+                        <option>North Sikkim</option>
                         <option>Dooars Safari</option>
+                        <option>Meghalaya</option>
                         <option>Kashmir</option>
                         <option>Ladakh</option>
                         <option>Himachal Pradesh</option>
@@ -312,16 +322,18 @@
                     <label>Travel Month</label>
                     <select>
                         <option value="">Select month</option>
-                        <option>March 2025</option>
-                        <option>April 2025</option>
-                        <option>May 2025</option>
-                        <option>June 2025</option>
-                        <option>July 2025</option>
-                        <option>August 2025</option>
-                        <option>September 2025</option>
-                        <option>October 2025</option>
-                        <option>November 2025</option>
-                        <option>December 2025</option>
+                        <option>April 2026</option>
+                        <option>May 2026</option>
+                        <option>June 2026</option>
+                        <option>July 2026</option>
+                        <option>August 2026</option>
+                        <option>September 2026</option>
+                        <option>October 2026</option>
+                        <option>November 2026</option>
+                        <option>December 2026</option>
+                        <option>January 2027</option>
+                        <option>February 2027</option>
+                        <option>March 2027</option>
                     </select>
                 </div>
             </div>
@@ -351,23 +363,21 @@
                 <textarea placeholder="Any special requirements, dietary needs, celebrations..."></textarea>
             </div>
             <button type="submit" class="btn-main form-submit-btn" id="submitBtn">
-                <span>Send Enquiry & Get Free Quote →</span>
+                <span>Send Enquiry &amp; Get Free Quote →</span>
             </button>
         </form>
     </div>
 </section>
 
-<!-- ── FOOTER PLACEHOLDER ── -->
+<!-- ── FOOTER ── -->
 <div id="footer-placeholder"></div>
 
-<!-- scroll restoration -->
 <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
     window.addEventListener('load', () => setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 10));
 </script>
 
-<!-- counter animation -->
 <script>
     const counterObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -393,7 +403,6 @@
     });
 </script>
 
-<!-- enquiry form submit -->
 <script>
     function submitEnquiry(e) {
         e.preventDefault();

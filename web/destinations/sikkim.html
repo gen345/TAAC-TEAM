@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/category-pages.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
-
     <!-- ✅ Only this one line changes per state page -->
     <style>
         .state-hero-bg { background-image: url('../assets/images/states/sikkim.jpg'); }
@@ -44,7 +43,7 @@
     <div class="state-hero-content">
         <div class="hero-eyebrow">Northeast India — Himalayan Escape</div>
         <h1>Sik<span>kim</span></h1>
-        <p>Silk Route · Gangtok · Tsomgo Lake · Pelling · Yuksom</p>
+        <p>Silk Route · North Sikkim · Gangtok · Tsomgo Lake · Pelling · Yuksom</p>
     </div>
 </section>
 
@@ -57,21 +56,37 @@
 
     <div class="pkg-grid">
 
+        <!-- Package 1: North Sikkim Delight Tour -->
+        <div class="v-card scroll-reveal">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg') center/cover;">
+                <span class="badge ongoing">ONGOING</span>
+            </div>
+            <div class="card-body">
+                <h3>North Sikkim Delight Tour</h3>
+                <p class="text-dim">6 D – 5 N &nbsp;|&nbsp; From ₹11,499</p>
+                <div class="card-reveal">
+                    <button class="btn-itinerary" onclick="window.location.href='../packages/north-sikkim-itinerary.html'">View Full Itinerary</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Package 2: Silk Route -->
         <div class="v-card scroll-reveal">
             <div class="card-img" style="background: url('https://images.pexels.com/photos/6083324/pexels-photo-6083324.jpeg') center/cover;">
                 <span class="badge ongoing">ONGOING</span>
             </div>
             <div class="card-body">
                 <h3>Sikkim: The Silk Route</h3>
-                <p class="text-dim">6 N – 7 D &nbsp;|&nbsp; From ₹16,499</p>
+                <p class="text-dim">6 N – 7 D &nbsp;|&nbsp; From ₹7999</p>
                 <div class="card-reveal">
                     <button class="btn-itinerary" onclick="window.location.href='../packages/sikkim-old-silk-route.html'">View Full Itinerary</button>
                 </div>
             </div>
         </div>
 
+        <!-- Package 3: Gangtok & Tsomgo (Coming Soon) -->
         <div class="v-card scroll-reveal">
-            <div class="card-img" style="background: url('https://images.pexels.com/photos/6083324/pexels-photo-6083324.jpeg') center/cover;">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg') center/cover;">
                 <span class="badge coming-soon">COMING SOON</span>
             </div>
             <div class="card-body">
@@ -83,8 +98,9 @@
             </div>
         </div>
 
+        <!-- Package 4: Pelling & Yuksom (Coming Soon) -->
         <div class="v-card scroll-reveal">
-            <div class="card-img" style="background: url('https://images.pexels.com/photos/6083324/pexels-photo-6083324.jpeg') center/cover;">
+            <div class="card-img" style="background: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg') center/cover;">
                 <span class="badge coming-soon">COMING SOON</span>
             </div>
             <div class="card-body">
@@ -114,19 +130,13 @@
 
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/whatsapp-bot.js"></script>
-<link rel="stylesheet" href="../css/category-pages.css">
-
 <script>
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('active');
-                revealObs.unobserve(e.target);
-            }
+            if (e.isIntersecting) { e.target.classList.add('active'); revealObs.unobserve(e.target); }
         });
     }, { threshold: 0.1 });
     document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el));
 </script>
-
 </body>
 </html>
