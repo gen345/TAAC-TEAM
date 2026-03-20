@@ -4,53 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Refund Policy | The Adventure Awaits Co.</title>
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --orange:      #E8650A;
-      --orange-lt:   #F5813A;
-      --orange-dk:   #C75508;
-      --cream:       #FDF6EC;
-      --cream-mid:   #F5EAD8;
-      --cream-dark:  #EDD8BB;
-      --ink:         #1C1208;
-      --text:        #3D2B0E;
-      --muted:       #8A6A42;
-      --border:      #E6D5BD;
-      --white:       #FFFFFF;
-      --red:         #C0392B;
-      --red-lt:      #F8D7D4;
-      --green:       #16A34A;
-      --green-lt:    #DCFCE7;
-      --blue:        #1D4ED8;
-      --blue-lt:     #DBEAFE;
+      --orange:#E8650A; --orange-lt:#F5813A; --orange-dk:#C75508;
+      --cream:#FDF6EC; --cream-mid:#F5EAD8; --cream-dark:#EDD8BB;
+      --ink:#1C1208; --text:#3D2B0E; --muted:#8A6A42;
+      --border:#E6D5BD; --white:#FFFFFF;
+      --red:#C0392B; --red-lt:#F8D7D4;
+      --green:#16A34A; --green-lt:#DCFCE7;
+      --blue:#1D4ED8; --blue-lt:#DBEAFE;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.75; }
 
-    .topbar { background: var(--ink); color: rgba(253,246,236,.55); text-align: center; font-size: 12px; letter-spacing: .1em; padding: 7px 20px; text-transform: uppercase; font-weight: 500; }
-    header { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(28,18,8,.06); }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-mark { width: 40px; height: 40px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 900; flex-shrink: 0; }
-    .logo-text .brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--ink); display: block; }
-    .logo-text .tagline { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-weight: 500; display: block; }
-    .header-badge { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; }
+    /* ── GLASS NAV ── */
+    .glass-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 16px 6%; background: rgba(28,18,8,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s ease; }
+    .glass-nav.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .logo-link { display: flex; align-items: center; text-decoration: none; }
+    #main-logo { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; list-style: none; gap: 36px; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,246,236,0.85); transition: color 0.3s; }
+    .glass-nav.scrolled .nav-links a { color: var(--ink); }
+    .nav-links a:hover { color: var(--orange-lt); }
+    .policy-nav-badge { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; white-space: nowrap; background: var(--white); flex-shrink: 0; }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; background: transparent; border: none; cursor: pointer; z-index: 1001; padding: 0; }
+    .bar { width: 100%; height: 2px; background: #fff; border-radius: 4px; transition: 0.35s ease; }
+    .glass-nav.scrolled .bar { background: var(--ink); }
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-links.active { display: flex !important; position: fixed; top: 0; right: 0; height: 100vh; width: 72%; max-width: 300px; background: rgba(28,18,8,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 28px; z-index: 1000; border-left: 1px solid rgba(232,101,10,0.2); }
+      .menu-toggle { display: flex !important; }
+      .policy-nav-badge { display: none; }
+      .glass-nav { padding: 12px 5%; }
+    }
 
-    /* HERO */
-    .hero { background: var(--ink); background-image: radial-gradient(ellipse at 80% 40%, rgba(232,101,10,.18) 0%, transparent 55%); padding: 60px 40px 52px; text-align: center; }
+    .hero { background: var(--ink); background-image: radial-gradient(ellipse at 80% 40%, rgba(232,101,10,.18) 0%, transparent 55%); padding: 110px 40px 52px; text-align: center; }
     .hero-pill { display: inline-block; background: rgba(232,101,10,.15); color: var(--orange-lt); border: 1px solid rgba(232,101,10,.3); padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 20px; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
     .hero h1 span { color: var(--orange-lt); font-style: italic; }
     .hero p { color: rgba(253,246,236,.6); font-size: 15px; max-width: 540px; margin: 0 auto; font-weight: 300; }
 
     .breadcrumb { background: var(--cream-mid); border-bottom: 1px solid var(--border); padding: 10px 40px; font-size: 12px; color: var(--muted); }
-    .breadcrumb a { color: var(--orange); text-decoration: none; }
+    .breadcrumb a { color: var(--orange); text-decoration: none; font-weight: 600; }
     .breadcrumb span { margin: 0 6px; }
 
-    /* STATS BAR */
     .stats-bar { background: var(--white); border-bottom: 1px solid var(--border); }
     .stats-inner { max-width: 820px; margin: 0 auto; padding: 0 24px; display: flex; }
     .stat { flex: 1; padding: 20px 24px; text-align: center; border-right: 1px solid var(--border); }
@@ -58,11 +60,10 @@
     .stat .num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--orange); display: block; line-height: 1; margin-bottom: 4px; }
     .stat .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 500; }
 
-    /* WRAP */
     .page-wrap { max-width: 820px; margin: 0 auto; padding: 52px 24px 80px; }
 
-    /* SECTION */
-    .section { margin-bottom: 48px; }
+    .section { margin-bottom: 48px; opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s; }
+    .section.visible { opacity: 1; transform: translateY(0); }
     .section-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
     .section-title .icon { font-size: 22px; }
     .section-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; border-bottom: 2px solid var(--cream-dark); padding-bottom: 14px; position: relative; }
@@ -70,12 +71,11 @@
     .body-text { font-size: 15px; color: #5A4020; line-height: 1.8; margin-bottom: 14px; }
     .body-text strong { color: var(--text); }
 
-    /* YES / NO GRID */
     .yn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
     .yn-card { border-radius: 12px; padding: 22px; }
     .yn-card.yes { background: var(--green-lt); border: 1px solid rgba(22,163,74,.25); }
     .yn-card.no { background: var(--red-lt); border: 1px solid rgba(192,57,43,.2); }
-    .yn-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .yn-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
     .yn-card.yes h4 { color: var(--green); }
     .yn-card.no h4 { color: var(--red); }
     .yn-card ul { list-style: none; padding: 0; }
@@ -83,7 +83,6 @@
     .yn-card.yes ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
     .yn-card.no ul li::before { content: '✗'; color: var(--red); font-weight: 700; flex-shrink: 0; }
 
-    /* TIMELINE */
     .refund-timeline { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin: 20px 0; }
     .timeline-header { background: var(--ink); padding: 16px 24px; }
     .timeline-header h4 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); font-weight: 700; }
@@ -101,7 +100,6 @@
     .t-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
     .t-content .tag { display: inline-block; background: var(--cream-mid); color: var(--muted); padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-top: 6px; }
 
-    /* INFO BOXES */
     .info-box { border-radius: 10px; padding: 20px 24px; margin: 16px 0; }
     .info-box.blue { background: var(--blue-lt); border: 1px solid rgba(29,78,216,.2); }
     .info-box.amber { background: #FEF3C7; border: 1px solid rgba(217,119,6,.25); }
@@ -111,8 +109,8 @@
     .info-box.amber h4 { color: #D97706; }
     .info-box.orange h4 { color: var(--orange-dk); }
     .info-box p { font-size: 14px; color: var(--text); line-height: 1.7; }
+    .info-box a { color: var(--orange); font-weight: 600; text-decoration: none; }
 
-    /* CREDIT NOTE CARD */
     .credit-card { background: linear-gradient(135deg, var(--ink), #2D1A08); border-radius: 14px; padding: 28px 32px; margin: 20px 0; position: relative; overflow: hidden; }
     .credit-card::after { content: '✈'; position: absolute; right: 28px; top: 50%; transform: translateY(-50%); font-size: 80px; opacity: .05; }
     .credit-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 8px; }
@@ -121,7 +119,6 @@
     .credit-card ul li { font-size: 13px; color: rgba(253,246,236,.7); padding: 3px 0; display: flex; gap: 10px; }
     .credit-card ul li::before { content: '→'; color: var(--orange-lt); flex-shrink: 0; }
 
-    /* CONTACT */
     .contact-card { background: var(--ink); border-radius: 14px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 40px; }
     .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); margin-bottom: 6px; }
     .contact-card p { font-size: 14px; color: rgba(253,246,236,.5); }
@@ -137,30 +134,34 @@
     .btt { position: fixed; bottom: 26px; right: 26px; width: 42px; height: 42px; background: var(--orange); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; box-shadow: 0 4px 16px rgba(232,101,10,.4); opacity: 0; transform: translateY(8px); transition: all .3s; z-index: 200; }
     .btt.show { opacity: 1; transform: translateY(0); }
 
-    .section { opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s; }
-    .section.visible { opacity: 1; transform: translateY(0); }
-
     @media(max-width:640px) {
-      header { padding: 14px 20px; } .hero { padding: 44px 20px 36px; } .breadcrumb { padding: 10px 20px; }
-      .yn-grid { grid-template-columns: 1fr; } .stats-inner { flex-wrap: wrap; } .stat { flex: unset; width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero { padding: 90px 20px 36px; } .breadcrumb { padding: 10px 20px; }
+      .yn-grid { grid-template-columns: 1fr; }
+      .stats-inner { flex-wrap: wrap; } .stat { flex: unset; width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
       .contact-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
 
-<div class="topbar">Northeast India · Kashmir · Andaman · Sikkim · North Bengal</div>
-
-<header>
-  <a href="/" class="logo">
-    <div class="logo-mark">A</div>
-    <div class="logo-text">
-      <span class="brand">The Adventure Awaits Co.</span>
-      <span class="tagline">Travel · Explore · Discover</span>
-    </div>
-  </a>
-  <span class="header-badge">Refund Policy</span>
-</header>
+<!-- ── NAVBAR ── -->
+<nav class="glass-nav" id="mainNav">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+    </a>
+  </div>
+  <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="index.html#enquiry">Book Now</a></li>
+    <li><a href="about.html">Our Story</a></li>
+  </ul>
+  <span class="policy-nav-badge">Refund Policy</span>
+</nav>
 
 <section class="hero">
   <div class="hero-pill">Policy</div>
@@ -169,10 +170,9 @@
 </section>
 
 <div class="breadcrumb">
-  <a href="/">Home</a><span>›</span><a href="/terms.html">Policies</a><span>›</span> Refund Policy
+  <a href="index.html">← Home</a><span>›</span><a href="terms.html">Policies</a><span>›</span> Refund Policy
 </div>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat"><span class="num">7–15</span><span class="label">Working Days to Refund</span></div>
@@ -183,24 +183,19 @@
 
 <div class="page-wrap">
 
-  <!-- SECTION 1: OVERVIEW -->
   <div class="section">
     <div class="section-title"><span class="icon">💚</span> Our Refund Promise</div>
     <p class="section-sub">We believe in being honest and fair — always</p>
-
-    <p class="body-text">We understand that cancelling a trip is never easy. When a refund is due, we process it promptly and keep you informed every step of the way. Here's everything you need to know about how refunds work at The Adventure Awaits Co.</p>
-
+    <p class="body-text">We understand that cancelling a trip is never easy. When a refund is due, we process it promptly and keep you informed every step of the way.</p>
     <div class="info-box orange">
       <h4>🔑 The most important thing to know first:</h4>
-      <p>Refund eligibility depends on <strong>when you cancel</strong>. The earlier you notify us, the more you get back. Please check our <a href="cancellation-policy.html" style="color:var(--orange);font-weight:600;">Cancellation Policy</a> to understand the charge slabs before submitting a cancellation request.</p>
+      <p>Refund eligibility depends on <strong>when you cancel</strong>. The earlier you notify us, the more you get back. Please check our <a href="cancellation.html">Cancellation Policy</a> to understand the charge slabs before submitting a cancellation request.</p>
     </div>
   </div>
 
-  <!-- SECTION 2: WHAT IS AND ISN'T REFUNDABLE -->
   <div class="section">
     <div class="section-title"><span class="icon">⚖️</span> What's Refundable &amp; What's Not</div>
     <p class="section-sub">A clear, honest breakdown</p>
-
     <div class="yn-grid">
       <div class="yn-card yes">
         <h4>✅ You MAY get a refund for:</h4>
@@ -208,14 +203,14 @@
           <li>Balance amount paid (minus applicable cancellation charge)</li>
           <li>Duplicate payments made by mistake</li>
           <li>Amount paid over and above package cost</li>
-          <li>Tour cancelled by us (Company) — full amount minus non-recoverable costs</li>
+          <li>Tour cancelled by us — full amount minus non-recoverable costs</li>
           <li>Services not delivered as confirmed in writing</li>
         </ul>
       </div>
       <div class="yn-card no">
         <h4>❌ You will NOT get a refund for:</h4>
         <ul>
-          <li>Advance / token amount (it's non-refundable upon booking)</li>
+          <li>Advance / token amount (non-refundable upon booking)</li>
           <li>GST paid on the booking (non-refundable per Indian tax law)</li>
           <li>Services partially used or not availed during the tour</li>
           <li>No-show on departure day</li>
@@ -226,11 +221,9 @@
     </div>
   </div>
 
-  <!-- SECTION 3: TIMELINE -->
   <div class="section">
     <div class="section-title"><span class="icon">⏱️</span> How Long Does a Refund Take?</div>
     <p class="section-sub">Here's the step-by-step journey of your refund</p>
-
     <div class="refund-timeline">
       <div class="timeline-header">
         <h4>Refund Process Timeline</h4>
@@ -239,50 +232,32 @@
       <div class="timeline-steps">
         <div class="t-step">
           <div class="t-step-line"><div class="t-dot done">✓</div><div class="t-connector"></div></div>
-          <div class="t-content">
-            <h5>Day 0 — You submit your cancellation</h5>
-            <p>Send your written cancellation via WhatsApp or email. This date becomes your official cancellation date.</p>
-          </div>
+          <div class="t-content"><h5>Day 0 — You submit your cancellation</h5><p>Send your written cancellation via WhatsApp or email. This date becomes your official cancellation date.</p></div>
         </div>
         <div class="t-step">
           <div class="t-step-line"><div class="t-dot done">✓</div><div class="t-connector"></div></div>
-          <div class="t-content">
-            <h5>Within 24 hours — We acknowledge</h5>
-            <p>We confirm receipt and let you know the cancellation charge and refund amount (if any) based on your cancellation date.</p>
-            <span class="tag">Usually same day</span>
-          </div>
+          <div class="t-content"><h5>Within 24 hours — We acknowledge</h5><p>We confirm receipt and let you know the cancellation charge and refund amount based on your cancellation date.</p><span class="tag">Usually same day</span></div>
         </div>
         <div class="t-step">
           <div class="t-step-line"><div class="t-dot progress">2</div><div class="t-connector"></div></div>
-          <div class="t-content">
-            <h5>1–3 working days — Refund approved internally</h5>
-            <p>We verify the payment records, calculate the net refundable amount, and initiate the refund process.</p>
-          </div>
+          <div class="t-content"><h5>1–3 working days — Refund approved internally</h5><p>We verify payment records, calculate the net refundable amount, and initiate the refund process.</p></div>
         </div>
         <div class="t-step">
           <div class="t-step-line"><div class="t-dot pending">💰</div></div>
-          <div class="t-content">
-            <h5>7–15 working days — Money in your account</h5>
-            <p>The refund is credited to your original payment method (bank account / UPI). Bank processing times may vary slightly.</p>
-            <span class="tag">You'll receive a confirmation SMS/notification</span>
-          </div>
+          <div class="t-content"><h5>7–15 working days — Money in your account</h5><p>Refund is credited to your original payment method. Bank processing times may vary slightly.</p><span class="tag">You'll receive a confirmation SMS/notification</span></div>
         </div>
       </div>
     </div>
-
     <div class="info-box blue">
       <h4>🏦 Which account will the refund go to?</h4>
-      <p>Refunds are <strong>always returned to the original payment source</strong> — the same bank account or UPI ID used to make the payment. We cannot redirect refunds to a different account. If you paid via multiple methods, refunds are split proportionally.</p>
+      <p>Refunds are <strong>always returned to the original payment source</strong> — the same bank account or UPI ID used to make the payment. We cannot redirect refunds to a different account.</p>
     </div>
   </div>
 
-  <!-- SECTION 4: CREDIT NOTE -->
   <div class="section">
     <div class="section-title"><span class="icon">🎟️</span> Credit Note — A Better Alternative</div>
     <p class="section-sub">Sometimes a credit note works out better than a cash refund</p>
-
-    <p class="body-text">If you're not sure when you'll travel next, but don't want to lose the money — ask for a <strong>Credit Note</strong> instead of a refund. Here's why it can be the smarter choice:</p>
-
+    <p class="body-text">If you're not sure when you'll travel next, but don't want to lose the money — ask for a <strong>Credit Note</strong> instead of a refund.</p>
     <div class="credit-card">
       <h4>The Adventure Awaits Co. — Credit Note</h4>
       <p>A credit note lets you hold the value of your booking and use it whenever you're ready to travel again.</p>
@@ -294,44 +269,37 @@
         <li>Transferable to a family member or friend travelling in your place</li>
       </ul>
     </div>
-
     <div class="info-box amber">
       <h4>💡 When is a Credit Note better?</h4>
-      <p>If you're cancelling due to a sudden health issue, work emergency, or just bad timing — and you plan to travel again within a year — a credit note means you lose <strong>nothing</strong> compared to a cash refund which may attract cancellation charges. Ask us about it before requesting a cash refund!</p>
+      <p>If you're cancelling due to a sudden health issue, work emergency, or just bad timing — and you plan to travel again within a year — a credit note means you lose <strong>nothing</strong> compared to a cash refund which may attract cancellation charges.</p>
     </div>
   </div>
 
-  <!-- SECTION 5: COMPANY CANCELLATIONS -->
   <div class="section">
     <div class="section-title"><span class="icon">🏢</span> If We Cancel Your Tour</div>
     <p class="section-sub">Our commitment when circumstances are beyond our control</p>
-
     <p class="body-text">In the rare event we have to cancel your tour (due to natural calamity, safety advisories, Force Majeure, etc.), you will receive:</p>
-
     <p class="body-text">➊ &nbsp;<strong>A full Credit Note</strong> valid for 12 months — no deductions, no hassles.</p>
-    <p class="body-text">➋ &nbsp;<strong>OR a refund</strong> of the amount paid, minus any non-recoverable costs we've already incurred on your behalf (such as permit fees, hotel deposits, or vehicle advances that vendors won't return).</p>
-    <p class="body-text">We'll always be transparent about what was spent and what can be recovered. And we'll do everything we can to rebook your trip at your convenience.</p>
+    <p class="body-text">➋ &nbsp;<strong>OR a refund</strong> of the amount paid, minus any non-recoverable costs already incurred on your behalf (permit fees, hotel deposits, vehicle advances).</p>
+    <p class="body-text">We'll always be transparent about what was spent and what can be recovered.</p>
   </div>
 
-  <!-- SECTION 6: IMPORTANT NOTES -->
   <div class="section">
     <div class="section-title"><span class="icon">📌</span> A Few More Important Points</div>
     <p class="section-sub">Please read these before raising a refund request</p>
-
-    <p class="body-text"><strong>GST is non-refundable.</strong> Per Indian tax laws, GST collected at the time of booking cannot be refunded, regardless of the cancellation reason. This applies universally to all tour operators in India.</p>
-    <p class="body-text"><strong>Partial tour usage.</strong> If you join a tour but leave midway — for any reason — there is no refund for services not used. Please plan your trip accordingly.</p>
-    <p class="body-text"><strong>Disputes about refund amount.</strong> If you disagree with our refund calculation, please email us with your concerns. We'll review it and respond within 5 working days. We want every traveller to feel treated fairly.</p>
-    <p class="body-text"><strong>Refund delays.</strong> If 15 working days have passed and you haven't received the refund, please write to us with your UTR/payment reference and we'll investigate immediately.</p>
+    <p class="body-text"><strong>GST is non-refundable.</strong> Per Indian tax laws, GST collected at the time of booking cannot be refunded, regardless of the cancellation reason.</p>
+    <p class="body-text"><strong>Partial tour usage.</strong> If you join a tour but leave midway, there is no refund for services not used.</p>
+    <p class="body-text"><strong>Disputes about refund amount.</strong> If you disagree with our refund calculation, email us with your concerns. We'll review it and respond within 5 working days.</p>
+    <p class="body-text"><strong>Refund delays.</strong> If 15 working days have passed and you haven't received the refund, please write to us with your UTR/payment reference.</p>
   </div>
 
-  <!-- CONTACT CTA -->
   <div class="contact-card">
     <div>
       <h3>Questions about your refund?</h3>
       <p>Write to us and we'll get back to you within 24 hours.</p>
       <div class="links">
-        <a href="mailto:info@theadventureawaitsco.com" class="primary">Email Us</a>
-        <a href="cancellation-policy.html" class="secondary">View Cancellation Policy →</a>
+        <a href="https://wa.me/918420565320" class="primary">Chat on WhatsApp →</a>
+        <a href="cancellation.html" class="secondary">View Cancellation Policy →</a>
       </div>
     </div>
   </div>
@@ -340,14 +308,25 @@
 
 <footer>
   <div class="fb">The Adventure Awaits Co.</div>
-  <p>Barasat, Kolkata, West Bengal &nbsp;·&nbsp; <a href="mailto:theadventurawaitsco@gmail.com">theadventurawaitsco@gmail.com</a></p>
-  <p style="margin-top:6px;">© 2025 The Adventure Awaits Co. All rights reserved.</p>
+  <p>Barasat, Kolkata, West Bengal &nbsp;·&nbsp; <a href="mailto:theadventureawaitsco@gmail.com">theadventureawaitsco@gmail.com</a></p>
+  <p style="margin-top:6px;">© 2026 The Adventure Awaits Co. All rights reserved. &nbsp;·&nbsp;
+    <a href="index.html">Home</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="cancellation-policy.html">Cancellation Policy</a> &nbsp;·&nbsp;
+    <a href="faq.html">FAQ</a>
+  </p>
 </footer>
 
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  window.addEventListener('scroll', () => document.getElementById('btt').classList.toggle('show', scrollY > 400));
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 50);
+    document.getElementById('btt').classList.toggle('show', scrollY > 400);
+  });
+  const menuBtn = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuBtn) { menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); menuBtn.classList.toggle('is-active'); }); }
   const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.07 });
   document.querySelectorAll('.section').forEach(el => obs.observe(el));
 </script>

@@ -4,52 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | The Adventure Awaits Co.</title>
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --orange:      #E8650A;
-      --orange-lt:   #F5813A;
-      --orange-dk:   #C75508;
-      --cream:       #FDF6EC;
-      --cream-mid:   #F5EAD8;
-      --cream-dark:  #EDD8BB;
-      --ink:         #1C1208;
-      --text:        #3D2B0E;
-      --muted:       #8A6A42;
-      --border:      #E6D5BD;
-      --white:       #FFFFFF;
+      --orange:#E8611A; --orange-lt:#FF7D3B; --orange-dk:#C04E10;
+      --cream:#FDF6EC; --cream-mid:#F5EAD8; --cream-dark:#EDD8BB;
+      --ink:#1A0F07; --text:#3D2B0E; --muted:#8A6A42;
+      --border-col:#E6D5BD; --white:#FFFFFF;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.75; }
 
-    /* TOPBAR */
-    .topbar { background: var(--ink); color: rgba(253,246,236,.55); text-align: center; font-size: 12px; letter-spacing: .1em; padding: 7px 20px; text-transform: uppercase; font-weight: 500; }
-
-    /* HEADER */
-    header { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(28,18,8,.06); }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-mark { width: 40px; height: 40px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 900; flex-shrink: 0; }
-    .logo-text .brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--ink); display: block; }
-    .logo-text .tagline { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-weight: 500; display: block; }
-    .header-badge { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; }
+    /* ── SITE NAVBAR (glass-nav) ── */
+    .glass-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 16px 6%; background: rgba(26,15,7,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s ease; }
+    .glass-nav.scrolled { background: var(--cream, #FDF6EC); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .glass-nav.scrolled .nav-links a { color: var(--ink); }
+    .glass-nav.scrolled #main-logo { filter: none; }
+    .logo-link { display: flex; align-items: center; }
+    #main-logo { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; list-style: none; gap: 36px; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,246,236,0.85); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--orange-lt, #FF7D3B); }
+    .glass-nav.scrolled .nav-links a:hover { color: var(--orange, #E8611A); }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; background: transparent; border: none; cursor: pointer; z-index: 1001; padding: 0; }
+    .bar { width: 100%; height: 2px; background: #fff; border-radius: 4px; transition: 0.35s ease; }
+    .glass-nav.scrolled .bar { background: var(--ink, #1A0F07); }
+    .policy-nav-badge { font-size: 11px; font-weight: 700; color: var(--muted, #8A6A42); text-transform: uppercase; letter-spacing: .1em; padding: 5px 14px; border: 1px solid var(--border-col, #E6D5BD); border-radius: 20px; white-space: nowrap; background: var(--white, #fff); flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-links.active { display: flex !important; position: fixed; top: 0; right: 0; height: 100vh; width: 72%; max-width: 300px; background: rgba(26,15,7,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 28px; z-index: 1000; border-left: 1px solid rgba(232,97,26,0.2); }
+      .menu-toggle { display: flex !important; }
+      .policy-nav-badge { display: none; }
+    }
 
     /* HERO */
-    .hero { background: var(--ink); background-image: radial-gradient(ellipse at 15% 60%, rgba(232,101,10,.2) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(232,101,10,.10) 0%, transparent 50%); padding: 64px 40px 56px; text-align: center; position: relative; overflow: hidden; }
+    .hero { background: var(--ink); background-image: radial-gradient(ellipse at 15% 60%, rgba(232,97,26,.2) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(232,97,26,.10) 0%, transparent 50%); padding: 100px 40px 56px; text-align: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M20 20.5V18H0v5h5v5H0v5h20v-2.5h5V20.5h-5zm-2 5h-1v1h-1v1h-3v-1h-1v-1h-1v-3h1v-1h1v-1h3v1h1v1h1v3zm11-15h1v1h1v3h-1v1h-1v1h-3v-1h-1v-1h-1v-3h1v-1h1v-1h3z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
-    .hero-pill { display: inline-block; background: rgba(232,101,10,.15); color: var(--orange-lt); border: 1px solid rgba(232,101,10,.3); padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 20px; }
+    .hero-pill { display: inline-block; background: rgba(232,97,26,.15); color: var(--orange-lt); border: 1px solid rgba(232,97,26,.3); padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 20px; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 5vw, 56px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
     .hero h1 span { color: var(--orange-lt); font-style: italic; }
     .hero p { color: rgba(253,246,236,.6); font-size: 15px; max-width: 520px; margin: 0 auto 28px; font-weight: 300; }
     .hero-search { max-width: 480px; margin: 0 auto; position: relative; }
-    .hero-search input { width: 100%; padding: 14px 52px 14px 20px; border-radius: 40px; border: none; font-family: 'DM Sans', sans-serif; font-size: 14px; background: rgba(253,246,236,.1); color: var(--white); outline: none; border: 1px solid rgba(232,101,10,.3); }
+    .hero-search input { width: 100%; padding: 14px 52px 14px 20px; border-radius: 40px; border: none; font-family: 'DM Sans', sans-serif; font-size: 14px; background: rgba(253,246,236,.1); color: var(--white); outline: none; border: 1px solid rgba(232,97,26,.3); }
     .hero-search input::placeholder { color: rgba(253,246,236,.4); }
     .hero-search .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 16px; opacity: .6; pointer-events: none; }
 
+    /* BREADCRUMB */
+    .breadcrumb { background: var(--cream-mid); border-bottom: 1px solid var(--border-col); padding: 10px 40px; font-size: 12px; color: var(--muted); }
+    .breadcrumb a { color: var(--orange); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--orange-dk); }
+    .breadcrumb span { margin: 0 8px; }
+
     /* CATEGORIES NAV */
-    .cat-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .cat-nav { background: var(--white); border-bottom: 1px solid var(--border-col); padding: 0 40px; display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .cat-nav::-webkit-scrollbar { display: none; }
     .cat-btn { padding: 14px 22px; font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: all .2s; font-family: 'DM Sans', sans-serif; }
     .cat-btn.active, .cat-btn:hover { color: var(--orange); border-bottom-color: var(--orange); }
@@ -58,31 +69,31 @@
     .page-wrap { max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; }
 
     /* FAQ CATEGORY SECTION */
-    .faq-category { margin-bottom: 52px; }
-    .faq-category[data-cat] { transition: opacity .3s; }
+    .faq-category { margin-bottom: 52px; opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .faq-category.visible { opacity: 1; transform: translateY(0); }
     .cat-title { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
     .cat-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--orange), var(--orange-lt)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
     .cat-title h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); }
     .cat-title p { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
     /* FAQ ACCORDION */
-    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; transition: box-shadow .2s; }
+    .faq-item { background: var(--white); border: 1px solid var(--border-col); border-radius: 10px; margin-bottom: 10px; overflow: hidden; transition: box-shadow .2s; }
     .faq-item:hover { box-shadow: 0 4px 16px rgba(28,18,8,.06); }
-    .faq-item.open { box-shadow: 0 4px 20px rgba(232,101,10,.12); border-color: rgba(232,101,10,.3); }
+    .faq-item.open { box-shadow: 0 4px 20px rgba(232,97,26,.12); border-color: rgba(232,97,26,.3); }
     .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; cursor: pointer; user-select: none; }
     .faq-q-text { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.4; }
     .faq-item.open .faq-q-text { color: var(--orange-dk); }
     .faq-toggle { width: 28px; height: 28px; background: var(--cream-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; color: var(--orange); transition: transform .3s, background .2s; font-weight: 300; }
     .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--orange); color: white; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
     .faq-item.open .faq-a { max-height: 600px; }
-    .faq-a-inner { padding: 0 22px 20px; font-size: 14px; color: #5A4020; line-height: 1.8; border-top: 1px solid var(--cream-dark); padding-top: 16px; }
+    .faq-a-inner { padding: 16px 22px 20px; font-size: 14px; color: #5A4020; line-height: 1.8; border-top: 1px solid var(--cream-dark); }
     .faq-a-inner ul { list-style: none; padding: 0; margin: 8px 0; }
     .faq-a-inner ul li { display: flex; gap: 10px; padding: 3px 0; }
     .faq-a-inner ul li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
     .faq-a-inner strong { color: var(--text); }
     .faq-a-inner a { color: var(--orange); font-weight: 600; text-decoration: none; }
-    .tip-box { background: linear-gradient(135deg, rgba(232,101,10,.07), rgba(232,101,10,.03)); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; font-size: 13px; color: var(--text); }
+    .tip-box { background: linear-gradient(135deg, rgba(232,97,26,.07), rgba(232,97,26,.03)); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; font-size: 13px; color: var(--text); }
     .tip-box strong { color: var(--orange-dk); }
 
     /* NO RESULTS */
@@ -98,38 +109,40 @@
     .cta-btn { display: inline-block; background: var(--orange); color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; transition: background .2s; }
     .cta-btn:hover { background: var(--orange-dk); }
 
-    /* FOOTER */
-    footer { background: var(--ink); color: rgba(253,246,236,.45); text-align: center; padding: 36px 24px; font-size: 13px; }
-    footer .fb { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); margin-bottom: 6px; }
-    footer a { color: var(--orange-lt); text-decoration: none; }
-
     /* BACK TOP */
-    .btt { position: fixed; bottom: 26px; right: 26px; width: 42px; height: 42px; background: var(--orange); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; box-shadow: 0 4px 16px rgba(232,101,10,.4); opacity: 0; transform: translateY(8px); transition: all .3s; z-index: 200; }
+    .btt { position: fixed; bottom: 80px; right: 26px; width: 42px; height: 42px; background: var(--orange); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; box-shadow: 0 4px 16px rgba(232,97,26,.4); opacity: 0; transform: translateY(8px); transition: all .3s; z-index: 200; }
     .btt.show { opacity: 1; transform: translateY(0); }
 
-    /* ANIMATE */
-    .faq-category { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
-    .faq-category.visible { opacity: 1; transform: translateY(0); }
-
-    @media(max-width:640px) { header { padding: 14px 20px; } .hero { padding: 44px 20px 36px; } .cat-nav { padding: 0 16px; } .cta-banner { padding: 24px; } }
+    @media(max-width:640px) {
+      .hero { padding: 80px 20px 36px; }
+      .cat-nav { padding: 0 16px; }
+      .cta-banner { padding: 24px; }
+      .breadcrumb { padding: 10px 20px; }
+    }
   </style>
 </head>
 <body>
 
-<div class="topbar">Northeast India · Kashmir · Andaman · Sikkim · North Bengal</div>
+<!-- ── NAVBAR (site standard) ── -->
+<nav class="glass-nav" id="mainNav">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+    </a>
+  </div>
+  <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="index.html#enquiry">Book Now</a></li>
+    <li><a href="about.html">Our Story</a></li>
+  </ul>
+  <span class="policy-nav-badge">Help &amp; FAQ</span>
+</nav>
 
-<header>
-  <a href="/" class="logo">
-    <div class="logo-mark">A</div>
-    <div class="logo-text">
-      <span class="brand">The Adventure Awaits Co.</span>
-      <span class="tagline">Travel · Explore · Discover</span>
-    </div>
-  </a>
-  <span class="header-badge">Help &amp; FAQ</span>
-</header>
-
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-pill">Help Centre</div>
   <h1>Got <span>Questions?</span><br>We've got answers.</h1>
@@ -139,6 +152,12 @@
     <span class="search-icon">🔍</span>
   </div>
 </section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">← Home</a>
+  <span>›</span> Help &amp; FAQ
+</div>
 
 <!-- CATEGORY NAV -->
 <nav class="cat-nav">
@@ -160,35 +179,28 @@
       <div class="cat-icon">📋</div>
       <div><h2>Booking a Tour</h2><p>How it all works from enquiry to confirmation</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How do I book a tour with The Adventure Awaits Co.?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">It's simple! You can reach us via WhatsApp, email, or through our website booking form. Share your preferred dates, destination, and group size — we'll send you a detailed itinerary and quote within 24 hours. Once you're happy, pay the advance amount and we'll send you a written confirmation. That's it — you're booked! 🎉</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How far in advance should I book?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">
-        We recommend booking at least <strong>4–6 weeks in advance</strong> for most destinations. For peak season travel (Durga Puja, December–January, summer holidays), book <strong>2–3 months early</strong> — hotels and permits fill up fast, especially for North Sikkim and Meghalaya.
+      <div class="faq-a"><div class="faq-a-inner">We recommend booking at least <strong>4–6 weeks in advance</strong> for most destinations. For peak season travel (Durga Puja, December–January, summer holidays), book <strong>2–3 months early</strong> — hotels and permits fill up fast, especially for North Sikkim and Meghalaya.
         <div class="tip-box"><strong>💡 Pro tip:</strong> Booking early also locks in the current price — no surprise hikes later!</div>
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can I customise a tour package?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Absolutely! Customised tours are our speciality. Tell us your budget, dates, interests (adventure / honeymoon / family / sightseeing), and we'll build an itinerary just for you. We love tailoring trips — no two packages need to be the same.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What is the minimum group size for a tour?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">We can arrange tours for individuals, couples, and groups. For <strong>fixed departure packages</strong>, a minimum of 6–8 travellers is usually required. For <strong>private/customised tours</strong>, even 2 people is perfectly fine — it's just you and your travel party.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Do you arrange solo travel?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Yes! We do arrange solo tours. Solo travellers can join our fixed departure group tours (great for meeting fellow travellers!) or book a private customised itinerary. We'll make sure you feel safe and well taken care of throughout the trip.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can families with young children travel on your tours?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Of course! We love family trips. We'll suggest kid-friendly itineraries, comfortable stays, and avoid strenuous activities unless you want them. Just let us know the ages of your children when enquiring so we can plan accordingly.</div></div>
@@ -201,16 +213,13 @@
       <div class="cat-icon">💳</div>
       <div><h2>Payments &amp; Pricing</h2><p>How much, when, and how to pay</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How much advance do I need to pay to confirm a booking?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">We require a <strong>25%–50% advance (token amount)</strong> of the total package cost to confirm your booking. The exact percentage is mentioned in your quotation. The remaining balance must be paid at least <strong>15 days before your departure</strong>.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What payment methods do you accept?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">
-        We accept:
+      <div class="faq-a"><div class="faq-a-inner">We accept:
         <ul>
           <li>UPI (GPay, PhonePe, Paytm, etc.)</li>
           <li>NEFT / IMPS bank transfer</li>
@@ -219,21 +228,17 @@
         All payments must be in <strong>Indian Rupees (INR)</strong>. After paying, please share the payment screenshot or UTR number on WhatsApp for quick confirmation.
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Is GST included in the package price?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">GST is <strong>not included</strong> in quoted prices unless explicitly stated as "GST Inclusive" in your itinerary. Applicable GST will be mentioned separately in the final invoice. This is standard practice for Indian tour operators.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can I pay in instalments / EMI?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">We don't directly offer an EMI scheme, but we're flexible! If you need to split the balance into 2–3 instalments (before the full payment due date), just talk to us — we'll work something out. We'd rather find a solution than lose a good traveller! 😊</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Are there any hidden charges I should know about?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">
-        We're completely transparent about pricing. Things <strong>not included</strong> in the standard package price are:
+      <div class="faq-a"><div class="faq-a-inner">We're completely transparent about pricing. Things <strong>not included</strong> in the standard package price are:
         <ul>
           <li>Train / flight tickets to the departure city</li>
           <li>Entry fees to parks, monuments, or restricted areas</li>
@@ -252,27 +257,22 @@
       <div class="cat-icon">🗺️</div>
       <div><h2>Tour Packages</h2><p>What's included and what to expect</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What does MAP (Meal Plan) mean in your packages?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner"><strong>MAP stands for Modified American Plan</strong> — it includes breakfast and dinner at your hotel/homestay. Lunch is generally on your own (roadside dhabas and local restaurants are part of the experience!). If a package includes all three meals, it will be clearly mentioned as <strong>Full Board</strong>.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What type of accommodation do you provide?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Depending on the package and destination, we arrange <strong>hotels, homestays, guesthouses, and tented camps</strong>. Budget packages use clean, comfortable local guesthouses and homestays. Standard and premium packages use proper hotels with attached bathrooms. All accommodation details are listed in your itinerary.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What kind of vehicle will be used for the tour?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">For small groups (2–6 pax) we typically use <strong>Innova Crysta, Xylo, or similar SUVs</strong>. Larger groups travel in <strong>Tempo Travellers or minibuses</strong>. All vehicles are reserved exclusively for your group — no shared cabs unless specifically mentioned.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Will there be a tour guide with us?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Local guides are included for destinations where they add real value (e.g., Meghalaya forest treks, Kaziranga safari, historical sites). For standard road trips, your experienced local driver often doubles as your guide. If you'd like a professional guide throughout, let us know at the time of booking — we can add it to your package.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can I change the hotel category after booking?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Yes, upgrades or changes to hotel category are possible subject to availability. The price difference will be adjusted accordingly. Please request changes in writing (WhatsApp/email) as early as possible. An amendment fee of <strong>₹500 per person</strong> may apply for changes after confirmation.</div></div>
@@ -285,7 +285,6 @@
       <div class="cat-icon">🏔️</div>
       <div><h2>Destinations</h2><p>Best seasons, permits, and destination-specific info</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What is the best time to visit Northeast India (Meghalaya / Sikkim)?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">
@@ -297,32 +296,28 @@
         <div class="tip-box"><strong>💡 Note:</strong> Monsoon has its magic too — Meghalaya's waterfalls are breathtaking. Just be prepared for road closures and landslides.</div>
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Do I need a special permit for Sikkim?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">Yes! <strong>North Sikkim requires an Inner Line Permit (ILP)</strong>, which we arrange on your behalf — just send us your Aadhaar/Voter ID at least 10 days before departure. For East Sikkim (Gangtok area), no special permit is needed for Indian nationals. Foreign nationals require a Protected Area Permit (PAP) — please inform us in advance.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes! <strong>North Sikkim requires a Protected Area Permit (PAP)</strong>, which we arrange on your behalf — just send us your Aadhaar/Voter ID at least 10 days before departure. For East Sikkim (Gangtok area), no special permit is needed for Indian nationals. Foreign nationals require additional permits — please inform us in advance.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Do I need a permit for the Andaman Islands?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Indian nationals do <strong>not</strong> need a permit for Port Blair, Havelock (Swaraj Dweep), or Neil Island (Shaheed Dweep). However, certain restricted areas (Barren Island, tribal areas) require special permits. If your itinerary includes any restricted zones, we'll handle the permit process for you.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What is the best time for Kashmir?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">
         <ul>
           <li><strong>Spring (March–May):</strong> Tulip gardens, mild weather — most popular</li>
-          <li><strong>Summer (June–August):</strong> Cool escape from the heat, Gulmarg & Pahalgam at their best</li>
+          <li><strong>Summer (June–August):</strong> Cool escape from the heat, Gulmarg &amp; Pahalgam at their best</li>
           <li><strong>Autumn (Sept–Nov):</strong> Chinar trees turning golden — absolutely magical</li>
           <li><strong>Winter (Dec–Feb):</strong> Snow, skiing at Gulmarg — for the brave!</li>
         </ul>
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Is it safe to travel to these destinations right now?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">All our destinations — Northeast India, Kashmir, and Andaman — are popular, well-visited tourist areas and generally very safe for travellers. We monitor local conditions closely and will proactively inform you of any advisories. For the most current status, feel free to <a href="mailto:info@theadventureawaitsco.com">ask us directly</a> before booking.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">All our destinations — Northeast India, Kashmir, and Andaman — are popular, well-visited tourist areas and generally very safe for travellers. We monitor local conditions closely and will proactively inform you of any advisories. Feel free to <a href="index.html#enquiry">ask us directly</a> before booking.</div></div>
     </div>
   </div>
 
@@ -332,12 +327,10 @@
       <div class="cat-icon">🏥</div>
       <div><h2>Safety &amp; Health</h2><p>Staying safe on the road and in the mountains</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Is travel insurance compulsory?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">It's not mandatory, but we <strong>strongly recommend</strong> it — especially for high-altitude destinations like North Sikkim or adventure activities. A good travel insurance plan covers medical emergencies, trip cancellations, baggage loss, and emergency evacuation. We don't sell insurance ourselves, but we're happy to guide you on what to look for.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What about altitude sickness for North Sikkim or high-altitude destinations?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Altitude sickness (AMS) is a real concern for Lachen, Lachung, Gurudongmar Lake, and similar high-altitude spots. We recommend:
@@ -350,12 +343,10 @@
         If you have heart conditions, respiratory issues, or are pregnant, please consult your doctor before booking high-altitude tours.
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Are the tours suitable for senior travellers?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Yes! We have many senior travellers with us and love planning comfortable, manageable itineraries for them. Just let us know when booking — we'll choose flatter routes, comfortable hotels, avoid strenuous treks, and ensure the pace is relaxed. Health and comfort come first.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What happens if someone falls ill during the tour?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Your safety is our first priority. In case of illness, our local driver/guide will assist in reaching the nearest medical facility immediately. We have contacts at local hospitals and clinics in all our destination areas. This is another reason we strongly recommend travel insurance for medical cover and evacuation if needed.</div></div>
@@ -368,27 +359,23 @@
       <div class="cat-icon">🪪</div>
       <div><h2>Documents &amp; ID</h2><p>What to carry and what we need from you</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What ID documents do I need to carry on the tour?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">
-        Every traveller must carry a <strong>valid government-issued photo ID</strong>. Accepted IDs include:
+      <div class="faq-a"><div class="faq-a-inner">Every traveller must carry a <strong>valid government-issued photo ID</strong>. Accepted IDs include:
         <ul>
           <li>Aadhaar Card (most commonly accepted)</li>
           <li>Voter ID Card</li>
           <li>Passport</li>
           <li>Driving Licence (with photo)</li>
-          <li>PAN Card (for hotel check-in — some properties accept this)</li>
         </ul>
+        <div class="tip-box"><strong>⚠️ Note:</strong> PAN Card is NOT accepted at permit checkpoints (North Sikkim, etc.). Always carry Aadhaar or Voter ID.</div>
         We also recommend carrying <strong>2 passport-size photos</strong> and photocopies of your ID for permits.
       </div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What documents do I need to send you before the tour?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">For most tours, we'll need a <strong>clear photo/scan of your Aadhaar or Voter ID</strong> for hotel pre-registration and permit applications. For destinations requiring permits (North Sikkim, etc.), please send documents at least <strong>10 days before departure</strong> so we have enough time to process them.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can foreign nationals / NRIs travel on your packages?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Yes! We welcome travellers of all nationalities. Foreign nationals and OCI cardholders should carry their <strong>Passport and valid Indian visa / OCI card</strong>. Some destinations (Sikkim, Andaman restricted areas) require additional permits for foreign nationals — please inform us when booking so we can arrange everything in time.</div></div>
@@ -401,32 +388,28 @@
       <div class="cat-icon">🔄</div>
       <div><h2>Cancellations &amp; Changes</h2><p>What happens if plans change?</p></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How do I cancel my booking?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">All cancellation requests must be made in writing — via <strong>email or WhatsApp</strong> to our team. The date we receive your written request is treated as the cancellation date. Verbal cancellations are not accepted. See our full <a href="cancellation-policy.html">Cancellation Policy</a> for the charge slabs.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can I reschedule instead of cancelling?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">Yes — and we always prefer rescheduling over cancellation! If you need to change dates, let us know as early as possible. Rescheduling is subject to availability and any price difference (e.g., peak season vs off-season) will be adjusted. An amendment fee of <strong>₹500 per person</strong> may apply.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">What if the company cancels the tour?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a"><div class="faq-a-inner">In the rare case that we need to cancel (natural calamity, insufficient group size, safety concerns), we'll offer you either a <strong>full credit note valid for 12 months</strong> OR a <strong>refund</strong> of the amount paid minus non-recoverable costs. We'll always inform you as early as possible and work with you to find the best alternative.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How long does a refund take?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">Eligible refunds are processed within <strong>7–15 working days</strong> after approval. Refunds are made to the original payment source (same bank account / UPI). See our full <a href="refund-policy.html">Refund Policy</a> for complete details.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Eligible refunds are processed within <strong>7–15 working days</strong> after approval. Refunds are made to the original payment source (same bank account / UPI). See our full <a href="refund.html">Refund Policy</a> for complete details.</div></div>
     </div>
   </div>
 
   <div class="no-results" id="noResults">
     <div class="emoji">🔍</div>
     <h3>No results found</h3>
-    <p>Try different keywords, or <a href="mailto:info@theadventureawaitsco.com" style="color:var(--orange);font-weight:600;">ask us directly</a> — we're always happy to help!</p>
+    <p>Try different keywords, or <a href="index.html#enquiry" style="color:var(--orange);font-weight:600;">ask us directly</a> — we're always happy to help!</p>
   </div>
 
   <!-- CTA -->
@@ -435,27 +418,41 @@
       <h3>Still have a question?</h3>
       <p>Our team typically replies within a few hours on WhatsApp or email.</p>
     </div>
-    <a href="mailto:info@theadventureawaitsco.com" class="cta-btn">Ask Us Directly →</a>
+    <a href="https://wa.me/918420565320?text=Hi!%20I%20have%20a%20question%20about%20your%20tours." class="cta-btn">Chat on WhatsApp →</a>
   </div>
 
 </div>
 
-<footer>
-  <div class="fb">The Adventure Awaits Co.</div>
-  <p>Barasat, Kolkata, West Bengal &nbsp;·&nbsp; <a href="mailto:theadventurawaitsco@gmail.com">theadventurawaitsco@gmail.com</a></p>
-  <p style="margin-top:6px;">© 2025 The Adventure Awaits Co. All rights reserved.</p>
+<footer style="background: var(--ink); color: rgba(253,246,236,.45); text-align: center; padding: 36px 24px; font-size: 13px; font-family: 'DM Sans', sans-serif;">
+  <div style="font-family: 'Playfair Display', serif; font-size: 17px; color: #fff; margin-bottom: 6px;">The Adventure Awaits Co.</div>
+  <p>Barasat, Kolkata, West Bengal &nbsp;·&nbsp; <a href="mailto:theadventureawaitsco@gmail.com" style="color: var(--orange-lt); text-decoration: none;">theadventureawaitsco@gmail.com</a></p>
+  <p style="margin-top: 6px;">© 2026 The Adventure Awaits Co. All rights reserved. &nbsp;·&nbsp;
+    <a href="index.html" style="color: var(--orange-lt); text-decoration: none;">Home</a> &nbsp;·&nbsp;
+    <a href="terms.html" style="color: var(--orange-lt); text-decoration: none;">Terms</a> &nbsp;·&nbsp;
+    <a href="refund-policy.html" style="color: var(--orange-lt); text-decoration: none;">Refund Policy</a> &nbsp;·&nbsp;
+    <a href="cancellation-policy.html" style="color: var(--orange-lt); text-decoration: none;">Cancellation Policy</a>
+  </p>
 </footer>
-
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  // Back to top
-  window.addEventListener('scroll', () => document.getElementById('btt').classList.toggle('show', scrollY > 400));
-
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 50);
+    document.getElementById('btt').classList.toggle('show', scrollY > 400);
+  });
+  // Mobile menu
+  const menuBtn = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuBtn.classList.toggle('is-active');
+    });
+  }
   // Animate on scroll
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.07 });
   document.querySelectorAll('.faq-category').forEach(el => observer.observe(el));
-
   // Accordion
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
@@ -465,7 +462,6 @@
       if (!isOpen) item.classList.add('open');
     });
   });
-
   // Category filter
   document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -477,7 +473,6 @@
       });
     });
   });
-
   // Search
   document.getElementById('searchInput').addEventListener('input', function() {
     const q = this.value.toLowerCase().trim();
