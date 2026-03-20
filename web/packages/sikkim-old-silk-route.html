@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Silk Route: The Legacy Loop | The Adventure Awaits Co</title>
+    <title>Sikkim Old Silk Route: The Legacy Loop | The Adventure Awaits Co</title>
     <link rel="icon" type="image/png" href="../assets/logo/logo.png">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/animations.css">
@@ -14,16 +13,9 @@
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
 <nav class="glass-nav" id="mainNav">
-    <div class="logo">
-        <a href="../index.html" class="logo-link">
-            <img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
-        </a>
-    </div>
-    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+    <div class="logo"><a href="../index.html" class="logo-link"><img src="../assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo"></a></div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../destinations.html">Destinations</a></li>
@@ -33,15 +25,12 @@
     <a href="../index.html#enquiry" class="nav-cta-btn">Get Free Quote</a>
 </nav>
 
-<!-- ── HERO ── -->
 <section class="itinerary-hero">
     <div class="hero-slider" id="heroSlider">
-        <div class="slide active" style="background-image: url('../assets/images/silk-route/sunrise-flag.jpg');"></div>
-        <div class="slide" style="background-image: url('../assets/images/silk-route/zuluk-zigzag.jpg');"></div>
-        <div class="slide" style="background-image: url('../assets/images/silk-route/mountain-white.jpg');"></div>
-        <div class="slide" style="background-image: url('../assets/images/silk-route/gnathang-valley.jpg');"></div>
-        <div class="slide" style="background-image: url('../assets/images/silk-route/aritar-lake.jpg');"></div>
-        <div class="slide" style="background-image: url('../assets/images/silk-route/kupup-lake.jpg');"></div>
+        <div class="slide active" style="background-image: url('../assets/images/silk-route/sunrise-flag.jpg'), url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/zuluk-zigzag.jpg'), url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/gnathang-valley.jpg'), url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/silk-route/aritar-lake.jpg'), url('https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg');"></div>
     </div>
     <div class="bottom-fade"></div>
     <div class="hero-controls">
@@ -49,16 +38,40 @@
         <button class="nav-arrow right" id="heroNext">❯</button>
     </div>
     <div class="hero-content">
-        <p>5 Days / 4 Nights — NJP to NJP</p>
+        <p>5 Days · 4 Nights — NJP to NJP</p>
         <h1>The Legacy<span>Loop</span></h1>
     </div>
 </section>
 
-<!-- ── ITINERARY ── -->
+<div class="trip-overview">
+    <div class="trip-overview-inner">
+        <div class="trip-stat"><span class="trip-stat-label">Duration</span><span class="trip-stat-value">5 Days · 4 Nights</span></div>
+        <div class="trip-stat"><span class="trip-stat-label">Entry / Exit</span><span class="trip-stat-value">NJP Railway Station / Bagdogra Airport</span></div>
+        <div class="trip-stat"><span class="trip-stat-label">Stay Plan</span><span class="trip-stat-value">Rishikhola · Padamchen · Zuluk · Aritar</span></div>
+        <div class="trip-stat"><span class="trip-stat-label">Transport</span><span class="trip-stat-value">Bolero / Sumo / SUV</span></div>
+    </div>
+</div>
+
+<section class="highlights-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">What Awaits You</div>
+        <h3>Highlights <span>at a Glance</span></h3>
+        <p class="highlights-subtitle">Six unmissable experiences on the Old Silk Route</p>
+        <div class="highlights-grid">
+            <div class="highlight-card"><div class="highlight-icon">🌅</div><div><h4>Thambi Viewpoint Sunrise</h4><p>Breathtaking sunrise over the legendary Zuluk Zig-Zag Road with 32 hairpin bends</p></div></div>
+            <div class="highlight-card"><div class="highlight-icon">🏔️</div><div><h4>Zuluk Zig-Zag Road</h4><p>The iconic 32-hairpin-bend road carved through the Eastern Himalayas — a photographer's dream</p></div></div>
+            <div class="highlight-card"><div class="highlight-icon">🏞️</div><div><h4>Gnathang Valley</h4><p>Vast alpine meadows at 13,000 ft — serene, windswept and dramatically beautiful</p></div></div>
+            <div class="highlight-card"><div class="highlight-icon">🐘</div><div><h4>Elephant Lake (Kupup)</h4><p>High-altitude lake at 13,066 ft shaped like an elephant near the Indo-China border</p></div></div>
+            <div class="highlight-card"><div class="highlight-icon">🚣</div><div><h4>Lampokhari Lake, Aritar</h4><p>Serene boating at Sikkim's oldest natural lake surrounded by forests and heritage bungalows</p></div></div>
+            <div class="highlight-card"><div class="highlight-icon">🌊</div><div><h4>Rishikhola Riverside</h4><p>Campfire evenings and nature walks by the Rishi River — the perfect Himalayan welcome</p></div></div>
+        </div>
+    </div>
+</section>
+
 <section class="itinerary-details">
     <div class="container-wide">
         <h2 class="timeline-title">Your Journey <span>Plan</span></h2>
-        <p class="itinerary-subtitle">NJP to NJP | The Historic High-Altitude Circuit</p>
+        <p class="itinerary-subtitle">NJP / IXB → Rishikhola → Padamchen → Zuluk → Aritar → NJP / IXB</p>
 
         <div class="itinerary-split-grid">
             <div class="timeline-side">
@@ -68,8 +81,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Day 01</div>
                         <div class="timeline-content">
-                            <h3>Arrival & Riverside Retreat</h3>
-                            <p>Pickup from NJP/Bagdogra. Drive to <strong>Rishikhola/Rongpokhola</strong>. Enjoy the evening by the Rishi River with a riverside campfire and nature walks.</p>
+                            <h3>NJP / IXB → Rishikhola | Arrival &amp; Riverside Retreat</h3>
+                            <ul class="timeline-bullets">
+                                <li>Pickup from <strong>NJP Railway Station / Bagdogra Airport</strong></li>
+                                <li>Scenic drive to <strong>Rishikhola / Rongpokhola</strong> (~4 hrs)</li>
+                                <li>Check-in at riverside homestay and freshen up</li>
+                                <li>Evening by the <strong>Rishi River</strong> — campfire, nature walks &amp; mountain air</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Rishikhola</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Rishikhola is a beautiful entry into Sikkim. Relax by the river — the journey starts here.</div>
                         </div>
                     </div>
 
@@ -77,8 +97,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Day 02</div>
                         <div class="timeline-content">
-                            <h3>Into the Clouds | The Ascent</h3>
-                            <p>Permit processing at Rongli. Visit <strong>Quekhola Waterfalls</strong>. Drive through the dense forests of Nimachen to Padamchen (8,000 ft) for a spectacular sunset.</p>
+                            <h3>Rishikhola → Padamchen | Into the Clouds</h3>
+                            <ul class="timeline-bullets">
+                                <li>Permit processing at <strong>Rongli</strong> — ILP for Silk Route</li>
+                                <li><strong>Quekhola Waterfalls</strong> — scenic stop en route</li>
+                                <li>Drive through dense forests of <strong>Nimachen</strong></li>
+                                <li>Arrive <strong>Padamchen (8,000 ft)</strong> — spectacular sunset over the valley</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Padamchen</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Carry your Aadhaar / Voter ID — permits are checked at Rongli checkpoint. Original ID mandatory.</div>
                         </div>
                     </div>
 
@@ -86,8 +113,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Day 03</div>
                         <div class="timeline-content">
-                            <h3>The Legendary Silk Route Trail</h3>
-                            <p>Sunrise at <strong>Thambi Viewpoint</strong> for the Zuluk Zig-Zag Road. Explore Gnathang Valley, Old Baba Mandir, Tukla Valley, and Elephant Lake (Kupup).</p>
+                            <h3>The Legendary Silk Route Trail | Zuluk &amp; Gnathang</h3>
+                            <ul class="timeline-bullets">
+                                <li><strong>Thambi Viewpoint</strong> — sunrise over the iconic Zuluk Zig-Zag Road with 32 hairpin bends</li>
+                                <li><strong>Gnathang Valley (13,000 ft)</strong> — vast alpine meadows &amp; army camp views</li>
+                                <li><strong>Old Baba Mandir &amp; Tukla Valley</strong> — sacred army shrine and memorial</li>
+                                <li><strong>Elephant Lake / Kupup (13,066 ft)</strong> — high-altitude lake near the Indo-China border</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Zuluk</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Start very early for Thambi sunrise. Carry warm layers — temperatures drop sharply at Gnathang.</div>
                         </div>
                     </div>
 
@@ -95,8 +129,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Day 04</div>
                         <div class="timeline-content">
-                            <h3>Lakes & Legends | Aritar</h3>
-                            <p>Morning boating at <strong>Lampokhari Lake</strong>. Visit Aritar Monastery and the historic British Bungalow before a hike to Mankhim Viewpoint.</p>
+                            <h3>Zuluk → Aritar | Lakes &amp; Legends</h3>
+                            <ul class="timeline-bullets">
+                                <li>Morning boating at <strong>Lampokhari Lake</strong> — Sikkim's oldest natural lake</li>
+                                <li><strong>Aritar Monastery</strong> — peaceful Buddhist monastery with valley views</li>
+                                <li><strong>Historic British Bungalow</strong> — colonial-era heritage property at Aritar</li>
+                                <li>Hike to <strong>Mankhim Viewpoint</strong> — panoramic Kanchenjunga range views</li>
+                            </ul>
+                            <div class="stay-tag">🏨 Stay — Aritar</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Mankhim hike is about 1.5 km — wear comfortable shoes. Best views in the morning before clouds arrive.</div>
                         </div>
                     </div>
 
@@ -104,8 +145,14 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Day 05</div>
                         <div class="timeline-content">
-                            <h3>Farewell to the Hills</h3>
-                            <p>Final breakfast with Himalayan views. Drive back to NJP/Bagdogra via the <strong>Rhenock-Rangpo road</strong>, completing the circular loop.</p>
+                            <h3>Aritar → NJP / IXB | Farewell to the Hills</h3>
+                            <ul class="timeline-bullets">
+                                <li>Final breakfast with Himalayan views</li>
+                                <li>Drive back to <strong>NJP / Bagdogra</strong> via the Rhenock–Rangpo road</li>
+                                <li>Completing the circular Legacy Loop — tour ends here</li>
+                            </ul>
+                            <div class="stay-tag">✈️ Departure — NJP / IXB</div>
+                            <div class="timeline-tip"><strong>💡 Tip:</strong> Plan your onward train or flight with sufficient buffer. Drive takes ~4 hrs during peak season.</div>
                         </div>
                     </div>
 
@@ -116,19 +163,23 @@
                 <div class="summary-card">
                     <div class="card-tab">Inclusions</div>
                     <ul>
-                        <li><span class="inc-icon">✓</span> 4 Nights in Deluxe/Standard Homestays</li>
-                        <li><span class="inc-icon">✓</span> All Meals (Day 1 Lunch to Day 5 Breakfast)</li>
-                        <li><span class="inc-icon">✓</span> Dedicated Non-AC SUV (Bolero/Sumo/Maxx)</li>
-                        <li><span class="inc-icon">✓</span> Standard Silk Route Permit Assistance</li>
+                        <li><span class="inc-icon">✓</span> 4 Nights in Deluxe / Standard Homestays</li>
+                        <li><span class="inc-icon">✓</span> All Meals — Day 1 Lunch to Day 5 Breakfast</li>
+                        <li><span class="inc-icon">✓</span> Dedicated Non-AC SUV (Bolero / Sumo / Maxx)</li>
+                        <li><span class="inc-icon">✓</span> Silk Route Inner Line Permit assistance</li>
+                        <li><span class="inc-icon">✓</span> Pickup &amp; drop from NJP / Bagdogra Airport</li>
+                        <li><span class="inc-icon">✓</span> Driver allowance, fuel &amp; toll charges</li>
                     </ul>
                 </div>
                 <div class="summary-card">
-                    <div class="card-tab" style="background: #333;">Exclusions</div>
+                    <div class="card-tab" style="background: var(--brown);">Exclusions</div>
                     <ul>
-                        <li><span class="exc-icon">✕</span> Nathula Pass (Special Permit Required)</li>
-                        <li><span class="exc-icon">✕</span> Boating & Entry Fees</li>
-                        <li><span class="exc-icon">✕</span> Personal Snacks & Mineral Water</li>
-                        <li><span class="exc-icon">✕</span> Travel & Medical Insurance</li>
+                        <li><span class="exc-icon">✕</span> Airfare / train tickets to/from NJP / Bagdogra</li>
+                        <li><span class="exc-icon">✕</span> Nathula Pass (special permit &amp; extra cost)</li>
+                        <li><span class="exc-icon">✕</span> Boating &amp; entry fees at monuments / lakes</li>
+                        <li><span class="exc-icon">✕</span> Personal snacks, mineral water &amp; beverages</li>
+                        <li><span class="exc-icon">✕</span> Travel &amp; medical insurance</li>
+                        <li><span class="exc-icon">✕</span> GST (if applicable)</li>
                     </ul>
                 </div>
             </div>
@@ -136,25 +187,44 @@
     </div>
 </section>
 
-<!-- ── MAP ── -->
-<section class="itinerary-map-container">
-    <h2>Visual Route <span>& Sightseeing</span></h2>
-    <p class="map-subtitle">Interactive Map — Click markers for details</p>
-    <div id="map" data-center="[27.2600, 88.7500]" data-zoom="11" data-spots='[
-        {"name": "Rishikhola River", "coords": [27.1685, 88.6366], "day": "Day 1"},
-        {"name": "Padamchen", "coords": [27.2471, 88.6833], "day": "Day 2"},
-        {"name": "Zuluk Zig-Zag", "coords": [27.2515, 88.7772], "day": "Day 3"},
-        {"name": "Gnathang Valley", "coords": [27.3050, 88.8260], "day": "Day 3"},
-        {"name": "Kupup (Elephant Lake)", "coords": [27.3621, 88.8378], "day": "Day 3"},
-        {"name": "Lampokhari Lake (Aritar)", "coords": [27.1883, 88.6144], "day": "Day 4"}
-    ]'></div>
+<section class="travel-tips-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-label">Before You Go</div>
+        <h3>Travel Tips <span>&amp; Essentials</span></h3>
+        <div class="tips-table">
+            <div class="tip-row"><div class="tip-label">🌤️ Best Time</div><div class="tip-value">March–May (spring blooms) and October–December (clear skies). Avoid monsoon June–Sept — roads get dangerous.</div></div>
+            <div class="tip-row"><div class="tip-label">📋 Permits</div><div class="tip-value">Inner Line Permit (ILP) required for the Silk Route. We arrange this — carry original Aadhaar / Voter ID. Foreigners need a Restricted Area Permit.</div></div>
+            <div class="tip-row"><div class="tip-label">🏔️ Altitude</div><div class="tip-value">Gnathang Valley and Kupup Lake are at 13,000+ ft. Carry warm clothing even in summer. Acclimatise gradually.</div></div>
+            <div class="tip-row"><div class="tip-label">💵 Cash</div><div class="tip-value">Carry sufficient cash from Siliguri / NJP. ATMs are scarce beyond Rongli on the Silk Route.</div></div>
+            <div class="tip-row"><div class="tip-label">📶 Connectivity</div><div class="tip-value">Mobile signal is patchy in Zuluk, Gnathang and Padamchen. Download offline maps before departure.</div></div>
+            <div class="tip-row"><div class="tip-label">🎒 Gear</div><div class="tip-value">Heavy woolens, windproof jacket, comfortable trekking shoes and a rain jacket are essential year-round.</div></div>
+        </div>
+    </div>
 </section>
 
-<!-- ── BOOKING BAR ── -->
+<section class="itinerary-map-container">
+    <h2>Visual Route <span>&amp; Sightseeing</span></h2>
+    <p class="map-subtitle">Interactive Map — Click markers for details</p>
+    <div id="map" data-center="[27.2600, 88.7000]" data-zoom="10" data-spots="[
+        {&quot;name&quot;: &quot;NJP Railway Station&quot;, &quot;coords&quot;: [26.7000, 88.3667], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Rishikhola River Camp&quot;, &quot;coords&quot;: [27.1685, 88.6366], &quot;day&quot;: &quot;Day 1&quot;},
+        {&quot;name&quot;: &quot;Rongli Permit Check&quot;, &quot;coords&quot;: [27.2050, 88.6800], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Quekhola Waterfall&quot;, &quot;coords&quot;: [27.2200, 88.7100], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Padamchen (8000 ft)&quot;, &quot;coords&quot;: [27.2471, 88.6833], &quot;day&quot;: &quot;Day 2&quot;},
+        {&quot;name&quot;: &quot;Thambi Viewpoint&quot;, &quot;coords&quot;: [27.2400, 88.7600], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Zuluk Zig-Zag Road&quot;, &quot;coords&quot;: [27.2515, 88.7772], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Gnathang Valley&quot;, &quot;coords&quot;: [27.3050, 88.8260], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Old Baba Mandir&quot;, &quot;coords&quot;: [27.3400, 88.8400], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Kupup Elephant Lake&quot;, &quot;coords&quot;: [27.3621, 88.8378], &quot;day&quot;: &quot;Day 3&quot;},
+        {&quot;name&quot;: &quot;Lampokhari Lake Aritar&quot;, &quot;coords&quot;: [27.1883, 88.6144], &quot;day&quot;: &quot;Day 4&quot;},
+        {&quot;name&quot;: &quot;Mankhim Viewpoint&quot;, &quot;coords&quot;: [27.1950, 88.6200], &quot;day&quot;: &quot;Day 4&quot;}
+    ]"></div>
+</section>
+
 <section class="booking-bar">
     <div class="package-info">
         <span>Package</span>
-        <h3>Silk Route: The Legacy Loop</h3>
+        <h3>Sikkim Old Silk Route: The Legacy Loop</h3>
     </div>
     <div class="price-info">
         <span>Starting From</span>
@@ -163,16 +233,15 @@
             <span class="price-unit">/ Person</span>
         </div>
     </div>
-    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Sikkim%20Old%20Silk%20Route%20package%20starting%20from%20₹7,999.%20Please%20share%20details." target="_blank" class="btn-main" style="text-decoration:none;">Contact for Booking →</a>
+    <a href="https://wa.me/918420565320?text=Hi!%20I'm%20interested%20in%20the%20Sikkim%20Old%20Silk%20Route%20package%20(5D%204N)%20at%20%E2%82%B916%2C499%20per%20person.%20Please%20share%20details." target="_blank" class="btn-main">Contact for Booking →</a>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
     <p>&copy; 2026 <span>The Adventure Awaits Co.</span> — Barasat, Kolkata</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/kashmir-slider.js"></script>
+<script src="../assets/js/whatsapp-bot.js"></script>
 </body>
 </html>
