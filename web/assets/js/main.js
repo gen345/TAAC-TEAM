@@ -1,14 +1,28 @@
-// 1. Navbar Scroll Effect
-window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.glass-nav');
-    if (nav) {
+// 1. Navbar Scroll Effect + Logo Swap
+(function () {
+    const path = window.location.pathname;
+    const isSubfolder = path.includes('/packages/') || path.includes('/destinations/');
+    const prefix = isSubfolder ? '../' : '';
+
+    const LOGO_WHITE  = prefix + 'assets/logo/logo-w.png';
+    const LOGO_COLOUR = prefix + 'assets/logo/logo.png';
+
+    function updateNav() {
+        const nav = document.querySelector('.glass-nav');
+        const logo = document.getElementById('main-logo');
+        if (!nav) return;
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
+            if (logo) logo.src = LOGO_COLOUR;
         } else {
             nav.classList.remove('scrolled');
+            if (logo) logo.src = LOGO_WHITE;
         }
     }
-});
+
+    window.addEventListener('scroll', updateNav);
+    document.addEventListener('DOMContentLoaded', updateNav);
+})();
 
 // 2. Intersection Observer (Reveal on Scroll)
 const observer = new IntersectionObserver((entries) => {
@@ -69,7 +83,6 @@ if (track && prevBtn && nextBtn) {
     nextBtn.addEventListener('click', () => moveSlider('next'));
     prevBtn.addEventListener('click', () => moveSlider('prev'));
 
-    // Mobile Touch Swipe
     let startX = 0;
     let isMoving = false;
     track.addEventListener('touchstart', (e) => {
@@ -102,7 +115,6 @@ if (track && prevBtn && nextBtn) {
 document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.getElementById('footer-placeholder');
     if (placeholder) {
-        // Detect folder depth
         const path = window.location.pathname;
         const isSubfolder = path.includes('/packages/') || path.includes('/destinations/');
         const footerPath = isSubfolder ? '../components/footer.html' : 'components/footer.html';
@@ -115,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(data => {
                 placeholder.innerHTML = data;
-                // ✅ Fix logo path after injection — works locally AND on live site
                 const footerLogo = placeholder.querySelector('.footer-logo');
                 if (footerLogo) {
                     footerLogo.src = logoPrefix + 'assets/logo/logo-w.png';
@@ -158,10 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // 7. GENERIC LEAFLET MAP — lazy load only when map exists on page
 function initGenericMap() {
     const mapEl = document.getElementById('map');
-    if (!mapEl) return; // No map on this page — skip Leaflet entirely
+    if (!mapEl) return;
 
     if (typeof L === 'undefined') {
-        // Dynamically inject Leaflet only on pages that need it
         const leafletCSS = document.createElement('link');
         leafletCSS.rel = 'stylesheet';
         leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';

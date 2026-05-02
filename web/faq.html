@@ -25,7 +25,8 @@
     .glass-nav.scrolled .nav-links a { color: var(--ink); }
     .glass-nav.scrolled #main-logo { filter: none; }
     .logo-link { display: flex; align-items: center; }
-    #main-logo { height: 46px; width: auto; display: block; }
+    #main-logo {filter: none;}
+    .glass-nav.scrolled #main-logo { filter: none; }
     .nav-links { display: flex; list-style: none; gap: 36px; margin: 0; padding: 0; }
     .nav-links a { text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,246,236,0.85); transition: color 0.3s; }
     .nav-links a:hover { color: var(--orange-lt, #FF7D3B); }
@@ -127,7 +128,7 @@
 <nav class="glass-nav" id="mainNav">
   <div class="logo">
     <a href="index.html" class="logo-link">
-      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo" style="height:46px;width:auto;">
     </a>
   </div>
   <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
@@ -390,7 +391,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">How do I cancel my booking?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">All cancellation requests must be made in writing — via <strong>email or WhatsApp</strong> to our team. The date we receive your written request is treated as the cancellation date. Verbal cancellations are not accepted. See our full <a href="cancellation-policy.html">Cancellation Policy</a> for the charge slabs.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">All cancellation requests must be made in writing — via <strong>email or WhatsApp</strong> to our team. The date we receive your written request is treated as the cancellation date. Verbal cancellations are not accepted. See our full <a href="cancellation.html">Cancellation Policy</a> for the charge slabs.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-text">Can I reschedule instead of cancelling?</span><span class="faq-toggle">+</span></div>
@@ -429,16 +430,20 @@
   <p style="margin-top: 6px;">© 2026 The Adventure Awaits Co. All rights reserved. &nbsp;·&nbsp;
     <a href="index.html" style="color: var(--orange-lt); text-decoration: none;">Home</a> &nbsp;·&nbsp;
     <a href="terms.html" style="color: var(--orange-lt); text-decoration: none;">Terms</a> &nbsp;·&nbsp;
-    <a href="refund-policy.html" style="color: var(--orange-lt); text-decoration: none;">Refund Policy</a> &nbsp;·&nbsp;
-    <a href="cancellation-policy.html" style="color: var(--orange-lt); text-decoration: none;">Cancellation Policy</a>
+    <a href="refund.html" style="color: var(--orange-lt); text-decoration: none;">Refund Policy</a> &nbsp;·&nbsp;
+    <a href="cancellation.html" style="color: var(--orange-lt); text-decoration: none;">Cancellation Policy</a>
   </p>
 </footer>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
   // Navbar scroll effect
+  // Navbar scroll + logo swap
   window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 50);
+    const scrolled = scrollY > 50;
+    document.getElementById('mainNav').classList.toggle('scrolled', scrolled);
+    const logo = document.getElementById('main-logo');
+    if (logo) logo.src = scrolled ? 'assets/logo/logo.png' : 'assets/logo/logo-w.png';
     document.getElementById('btt').classList.toggle('show', scrollY > 400);
   });
   // Mobile menu

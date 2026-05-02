@@ -113,7 +113,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .glass-nav.scrolled #main-logo {
-    filter: invert(1) sepia(1) saturate(3) hue-rotate(340deg);
+    filter: none;
 }
 
 .logo-text {

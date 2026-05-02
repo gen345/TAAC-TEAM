@@ -26,7 +26,8 @@
     .glass-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 16px 6%; background: rgba(28,18,8,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s ease; }
     .glass-nav.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
     .logo-link { display: flex; align-items: center; text-decoration: none; }
-    #main-logo { height: 46px; width: auto; display: block; }
+    #main-logo { filter: none;}
+    .glass-nav.scrolled #main-logo { filter: none; }
     .glass-nav.scrolled #main-logo { filter: none; }
     .nav-links { display: flex; list-style: none; gap: 36px; margin: 0; padding: 0; }
     .nav-links a { text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,246,236,0.85); transition: color 0.3s; }
@@ -149,7 +150,7 @@
 <nav class="glass-nav" id="mainNav">
   <div class="logo">
     <a href="index.html" class="logo-link">
-      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo">
+      <img src="assets/logo/logo-w.png" alt="The Adventure Awaits Co Logo" id="main-logo" style="height:46px;width:auto;">
     </a>
   </div>
   <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
@@ -276,7 +277,7 @@
       <p>Talk to us before cancelling — we'll do our best to find a solution!</p>
       <div class="links">
         <a href="https://wa.me/918420565320" class="primary">Chat on WhatsApp →</a>
-        <a href="refund-policy.html" class="secondary">View Refund Policy →</a>
+        <a href="refund.html" class="secondary">View Refund Policy →</a>
       </div>
     </div>
   </div>
@@ -289,7 +290,7 @@
   <p style="margin-top:6px;">© 2026 The Adventure Awaits Co. All rights reserved. &nbsp;·&nbsp;
     <a href="index.html">Home</a> &nbsp;·&nbsp;
     <a href="terms.html">Terms</a> &nbsp;·&nbsp;
-    <a href="refund-policy.html">Refund Policy</a> &nbsp;·&nbsp;
+    <a href="refund.html">Refund Policy</a> &nbsp;·&nbsp;
     <a href="faq.html">FAQ</a>
   </p>
 </footer>
@@ -297,8 +298,12 @@
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
+  // Navbar scroll + logo swap
   window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 50);
+    const scrolled = scrollY > 50;
+    document.getElementById('mainNav').classList.toggle('scrolled', scrolled);
+    const logo = document.getElementById('main-logo');
+    if (logo) logo.src = scrolled ? 'assets/logo/logo.png' : 'assets/logo/logo-w.png';
     document.getElementById('btt').classList.toggle('show', scrollY > 400);
   });
   const menuBtn = document.getElementById('mobile-menu');
