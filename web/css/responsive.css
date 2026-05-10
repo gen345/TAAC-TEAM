@@ -180,10 +180,13 @@ img {
     .scroll-container {
         width: 100vw;
         margin-left: -5%;
-        overflow-x: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         padding: 0;
         position: relative;
+        scrollbar-width: none;
     }
+    .scroll-container::-webkit-scrollbar { display: none; }
     .scroll-track {
         display: flex !important;
         width: max-content !important;
@@ -198,15 +201,28 @@ img {
     }
     .card-img { height: 180px !important; }
     .nav-arrow {
-        position: absolute !important;
-        top: 50%; transform: translateY(-50%);
-        z-index: 10;
-        width: 36px !important; height: 36px !important;
-        font-size: 14px !important;
         display: flex !important;
+        position: absolute !important;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 13px !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
     }
-    .nav-arrow.left { left: 8px !important; }
-    .nav-arrow.right { right: 8px !important; opacity: 1 !important; visibility: visible !important; }
+    .nav-arrow.left {
+        left: 6px !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .nav-arrow.right {
+        right: 6px !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
 
     /* ── ENQUIRY SECTION ── */
     .enquiry-grid { grid-template-columns: 1fr; gap: 32px; }
